@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity 2.0 - Upskilling Facilitator Portal</title>
+    <title>Antigravity 2.0 - Learner Workbook Portal</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,22 +12,28 @@
     
     <style>
         :root {
-            --bg-primary: hsl(222, 47%, 7%);
-            --bg-secondary: hsl(222, 47%, 12%);
-            --bg-tertiary: hsl(222, 47%, 18%);
-            --accent-violet: hsl(263, 70%, 55%);
-            --accent-violet-glow: hsla(263, 70%, 55%, 0.35);
-            --accent-cyan: hsl(187, 85%, 45%);
-            --accent-cyan-glow: hsla(187, 85%, 45%, 0.3);
-            --accent-blue: hsl(217, 91%, 60%);
-            --accent-teal: hsl(172, 66%, 50%);
-            --accent-amber: hsl(38, 92%, 50%);
-            --accent-emerald: hsl(142, 72%, 45%);
-            --text-primary: hsl(210, 40%, 98%);
-            --text-secondary: hsl(215, 20%, 75%);
-            --text-muted: hsl(215, 12%, 50%);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --sidebar-width: 280px;
+            --bg-primary: #f4f6fa;
+            --bg-card: #ffffff;
+            --jio-blue: #0f2ca7;
+            --jio-blue-glow: rgba(15, 44, 167, 0.15);
+            --jio-red: #e1251b;
+            --jio-red-glow: rgba(225, 37, 27, 0.15);
+            --text-main: #0f172a;
+            --text-muted: #5e6e82;
+            --border-color: rgba(15, 23, 42, 0.08);
+            --sidebar-width: 290px;
+            
+            /* Callout colors (Light Mode) */
+            --teal-border: #0ea5e9;
+            --teal-bg: rgba(14, 165, 233, 0.04);
+            --blue-border: #3b82f6;
+            --blue-bg: rgba(59, 130, 246, 0.04);
+            --amber-border: #f59e0b;
+            --amber-bg: rgba(245, 158, 11, 0.04);
+            --violet-border: #8b5cf6;
+            --violet-bg: rgba(139, 92, 246, 0.04);
+            --emerald-border: #10b981;
+            --emerald-bg: rgba(16, 185, 129, 0.04);
         }
 
         * {
@@ -39,13 +45,13 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
-            color: var(--text-primary);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -54,18 +60,17 @@
             background: var(--bg-primary);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--bg-tertiary);
+            background: rgba(15, 23, 42, 0.15);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-violet);
+            background: var(--jio-blue);
         }
 
-        /* Sidebar Styling */
+        /* Sidebar Styling (Jio Blue Theme) */
         aside.sidebar {
             width: var(--sidebar-width);
-            background-color: var(--bg-secondary);
-            border-right: 1px solid var(--border-color);
+            background: linear-gradient(180deg, var(--jio-blue) 0%, #0a1b5c 100%);
             padding: 30px 20px;
             display: flex;
             flex-direction: column;
@@ -74,6 +79,7 @@
             bottom: 0;
             left: 0;
             z-index: 100;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
         }
 
         .brand-container {
@@ -82,40 +88,39 @@
         }
 
         .brand-logo {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 14px;
             margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 0 20px var(--accent-violet-glow);
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-5px); }
         }
 
         .brand-title {
             font-family: 'Outfit', sans-serif;
             font-size: 20px;
             font-weight: 800;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #ffffff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+            color: #ffffff;
         }
 
         .brand-subtitle {
             font-size: 11px;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             margin-top: 4px;
+            font-weight: 500;
         }
 
         .nav-menu {
@@ -130,7 +135,7 @@
             width: 100%;
             background: none;
             border: 1px solid transparent;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.75);
             padding: 12px 16px;
             border-radius: 8px;
             text-align: left;
@@ -141,33 +146,49 @@
             flex-direction: column;
             gap: 2px;
             transition: all 0.2s ease;
+            position: relative;
         }
 
         .nav-item-btn:hover {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
         }
 
         .nav-item-btn.active {
-            background: rgba(139, 92, 246, 0.1);
-            border-color: rgba(139, 92, 246, 0.25);
-            color: var(--text-primary);
-            box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.05);
+            background: #ffffff;
+            color: var(--jio-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .nav-item-btn .nav-title-text {
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 14.5px;
         }
 
         .nav-item-btn.active .nav-title-text {
-            color: var(--accent-violet);
+            color: var(--jio-blue);
         }
 
         .nav-item-btn .nav-desc {
             font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-item-btn.active .nav-desc {
             color: var(--text-muted);
+        }
+
+        /* Red Indicator Tag for Active tab */
+        .nav-item-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            bottom: 15%;
+            width: 4px;
+            background-color: var(--jio-red);
+            border-radius: 0 4px 4px 0;
         }
 
         .sidebar-actions {
@@ -176,13 +197,13 @@
             gap: 10px;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .action-btn {
-            background: linear-gradient(135deg, var(--bg-tertiary), rgba(30, 41, 59, 0.8));
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #ffffff;
             padding: 12px;
             border-radius: 8px;
             font-family: 'Outfit', sans-serif;
@@ -197,30 +218,32 @@
         }
 
         .action-btn:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px var(--accent-cyan-glow);
+            background: #ffffff;
+            color: var(--jio-blue);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
             transform: translateY(-1px);
         }
 
         .action-btn.primary-action {
-            background: linear-gradient(135deg, var(--accent-violet), hsl(263, 70%, 48%));
+            background: var(--jio-red);
             border: none;
-            box-shadow: 0 4px 12px var(--accent-violet-glow);
+            box-shadow: 0 4px 12px var(--jio-red-glow);
         }
 
         .action-btn.primary-action:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 4px 18px rgba(139, 92, 246, 0.5);
+            background: #ff332a;
+            color: #ffffff;
+            box-shadow: 0 4px 18px rgba(225, 37, 27, 0.5);
         }
 
         .compliance-badge {
             margin-top: 25px;
             padding: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px dashed rgba(255,255,255,0.2);
             border-radius: 6px;
-            font-size: 10px;
-            color: var(--text-muted);
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
             line-height: 1.4;
         }
@@ -244,15 +267,13 @@
             font-family: 'Outfit', sans-serif;
             font-size: 32px;
             font-weight: 800;
+            color: var(--jio-blue);
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .header-bar .meta-line {
-            font-size: 13px;
-            color: var(--text-secondary);
+            font-size: 13.5px;
+            color: var(--text-muted);
             margin-top: 8px;
             display: flex;
             gap: 15px;
@@ -260,13 +281,14 @@
         }
 
         .meta-line .badge {
-            background: var(--bg-tertiary);
+            background: var(--bg-primary);
             padding: 3px 8px;
             border-radius: 4px;
             border: 1px solid var(--border-color);
             font-family: 'Fira Code', monospace;
             font-size: 11px;
-            color: var(--accent-cyan);
+            color: var(--jio-blue);
+            font-weight: 600;
         }
 
         /* Tab Contents Switching */
@@ -292,136 +314,164 @@
         /* Structured Curriculum Typography overrides */
         .tab-content h2 {
             font-family: 'Outfit', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 30px 0 15px;
-            color: var(--accent-violet);
+            font-size: 26px;
+            font-weight: 750;
+            margin: 35px 0 15px;
+            color: var(--jio-blue);
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 2px solid var(--jio-blue-glow);
+            padding-bottom: 8px;
         }
 
         .tab-content h3 {
             font-family: 'Outfit', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 19px;
+            font-weight: 650;
             margin: 25px 0 12px;
-            color: #ffffff;
-            border-left: 3px solid var(--accent-cyan);
-            padding-left: 10px;
+            color: var(--text-main);
+            border-left: 4px solid var(--jio-blue);
+            padding-left: 12px;
         }
 
         .tab-content p {
-            font-size: 15px;
+            font-size: 15.5px;
             line-height: 1.6;
             margin-bottom: 16px;
-            color: var(--text-secondary);
+            color: var(--text-main);
         }
 
         .tab-content strong {
-            color: #ffffff;
+            color: #000000;
+            font-weight: 600;
         }
 
         .tab-content blockquote {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(30, 41, 59, 0.3));
-            border-left: 4px solid var(--accent-violet);
+            background: linear-gradient(135deg, rgba(15, 44, 167, 0.02), rgba(15, 44, 167, 0.05));
+            border-left: 4px solid var(--jio-blue);
             padding: 20px;
             border-radius: 8px;
             font-style: italic;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.6;
-            margin: 20px 0;
-            color: var(--text-primary);
-            box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.02);
+            margin: 24px 0;
+            color: var(--text-main);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
         }
 
         /* Bulleted and Numbered lists */
         .tab-content ul.bulleted-list,
         .tab-content ol.numbered-list,
-        .tab-content ul {
+        .tab-content ul,
+        .tab-content ol {
             margin: 15px 0 20px;
-            padding-left: 20px;
+            padding-left: 24px;
         }
 
         .tab-content li {
-            font-size: 14.5px;
+            font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 8px;
-            color: var(--text-secondary);
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
 
         .tab-content code {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
+            background: rgba(15, 44, 167, 0.05);
+            border: 1px solid rgba(15, 44, 167, 0.1);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Fira Code', monospace;
-            font-size: 13px;
-            color: var(--accent-cyan);
+            font-size: 13.5px;
+            color: var(--jio-blue);
+        }
+
+        /* Takeaway boxes and callouts */
+        .takeaway-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--jio-blue);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 15px;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         /* Callout Cards overriding Notion */
-        .tab-content .callout {
-            background: rgba(30, 41, 59, 0.35);
-            backdrop-filter: blur(8px);
+        .tab-content .callout,
+        .alert-box {
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-violet);
+            border-left: 4px solid var(--jio-blue);
             border-radius: 8px;
             padding: 16px 20px;
             margin: 20px 0;
             display: flex;
             gap: 15px;
             align-items: flex-start;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             transition: all 0.2s ease;
         }
 
-        .tab-content .callout:hover {
-            transform: translateX(2px);
-            background: rgba(30, 41, 59, 0.45);
-        }
-
+        .alert-box .icon,
         .tab-content .callout .icon {
             font-size: 20px;
             line-height: 1;
-            margin-top: 2px;
+            margin-top: 1px;
         }
 
-        /* Dynamic styles injected via JS for callouts */
+        /* Dynamic styles for alert categories */
         .callout.callout-target {
-            border-left-color: var(--accent-teal);
-            box-shadow: 0 4px 15px hsla(172, 66%, 50%, 0.04);
+            border-left-color: var(--teal-border);
+            background: var(--teal-bg);
         }
-        .callout.callout-install {
-            border-left-color: var(--accent-blue);
-            box-shadow: 0 4px 15px hsla(217, 91%, 60%, 0.04);
+        .callout.callout-install, .callout-install {
+            border-left-color: var(--blue-border);
+            background: var(--blue-bg);
         }
-        .callout.callout-warning {
-            border-left-color: var(--accent-amber);
-            box-shadow: 0 4px 15px hsla(38, 92%, 50%, 0.04);
+        .alert-box.warning, .callout.callout-warning {
+            border-left-color: var(--amber-border);
+            background: var(--amber-bg);
         }
-        .callout.callout-security {
-            border-left-color: var(--accent-violet);
-            box-shadow: 0 4px 15px hsla(263, 70%, 55%, 0.04);
+        .alert-box.security, .callout.callout-security {
+            border-left-color: var(--violet-border);
+            background: var(--violet-bg);
         }
         .callout.callout-success {
-            border-left-color: var(--accent-emerald);
-            box-shadow: 0 4px 15px hsla(142, 72%, 45%, 0.04);
+            border-left-color: var(--emerald-border);
+            background: var(--emerald-bg);
+        }
+
+        /* Try action badge */
+        .try-badge {
+            display: inline-block;
+            background-color: var(--jio-blue-glow);
+            color: var(--jio-blue);
+            font-weight: 600;
+            font-size: 12.5px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+            border: 1px solid rgba(15, 44, 167, 0.1);
         }
 
         /* Code Block Container with Copy Button */
         .code-container {
             position: relative;
-            margin: 20px 0;
+            margin: 22px 0;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
+            background: #ffffff;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .code-header {
-            background: var(--bg-tertiary);
+            background: #f8fafc;
             padding: 8px 16px;
             font-size: 11px;
             color: var(--text-muted);
@@ -444,7 +494,7 @@
         .code-container code {
             font-family: 'Fira Code', monospace;
             font-size: 13.5px;
-            color: #e2e8f0;
+            color: #1e293b;
             background: none;
             border: none;
             padding: 0;
@@ -454,13 +504,13 @@
         }
 
         .copy-btn {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: var(--text-secondary);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--jio-blue);
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -469,9 +519,8 @@
         }
 
         .copy-btn:hover {
-            background: rgba(255,255,255,0.08);
-            color: var(--text-primary);
-            border-color: var(--accent-cyan);
+            background: var(--jio-blue-glow);
+            border-color: var(--jio-blue);
         }
 
         .copy-btn.copied {
@@ -482,7 +531,7 @@
 
         /* Welcome Page Elements */
         .welcome-hero {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.03)), var(--bg-secondary);
+            background: linear-gradient(135deg, rgba(15, 44, 167, 0.05), rgba(225, 37, 27, 0.02)), #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 40px;
@@ -490,7 +539,7 @@
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(15, 44, 167, 0.03);
         }
 
         .welcome-hero::after {
@@ -500,7 +549,7 @@
             right: -20%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, var(--accent-violet-glow) 0%, transparent 70%);
+            background: radial-gradient(circle, var(--jio-blue-glow) 0%, transparent 70%);
             z-index: 1;
         }
 
@@ -509,10 +558,7 @@
             font-size: 28px;
             font-weight: 800;
             margin: 0 0 10px;
-            color: #ffffff;
-            background: linear-gradient(to right, #ffffff, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--jio-blue);
         }
 
         .welcome-stats {
@@ -523,18 +569,19 @@
         }
 
         .stat-card {
-            background: var(--bg-secondary);
+            background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .stat-val {
             font-family: 'Outfit', sans-serif;
             font-size: 22px;
             font-weight: 700;
-            color: var(--accent-cyan);
+            color: var(--jio-blue);
             margin-bottom: 4px;
         }
 
@@ -543,6 +590,7 @@
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .curriculum-grid {
@@ -553,17 +601,18 @@
         }
 
         .day-card {
-            background: var(--bg-secondary);
+            background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .day-card:hover {
-            border-color: var(--accent-violet);
-            box-shadow: 0 4px 15px var(--accent-violet-glow);
+            border-color: var(--jio-blue);
+            box-shadow: 0 4px 15px var(--jio-blue-glow);
             transform: translateY(-2px);
         }
 
@@ -573,7 +622,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--accent-cyan);
+            color: var(--jio-red);
             margin-bottom: 6px;
         }
 
@@ -581,19 +630,324 @@
             font-family: 'Outfit', sans-serif;
             font-size: 16px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--jio-blue);
             margin-bottom: 8px;
         }
 
         .day-card-desc {
-            font-size: 12.5px;
-            color: var(--text-secondary);
+            font-size: 13px;
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* Glossary Modal Dialog styling */
+        /* Interactive Folder Tabs Graphic style */
+        .folders-grid-container {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .folders-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .folder-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .folder-tab {
+            width: 50px;
+            height: 12px;
+            background: rgba(15, 44, 167, 0.15);
+            border-radius: 6px 6px 0 0;
+            margin-left: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .folder-body {
+            background: rgba(15, 44, 167, 0.05);
+            border: 1px solid rgba(15, 44, 167, 0.15);
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            height: 110px;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .folder-icon {
+            font-size: 26px;
+        }
+
+        .folder-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--jio-blue);
+            word-break: break-all;
+        }
+
+        .folder-tag {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Hover & active folder styles */
+        .folder-card:hover .folder-tab {
+            background: var(--jio-blue);
+        }
+        .folder-card:hover .folder-body {
+            background: var(--jio-blue-glow);
+            border-color: var(--jio-blue);
+            transform: translateY(-2px);
+        }
+
+        .folder-card.active .folder-tab {
+            background: var(--jio-red);
+        }
+        .folder-card.active .folder-body {
+            background: rgba(225, 37, 27, 0.04);
+            border-color: var(--jio-red);
+            box-shadow: 0 4px 15px rgba(225, 37, 27, 0.08);
+        }
+        .folder-card.active .folder-title {
+            color: var(--jio-red);
+        }
+
+        .folder-details {
+            background: #f8fafc;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .details-placeholder {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .details-content h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--jio-blue);
+            margin-bottom: 6px;
+        }
+        .details-content p {
+            font-size: 14.5px;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        /* Plan-Act-Verify Diagram widget styles */
+        .diagram-wrapper {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            overflow-x: auto;
+        }
+
+        .diagram-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 700px;
+            gap: 10px;
+        }
+
+        .diagram-node {
+            flex: 1;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .diagram-node:hover {
+            border-color: var(--jio-blue);
+            box-shadow: 0 4px 15px var(--jio-blue-glow);
+            transform: translateY(-2px);
+        }
+
+        .node-icon {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .node-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--jio-blue);
+            margin-bottom: 4px;
+        }
+
+        .node-subtitle {
+            font-size: 11px;
+            color: var(--jio-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .node-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .diagram-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            text-align: center;
+        }
+
+        .connector-arrow {
+            font-size: 20px;
+            color: var(--jio-blue);
+            font-weight: bold;
+            animation: pulseArrow 2s infinite;
+        }
+
+        @keyframes pulseArrow {
+            0%, 100% { transform: translateX(0); opacity: 0.6; }
+            50% { transform: translateX(5px); opacity: 1; }
+        }
+
+        .connector-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.2;
+        }
+
+        /* Interactive Debrief Knowledge Checks */
+        .knowledge-check-container {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .knowledge-check-header {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 750;
+            color: var(--jio-blue) !important;
+            margin: 0 0 16px 0 !important;
+            border-left: none !important;
+            padding-left: 0 !important;
+        }
+
+        .q-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+
+        .q-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .q-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            gap: 15px;
+        }
+
+        .q-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            color: #ffffff;
+            background: var(--jio-blue);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .q-text {
+            font-weight: 600;
+            font-size: 14.5px;
+            flex-grow: 1;
+            color: var(--text-main);
+        }
+
+        .reveal-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--jio-blue);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .reveal-btn:hover {
+            background: var(--jio-blue-glow);
+            border-color: var(--jio-blue);
+        }
+
+        .reveal-btn.active {
+            background: var(--jio-blue);
+            color: #ffffff;
+            border-color: var(--jio-blue);
+        }
+
+        .q-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            background: #ffffff;
+            border-top: 0 solid var(--border-color);
+            border-left: 3px solid var(--jio-red);
+        }
+
+        .q-answer-content {
+            padding: 16px 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        /* Glossary Dialog Modal styling */
         dialog#glossary-dialog {
-            background: var(--bg-secondary);
+            background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             width: 85vw;
@@ -601,8 +955,8 @@
             max-width: 1200px;
             margin: auto;
             padding: 0;
-            color: var(--text-primary);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            color: var(--text-main);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             opacity: 0;
             transform: scale(0.95);
@@ -618,12 +972,12 @@
 
         /* Backdrop */
         dialog#glossary-dialog::backdrop {
-            background: rgba(4, 6, 12, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(8px);
         }
 
         .modal-header {
-            background: var(--bg-tertiary);
+            background: #f8fafc;
             padding: 16px 24px;
             display: flex;
             align-items: center;
@@ -635,7 +989,7 @@
             font-family: 'Outfit', sans-serif;
             font-size: 18px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--jio-blue);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -648,9 +1002,9 @@
         }
 
         .modal-ctrl-btn {
-            background: rgba(255,255,255,0.03);
+            background: #ffffff;
             border: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            color: var(--text-muted);
             width: 32px;
             height: 32px;
             border-radius: 6px;
@@ -662,15 +1016,15 @@
         }
 
         .modal-ctrl-btn:hover {
-            background: rgba(255,255,255,0.08);
-            color: var(--text-primary);
-            border-color: var(--accent-cyan);
+            background: var(--jio-blue-glow);
+            color: var(--jio-blue);
+            border-color: var(--jio-blue);
         }
 
         .modal-ctrl-btn.close-btn:hover {
-            background: rgba(239, 68, 68, 0.15);
+            background: rgba(239, 68, 68, 0.1);
             border-color: rgba(239, 68, 68, 0.3);
-            color: hsl(0, 84%, 60%);
+            color: var(--jio-red);
         }
 
         .modal-body-iframe-container {
@@ -722,6 +1076,9 @@
             .nav-item-btn .nav-title-text {
                 font-size: 16px;
             }
+            .nav-item-btn.active::before {
+                display: none;
+            }
             main.main-panel {
                 margin-left: 70px;
                 width: calc(100% - 70px);
@@ -729,6 +1086,9 @@
             }
             .welcome-stats {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .folders-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -775,6 +1135,9 @@
             .welcome-stats {
                 grid-template-columns: 1fr;
             }
+            .folders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -785,44 +1148,44 @@
         <div class="brand-container">
             <div class="brand-logo">🌌</div>
             <div class="brand-title">ANTIGRAVITY 2.0</div>
-            <div class="brand-subtitle">HR Upskilling Hub</div>
+            <div class="brand-subtitle">HR Workbook</div>
         </div>
         
         <ul class="nav-menu">
             <li>
                 <button class="nav-item-btn active" data-target="home">
                     <span class="nav-title-text">🏠 Home</span>
-                    <span class="nav-desc">Program Welcome & Outline</span>
+                    <span class="nav-desc">Workbook Welcome & Outline</span>
                 </button>
             </li>
             <li>
                 <button class="nav-item-btn" data-target="day0">
                     <span class="nav-title-text">Day 0: Command Desk</span>
-                    <span class="nav-desc">IDE, Sandbox & Agent Basics</span>
+                    <span class="nav-desc">Workspace Setup & Metaphors</span>
                 </button>
             </li>
             <li>
                 <button class="nav-item-btn" data-target="day1">
                     <span class="nav-title-text">Day 1: Goals vs. Orders</span>
-                    <span class="nav-desc">The Objective-based Brief</span>
+                    <span class="nav-desc">Objective-based briefs</span>
                 </button>
             </li>
             <li>
                 <button class="nav-item-btn" data-target="day2">
                     <span class="nav-title-text">Day 2: Workspace & Tools</span>
-                    <span class="nav-desc">Permissions & Data Auditing</span>
+                    <span class="nav-desc">Agent Permissions & Audits</span>
                 </button>
             </li>
             <li>
                 <button class="nav-item-btn" data-target="day3">
                     <span class="nav-title-text">Day 3: Subagents</span>
-                    <span class="nav-desc">Multi-Agent Orchestration</span>
+                    <span class="nav-desc">Multi-agent loops</span>
                 </button>
             </li>
             <li>
                 <button class="nav-item-btn" data-target="day4">
                     <span class="nav-title-text">Day 4: Pay Review Capstone</span>
-                    <span class="nav-desc">Annual Comp Review Project</span>
+                    <span class="nav-desc">Comp Review Capstone</span>
                 </button>
             </li>
         </ul>
@@ -834,17 +1197,17 @@
         </div>
         
         <div class="compliance-badge">
-            Jio HR Data Governance<br>
-            <strong>Environment Restricted</strong>
+            Reliance Jio HR Governance<br>
+            <strong>Sandboxed Learning Environment</strong>
         </div>
     </aside>
 
     <!-- Main Content Panel -->
     <main class="main-panel">
         <div class="header-bar">
-            <h1 id="panel-day-title">HR Upskilling Portal</h1>
+            <h1 id="panel-day-title">HR Learner Workbook</h1>
             <div class="meta-line">
-                <span id="panel-day-subtitle">Facilitator Mission Control</span>
+                <span id="panel-day-subtitle">Upskilling Workspace</span>
                 <span class="badge" id="panel-day-badge">SYSTEM INITIALIZED</span>
             </div>
         </div>
@@ -853,111 +1216,315 @@
         <section class="tab-content active" id="home-content">
             <div class="welcome-hero">
                 <h2>Welcome to the Antigravity 2.0 Upskilling Program</h2>
-                <p style="margin-top: 10px; font-size: 16px; color: var(--text-primary);">
-                    This portal serves as your interactive facilitator script and course guide for training the Jio HR team in Agentic AI Orchestration. 
-                    Ditch static presentation decks—manage the entire curriculum directly from this dashboard.
+                <p style="margin-top: 10px; font-size: 16px; color: var(--text-main);">
+                    This portal serves as your interactive workbook and course guide for the Antigravity 2.0 upskilling course. 
+                    Follow along with your facilitator to explore core metaphors, execute hands-on exercises, copy prompts, and complete self-assessments.
                 </p>
             </div>
             
             <div class="welcome-stats">
                 <div class="stat-card">
                     <div class="stat-val">5 Days</div>
-                    <div class="stat-lbl">Course Duration</div>
+                    <div class="stat-lbl">Course Modules</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-val">2.5 Hours</div>
-                    <div class="stat-lbl">Day 0 Timing</div>
+                    <div class="stat-lbl">Module 0 Duration</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-val">Interactive</div>
-                    <div class="stat-lbl">Facilitator Deck</div>
+                    <div class="stat-val">Jio Brand</div>
+                    <div class="stat-lbl">Light Mode Design</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-val">Jio-Provisioned</div>
-                    <div class="stat-lbl">Environment</div>
+                    <div class="stat-val">Sandboxed</div>
+                    <div class="stat-lbl">Practice Environment</div>
                 </div>
             </div>
 
             <div style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; border-left-color: var(--accent-violet);">Overview & Scope</h3>
-                <div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-81f8-989b-fdd9c4b4223a"><div style="font-size:1.5em"><span class="icon">🎯</span></div><div style="width:100%">Facilitator script for the 5-day Antigravity 2.0 workshop. Each day = teaching narrative + demo scripts + exact learner prompts + debrief. Pair with the “5-Day Content Outline” page for the at-a-glance runsheet.</div></figure></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-818c-97b7-cfa2b3dd9e48" class="">Scope note: this workshop makes the team fluent in Antigravity as a tool. It is foundational — it deliberately does NOT cover BRD / user stories / journeys / the production Pay Review build. The sandbox pay-review is a teaching microcosm only.</p></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-81e3-a4ff-c2ce69c744cc"/></div>
+                <h3 style="margin-bottom: 15px; border-left-color: var(--jio-blue);">Overview & Course Scope</h3>
+                <div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-81f8-989b-fdd9c4b4223a"><div style="font-size:1.5em"><span class="icon">🎯</span></div><div style="width:100%">Interactive workbook portal for the 5-day Antigravity 2.0 workshop. Follow along with your facilitator to complete hands-on activities, copy prompts, and verify your AI agent's deliverables.</div></figure></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-818c-97b7-cfa2b3dd9e48" class="">Scope note: this workshop makes the team fluent in Antigravity as a tool. It is foundational — it deliberately does NOT cover BRD / user stories / journeys / the production Pay Review build. The sandbox pay-review is a teaching microcosm only.</p></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-81e3-a4ff-c2ce69c744cc"/></div>
             </div>
 
-            <h3 style="margin-top: 35px; margin-bottom: 20px; border-left-color: var(--accent-violet);">5-Day At-a-Glance Runsheet</h3>
+            <h3 style="margin-top: 35px; margin-bottom: 20px; border-left-color: var(--jio-blue);">Workbook Content At-a-Glance</h3>
             <div class="curriculum-grid">
                 <div class="day-card" data-trigger-tab="day0">
                     <div class="day-card-num">Day 0</div>
                     <div class="day-card-title">Welcome to the Command Desk</div>
-                    <div class="day-card-desc">Install and launch the IDE. Understand the Expert Contractor metaphor, the five core context files, and run basic setup confirmation.</div>
+                    <div class="day-card-desc">Set up your workspace. Understand the Expert Contractor metaphor, the five core context files, and run basic setup verification.</div>
                 </div>
                 <div class="day-card" data-trigger-tab="day1">
                     <div class="day-card-num">Day 1</div>
                     <div class="day-card-title">Delegating Goals vs. Orders</div>
-                    <div class="day-card-desc">Learn the outcome-based brief. Review the agent's project proposal (implementation plan) and iterate using natural language.</div>
+                    <div class="day-card-desc">Adopt the outcome-based brief. Review the agent's project proposal (implementation plan) and learn to iterate.</div>
                 </div>
                 <div class="day-card" data-trigger-tab="day2">
                     <div class="day-card-num">Day 2</div>
                     <div class="day-card-title">Workspace & Tool Auditing</div>
-                    <div class="day-card-desc">Learn tool calls and Model Context Protocol (MCP). Audit proposed files changes and run compensation ratio data queries.</div>
+                    <div class="day-card-desc">Understand tool calls and MCP permissions. Audit file changes and run compensation ratio data analyses.</div>
                 </div>
                 <div class="day-card" data-trigger-tab="day3">
                     <div class="day-card-num">Day 3</div>
                     <div class="day-card-title">Agentic Orchestration</div>
-                    <div class="day-card-desc">Coordinate specialized subagents (Equity and Market Position). Read agent Thought Processes to audit logic loops.</div>
+                    <div class="day-card-desc">Coordinate specialized subagents (Equity and Positioning) and inspect intermediate reasoning Thought Processes.</div>
                 </div>
                 <div class="day-card" data-trigger-tab="day4">
                     <div class="day-card-num">Day 4</div>
                     <div class="day-card-title">Pay Review Capstone</div>
-                    <div class="day-card-desc">Execute a policy-compliant annual compensation review end-to-end, compile adjustment CSVs, and draft letters.</div>
+                    <div class="day-card-desc">Run a full, policy-compliant annual pay review, generate adjustment spreadsheets, and compile letter batches.</div>
                 </div>
             </div>
         </section>
 
         <!-- 📅 DAY 0 TAB CONTENT -->
         <section class="tab-content" id="day0-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8116-9cda-e06da597875a" class="">Day 0 — Welcome to the Command Desk</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81d5-9e3c-e235881c0e26" class=""><strong>Learning outcomes: </strong>By the end, every learner has Antigravity installed and open, can explain in plain words what an AI Agent is (vs a chatbot), recognises the five context files, and has run one safe agent task.</p></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81fe-aaa2-eed6ccb70007" class=""><strong>Materials: </strong>Installer link, authorised Google account, the HR_Mission_Control folder pre-placed on each desktop, glossary.html, a projector for the live demo.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8174-904b-f5ece9dd433d" class="">Segment 1 — Welcome &amp; the big reframe (10 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e4-95a6-c163606c080e" class="">Open with the one idea the whole course hangs off:</p></div><div style="display:contents" dir="auto"><blockquote id="37c4d454-8ff5-81bf-ad53-cb328d5b6151" class="">“For the next five days, you are not learning to code. You are learning to direct. The agent is your Expert Contractor — highly capable, extremely fast, but operating with zero institutional knowledge and zero judgment about consequences. It will do exactly what you asked, not what you meant. A human team member would flag when something seems off. The agent won't — it will produce a clean, confident output and wait for your approval. That's why your sign-off is not a formality. It's the only safeguard in the chain.”</blockquote></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cf-a72b-c789c88919d4" class="">Set expectations: nobody will write code; the sandbox is safe-to-fail; mistakes are how we learn. Name the destination — by Day 4 they will run a full pay review themselves.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8140-a180-e0e18bb738f8" class="">Segment 2 — What is an IDE? (10 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-a9d7-c1855517342e" class="">Teach the <strong>Integrated Command Desk</strong> analogy: instead of Word for writing, a browser for testing, and Explorer for files in three separate windows, an IDE puts the desk, filing cabinet and testing room in one place. Explain that while software developers call this an "IDE" (Integrated Development Environment), we call it our <strong>Command Desk</strong> because it is where all our work, tools, and sandbox live. Point at the screen and name the panels as you go.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8116-bfd6-edb75e4e96f6" class="">Segment 3 — Agents, LLMs &amp; hallucination (20 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8120-9804-dc8d853bdfc6" class="bulleted-list"><li style="list-style-type:disc"><strong>Chatbot vs. Agent: </strong>a chatbot talks back; an agent acts — it plans, opens files, runs tools, produces artifacts. Use the “advisor on the phone vs. team member who does the work” contrast.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-814a-bd81-e0d078844b8c" class="bulleted-list"><li style="list-style-type:disc"><strong>LLM: </strong>the engine underneath — a prediction machine trained on language. It is powerful but not a database; it predicts plausible text. When the agent reads your files, it's not guessing — it's pulling the actual data. Where it predicts is in interpreting that data, making connections, and writing the analysis. The numbers it reads are real. The conclusions it draws need checking.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-811a-bb64-dc5e0ef8ae8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Hallucination: </strong>because it predicts rather than looks up, it can state a wrong figure confidently. This is THE reason we keep a human in the loop and always check artifacts against source files.</li></ul></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-8153-9560-ff9f88f63b12"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Drive this home: confidence is not correctness. The whole governance model exists because the intern can be confidently wrong.</div></figure></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815f-bbe9-ebfefe0ee6f3" class="">Segment 4 — The five context files (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8170-8d08-c65516f838d9" class="">Walk the “paperwork” the agent lives by. Keep it conceptual — what each is FOR:</p></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81d8-a325-ed862935d206" class="bulleted-list"><li style="list-style-type:disc"><code>README.md</code> — the welcome sign: explains the project structure.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8108-abdd-fa4e1699ecb4" class="bulleted-list"><li style="list-style-type:disc"><code>context.md</code> — the standing brief: the rules and policies the agent must always follow.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81c4-be16-f3174aa343b2" class="bulleted-list"><li style="list-style-type:disc"><code>implementation_plan.md</code> — the project proposal: the agent&#x27;s plan, drafted for your sign-off.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8185-8284-cc65849aed96" class="bulleted-list"><li style="list-style-type:disc"><code>task.md</code> — the whiteboard: live progress, ticked off as work happens.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81fa-8f3c-decf0110c7b1" class="bulleted-list"><li style="list-style-type:disc"><code>handover.md</code> — the shift report: the summary when work passes on.</li></ul></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81db-8036-f897ec4e8783" class="">Segment 5 — Install Antigravity 2.0 (45 min, follow-along)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81f3-b6d6-ef4d6bad8ea7" class="numbered-list" start="1"><li>Download &amp; run the installer for your OS (Windows/macOS).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8103-96f6-e58f6c87dbb8" class="numbered-list" start="2"><li>Authenticate with your authorised Google account.</li></ol></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. HR data processed in this environment is subject to data governance policy.</div></figure></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. HR data processed in this environment is subject to data governance policy.</div></figure></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81e4-9668-cfbb58cd02a7" class="numbered-list" start="3"><li>Click <strong>Open Workspace</strong> and select the pre-placed <code>HR_Mission_Control</code> folder. Emphasise: We've configured the sandbox so the agent works within this folder only. Don't change the workspace path — that boundary is the foundation of your data security for this programme.</li></ol></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-8121-b103-f2217706374c"><div style="font-size:1.5em"><span class="icon">🛠️</span></div><div style="width:100%">Most stumbles happen here. Have a backup plan: pair anyone who fails install with a neighbour so the group stays together. Anyone paired up due to installation failure MUST have an IT support slot scheduled for the same day to ensure they are fully set up before Day 1.</div></figure></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81a5-882d-d22e88c19815" class="">Segment 6 — Interface tour (30 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8190-a431-cd7c60f5e584" class="bulleted-list"><li style="list-style-type:disc"><strong>Manager Surface (the Control Room): </strong>spawn agents, watch several run in parallel, schedule background routines. <span style="color:var(--color-purple); font-weight:bold;">[Participant Action: Find the "spawn agent" button and hover over it.]</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81ff-9260-d115fd9d1878" class="bulleted-list"><li style="list-style-type:disc"><strong>Editor View (the Work Desk): </strong>the Prompt Bar (where you brief the agent), the integrated Browser &amp; Terminal (watch it work live). <span style="color:var(--color-purple); font-weight:bold;">[Participant Action: Click the Prompt Bar.]</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81f7-9e98-dbc99e3ed683" class="bulleted-list"><li style="list-style-type:disc"><strong>Artifacts &amp; Trust: </strong>Task Lists, screenshots/walkthroughs, and Google-Doc-style comments to steer mid-task. This is the most important feature for HR — it is how you audit. When the agent produces a document, this panel is where you compare the output against the source file before approving. <span style="color:var(--color-purple); font-weight:bold;">[Participant Action: Open one artifact the facilitator has pre-placed and read the first line.]</span></li></ul></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81d0-9b35-dbae0d933477" class="">Segment 7 — First prompt (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814c-805b-d142a7f4a058" class="">Run a 30-second silent setup verification prompt (everyone runs it, facilitator confirms the files are present):</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="37c4d454-8ff5-81d8-9e11-f2b2af4c8584" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">List the files inside HR_Mission_Control/data/</code></pre></div><div style="display:contents" dir="auto"><p class="">Now delegate the actual first prompt to see a value-driven HR output and value proposition immediately:</p></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">We've just hired Rohan Verma as a new HR Business Partner. List the documents he'll need for onboarding, organised by category.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8163-bd95-eebc53c526df" class="">Then have them open glossary.html in the browser and study 5 flashcards of their choice.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815b-8aad-f721cc76ed41" class="">Debrief (5 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81eb-958c-d73aa82a709a" class="bulleted-list"><li style="list-style-type:disc">Ask: “What is the difference between a chatbot and an agent?”</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-813c-b0b4-dffe08b03d43" class="bulleted-list"><li style="list-style-type:disc">Ask: “Why do we always check the agent&#x27;s work?” (Answer: hallucination.)</li></ul></div><div style="display:contents" dir="auto"><ul class="bulleted-list"><li style="list-style-type:disc">Ask: “If the agent gives you a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you'd do before presenting it to your manager?” (Answer: "Check it against the source data" to verify accuracy.)</li></ul></div><div style="display:contents" dir="auto"><ul class="bulleted-list"><li style="list-style-type:disc">Ask: “If the agent gives you a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you'd do before presenting it to your manager?” (Answer: "Check it against the source data" to verify accuracy.)</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-812f-b5d2-fb90a787c3f1"/></div>
+            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8116-9cda-e06da597875a" class="">Day 0: Welcome to the Command Desk - IDE & Agent Basics (150 min)</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81d5-9e3c-e235881c0e26" class=""><strong>Learning outcomes: </strong>By the end, every learner has Antigravity installed and open, can explain in plain words what an AI Agent is (vs a chatbot), recognises the five context files, and has run one safe agent task.</p></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81fe-aaa2-eed6ccb70007" class=""><strong>Materials: </strong>Installer link, authorised Google account, the HR_Mission_Control folder pre-placed on each desktop, glossary.html, a projector for the live demo.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8174-904b-f5ece9dd433d" class="">Segment 1 — Welcome &amp; The Shift in Mindset</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e4-95a6-c163606c080e" class="">Our workshop centers on a key change in how you approach AI tools:</p></div><div style="display:contents" dir="auto"><blockquote id="37c4d454-8ff5-81bf-ad53-cb328d5b6151" class="">“For the next five days, you are not learning to code. You are learning to direct. The agent is your Expert Contractor — highly capable, extremely fast, but operating with zero institutional knowledge and zero judgment about consequences. It will do exactly what you asked, not what you meant. A human team member would flag when something seems off. The agent won't — it will produce a clean, confident output and wait for your approval. That's why your sign-off is not a formality. It's the only safeguard in the chain.”</blockquote></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cf-a72b-c789c88919d4" class=""><div class="takeaway-box"><strong>What to Expect:</strong> You will not write code during this workshop. The sandbox is a safe-to-fail practicing space. By Day 4, you will run an annual pay review end-to-end yourself.</div></p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8140-a180-e0e18bb738f8" class="">Segment 2 — Navigating the Workspace</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-a9d7-c1855517342e" class=""><p>To navigate our workspace, we use the <strong>Integrated Command Desk (IDE)</strong>. Just as a physical office desk puts your paperwork, folders, and instruments in one place, the Command Desk integrates your file editor, AI agent chat, browser, and terminal into a single window. In technical manuals, developers call this an "IDE" (Integrated Development Environment), but we call it our <strong>Command Desk</strong> because it is where all our work, tools, and sandbox live.</p></p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8116-bfd6-edb75e4e96f6" class="">Segment 3 — Agents, LLMs &amp; Hallucination</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8120-9804-dc8d853bdfc6" class="bulleted-list"><li style="list-style-type:disc"><strong>Chatbot vs. Agent:</strong> A chatbot simply responds to text prompts (like an advisor on the phone). An AI Agent acts—it plans, navigates folders, runs tools, and creates documents (like a team member who does the work).</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-814a-bd81-e0d078844b8c" class="bulleted-list"><li style="list-style-type:disc"><strong>LLM: </strong>the engine underneath — a prediction machine trained on language. It is powerful but not a database; it predicts plausible text. When the agent reads your files, it's not guessing — it's pulling the actual data. Where it predicts is in interpreting that data, making connections, and writing the analysis. The numbers it reads are real. The conclusions it draws need checking.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-811a-bb64-dc5e0ef8ae8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Hallucination: </strong>because it predicts rather than looks up, it can state a wrong figure confidently. This is THE reason we keep a human in the loop and always check artifacts against source files.</li></ul></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Key Concept: Confidence is not Correctness.</strong> Because LLMs predict plausible text rather than searching a static database, they can state wrong facts with absolute confidence (known as "hallucination"). This is why human review (Human-in-the-Loop) is the ultimate safeguard.</div></div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815f-bbe9-ebfefe0ee6f3" class="">Segment 4 — The Five Core Context Files</h3></div><div style="display:contents" dir="auto"><p>To coordinate with the agent, we use **five core context files**. They act as the documentation and alignment trail for our project. Click the folders below to inspect their purpose:</p></div><div style="display:contents" dir="auto">
+<div class="folders-grid-container">
+    <div class="folders-grid">
+        <div class="folder-card" data-folder="readme">
+            <div class="folder-tab"></div>
+            <div class="folder-body">
+                <span class="folder-icon">📄</span>
+                <span class="folder-title">README.md</span>
+                <span class="folder-tag">The Welcome Sign</span>
+            </div>
+        </div>
+        <div class="folder-card" data-folder="context">
+            <div class="folder-tab"></div>
+            <div class="folder-body">
+                <span class="folder-icon">📄</span>
+                <span class="folder-title">context.md</span>
+                <span class="folder-tag">The Standing Brief</span>
+            </div>
+        </div>
+        <div class="folder-card" data-folder="plan">
+            <div class="folder-tab"></div>
+            <div class="folder-body">
+                <span class="folder-icon">📄</span>
+                <span class="folder-title">implementation_plan.md</span>
+                <span class="folder-tag">The Proposal</span>
+            </div>
+        </div>
+        <div class="folder-card" data-folder="task">
+            <div class="folder-tab"></div>
+            <div class="folder-body">
+                <span class="folder-icon">📄</span>
+                <span class="folder-title">task.md</span>
+                <span class="folder-tag">The Whiteboard</span>
+            </div>
+        </div>
+        <div class="folder-card" data-folder="handover">
+            <div class="folder-tab"></div>
+            <div class="folder-body">
+                <span class="folder-icon">📄</span>
+                <span class="folder-title">handover.md</span>
+                <span class="folder-tag">The Shift Report</span>
+            </div>
+        </div>
+    </div>
+    <div class="folder-details" id="folder-details-panel">
+        <div class="details-placeholder">👉 Click a folder above to inspect the file's governance purpose...</div>
+        <div class="details-content" style="display: none;">
+            <h4 id="folder-details-title"></h4>
+            <p id="folder-details-desc"></p>
+        </div>
+    </div>
+</div>
+</div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81db-8036-f897ec4e8783" class="">Segment 5 — Hands-on: Install Antigravity 2.0 (45 min)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81f3-b6d6-ef4d6bad8ea7" class="numbered-list" start="1"><li>Download &amp; run the installer for your OS (Windows/macOS).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8103-96f6-e58f6c87dbb8" class="numbered-list" start="2"><li>Authenticate with your authorised Google account.</li></ol></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Governance Notice:</strong> Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. All HR data processed in this environment is subject to corporate data governance policies.</div></div></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Governance Notice:</strong> Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. All HR data processed in this environment is subject to corporate data governance policies.</div></div></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81e4-9668-cfbb58cd02a7" class="numbered-list" start="3"><li>Click <strong>Open Workspace</strong> and select the pre-placed <code>HR_Mission_Control</code> folder. Emphasise: We've configured the sandbox so the agent works within this folder only. Don't change the workspace path — that boundary is the foundation of your data security for this programme.</li></ol></div><div style="display:contents" dir="ltr"><div class="takeaway-box"><strong>💡 Installation Support:</strong> If you experience issues during installation, pair up with a neighbour. Participants experiencing installation blockers MUST have an IT support slot scheduled for the same day.</div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81a5-882d-d22e88c19815" class="">Segment 6 — Workspace Interface Tour</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8190-a431-cd7c60f5e584" class="bulleted-list"><li style="list-style-type:disc"><strong>Manager Surface (the Control Room): </strong>spawn agents, watch several run in parallel, schedule background routines. <span class="try-badge">👉 Try it: Find the "spawn agent" button and hover over it.</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81ff-9260-d115fd9d1878" class="bulleted-list"><li style="list-style-type:disc"><strong>Editor View (the Work Desk): </strong>the Prompt Bar (where you brief the agent), the integrated Browser &amp; Terminal (watch it work live). <span class="try-badge">👉 Try it: Click inside the Prompt Bar.</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81f7-9e98-dbc99e3ed683" class="bulleted-list"><li style="list-style-type:disc"><strong>Artifacts &amp; Trust: </strong>Task Lists, screenshots/walkthroughs, and Google-Doc-style comments to steer mid-task. This is the most important feature for HR — it is how you audit. When the agent produces a document, this panel is where you compare the output against the source file before approving. <span class="try-badge">👉 Try it: Open the pre-placed markdown file in the Artifacts Panel and read the first line.</span></li></ul></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81d0-9b35-dbae0d933477" class="">Segment 7 — Your First Agent Prompt</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814c-805b-d142a7f4a058" class="">Run a 30-second silent setup verification prompt (everyone runs it, facilitator confirms the files are present):</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="37c4d454-8ff5-81d8-9e11-f2b2af4c8584" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">List the files inside HR_Mission_Control/data/</code></pre></div><div style="display:contents" dir="auto"><p class="">Now delegate the actual first prompt to see a value-driven HR output and value proposition immediately:</p></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">We've just hired Rohan Verma as a new HR Business Partner. List the documents he'll need for onboarding, organised by category.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8163-bd95-eebc53c526df" class="">Then have them open glossary.html in the browser and study 5 flashcards of their choice.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815b-8aad-f721cc76ed41" class="">Debrief (5 min)</h3></div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q1</div>
+                <div class="q-text">What is the difference between a chatbot and an agent?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">A chatbot is like an advisor on the phone (it simply answers text questions). An AI Agent acts like a team member doing the work—it plans, reads and writes files, runs commands, and creates documents to achieve a goal.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q2</div>
+                <div class="q-text">Why must we always review and check the agent's work?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">Because LLM agents are prediction engines, they can hallucinate and state incorrect facts or figures with absolute confidence. Checking calculations against source data ensures corporate policy compliance.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q3</div>
+                <div class="q-text">If the agent generates a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you should do before presenting it to your manager?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">Perform a manual math check and audit at least one calculation line against the source file (e.g. <code>employees.csv</code>) to verify data accuracy.</div>
+            </div>
+        </div>
+        </div><div style="display:contents" dir="auto"><ul class="bulleted-list"><li style="list-style-type:disc">Ask: “If the agent gives you a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you'd do before presenting it to your manager?” (Answer: "Check it against the source data" to verify accuracy.)</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-812f-b5d2-fb90a787c3f1"/></div>
         </section>
 
         <!-- 📅 DAY 1 TAB CONTENT -->
         <section class="tab-content" id="day1-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-814d-bc3c-f0c38ab7b2c1" class="">Day 1 — Delegating Goals vs. Giving Orders</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8154-a8b1-d4726be88236" class=""><strong>Learning outcomes: </strong>Learners write an outcome-based brief (not a step list), read an implementation plan, give one round of feedback, and consciously approve.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-813d-bdf3-f4088fb1eac1" class="">Segment 1 — The mindset shift (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81bf-b0ce-cbe43535d8a8" class="">Put two prompts on screen side by side and discuss how the agent would respond to each:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81cb-8f4b-f21bd2d227ea" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">BAD (micro-managing):
+            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-814d-bc3c-f0c38ab7b2c1" class="">Day 1 — Delegating Goals vs. Giving Orders</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8154-a8b1-d4726be88236" class=""><strong>Learning outcomes: </strong>Learners write an outcome-based brief (not a step list), read an implementation plan, give one round of feedback, and consciously approve.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-813d-bdf3-f4088fb1eac1" class="">Segment 1 — Mindset Shift: Goals vs. Commands</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81bf-b0ce-cbe43535d8a8" class="">Compare how the agent interprets micro-managing commands versus outcome-driven goal briefs:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81cb-8f4b-f21bd2d227ea" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">BAD (micro-managing):
 Open employees.csv. Go to row 3. Create a folder. Name it Rohan.
 Now make three subfolders...
 
 GOOD (delegating):
 Set up an onboarding folder structure for our new hire Rohan Verma,
 with places for his contracts, benefits, and compliance documents.
-Show me your plan before creating anything.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-815e-954f-e35925f94022" class=""><strong>The lesson: </strong>describe the <strong>outcome</strong> and the <strong>constraints</strong>, then let the contractor propose the how. Over-specifying wastes the agent&#x27;s intelligence.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-810b-934c-fb6b960da0b4" class="">Segment 2 — Plan → Act → Verify, live (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8144-8984-ee3b2755f1fc" class="">Demo the rhythm: give a goal, let the agent produce implementation_plan.md, then deliberately reject it once with feedback so learners see iteration before they try it.</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-818c-8aaf-f73d1b072e65" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Good start, but put compliance documents BEFORE benefits, and add a
-subfolder for his signed offer letter. Update the plan and show me again.</code></pre></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8179-9c71-d239a22963b6" class="">Segment 3 — Hands-on: onboard Rohan Verma (40 min)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81fa-b3b4-f7b3e23bc6ff" class="numbered-list" start="1"><li>Brief the goal (outcome-based). Ask for a plan first.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-815b-be44-cfb1cc6f41ad" class="numbered-list" start="2"><li>Read implementation_plan.md. Request exactly one change.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-816a-aaf3-f21a59ee76a2" class="numbered-list" start="3"><li>Approve, and watch the agent build the folder tree under exercises/.</li></ol></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-8190-a2c6-f18ba2d9dcf1"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">Coach learners who approve instantly: “Did you actually read the plan? The approval gate only protects you if you use it.”</div></figure></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8108-b068-d049dddce5e1" class="">Debrief (10 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8115-9b35-e7e47f1278d7" class="bulleted-list"><li style="list-style-type:disc">What changed when you stopped giving steps and started giving outcomes?</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81d7-854c-edc810979b5a" class="bulleted-list"><li style="list-style-type:disc">When is the right moment to catch a mistake — before or after the agent acts? (Before: at the plan.)</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-814e-a79f-d28ca247bae1"/></div>
+Show me your plan before creating anything.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-815e-954f-e35925f94022" class=""><strong>The lesson: </strong>describe the <strong>outcome</strong> and the <strong>constraints</strong>, then let the contractor propose the how. Over-specifying wastes the agent&#x27;s intelligence.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-810b-934c-fb6b960da0b4" class="">Segment 2 — The Plan ➔ Act ➔ Verify Loop</h3></div>
+<div class="diagram-wrapper">
+    <div class="diagram-container">
+        <div class="diagram-node">
+            <div class="node-icon">📝</div>
+            <div class="node-title">1. Plan</div>
+            <div class="node-subtitle">Agent drafts proposal</div>
+            <div class="node-desc">The agent generates <code>implementation_plan.md</code> and halts, waiting for your sign-off.</div>
+        </div>
+        <div class="diagram-connector">
+            <div class="connector-arrow">➔</div>
+            <div class="connector-label">Feedback / Approval</div>
+        </div>
+        <div class="diagram-node">
+            <div class="node-icon">⚙️</div>
+            <div class="node-title">2. Act</div>
+            <div class="node-subtitle">Agent runs in sandbox</div>
+            <div class="node-desc">Upon approval, the agent executes changes and details progress in <code>task.md</code>.</div>
+        </div>
+        <div class="diagram-connector">
+            <div class="connector-arrow">➔</div>
+            <div class="connector-label">Auditing Loop</div>
+        </div>
+        <div class="diagram-node">
+            <div class="node-icon">🔍</div>
+            <div class="node-title">3. Verify</div>
+            <div class="node-subtitle">Human-in-the-Loop</div>
+            <div class="node-desc">You manually verify calculations, review diff outputs, and authorize final handover.</div>
+        </div>
+    </div>
+</div>
+<div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8144-8984-ee3b2755f1fc" class="">We coordinate with the agent using a standard <strong>Plan ➔ Act ➔ Verify</strong> rhythm. The agent proposes a plan, you iterate with feedback, and you approve the plan before execution begins.</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-818c-8aaf-f73d1b072e65" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Good start, but put compliance documents BEFORE benefits, and add a
+subfolder for his signed offer letter. Update the plan and show me again.</code></pre></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8179-9c71-d239a22963b6" class="">Segment 3 — Hands-on Exercise: Onboarding Rohan Verma</h3></div><div style="display:contents" dir="auto"><ol class="numbered-list"><li>Brief the agent using the outcome-based template. Prompt: <em>"Set up an onboarding structure... Show me your plan first."</em></li><li>Open and read the newly created <code>implementation_plan.md</code>. Request exactly one modification (e.g. folder order or letter template subfolder).</li><li>Approve the revised plan and watch the agent build the folders under <code>exercises/</code> in real-time.</li></ol><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Caution: Avoid Auto-Approvals.</strong> The implementation plan approval step is your primary governance control. If you approve a plan without reading it, you are signing off on unknown actions.</div></div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8108-b068-d049dddce5e1" class="">Debrief (10 min)</h3></div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q1</div>
+                <div class="q-text">What changed when you stopped giving step-by-step commands and started giving outcome-based goals?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">You transitioned from coding/micromanaging to directing. Outcome-based goals allow the agent to use its reasoning capability to find the best path, saving time and keeping you focused on guardrails.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q2</div>
+                <div class="q-text">When is the right moment to catch a mistake: before or after the agent executes the changes?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">Before—at the planning stage. Relentlessly auditing the <code>implementation_plan.md</code> lets you correct errors before files are written or directories created.</div>
+            </div>
+        </div>
+        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-814e-a79f-d28ca247bae1"/></div>
         </section>
 
         <!-- 📅 DAY 2 TAB CONTENT -->
         <section class="tab-content" id="day2-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-818f-b11f-de7a510e4865" class="">Day 2 — Navigating the Workspace &amp; Tools</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8191-a499-f65a71ba0947" class=""><strong>Learning outcomes: </strong>Learners understand tool calls and permissions, run a real data analysis on the sandbox, and read a compa-ratio result. Security awareness is introduced.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8143-a0cd-ebec17a83e63" class="">Segment 1 — Tools, permissions &amp; MCP (20 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8178-9bec-dd15620d7420" class="">Teach the <strong>Tool Call</strong> as the agent reaching for an instrument (read file, search, run command). <strong>MCP</strong> is the temporary gate pass that lets the agent plug into a data source. You watch each tool call before granting it — like giving an intern the cabinet keys one drawer at a time.</p></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-81cd-ad69-edc0ba7fc2f5"><div style="font-size:1.5em"><span class="icon">🔒</span></div><div style="width:100%">Security beat: introduce Prompt Injection and Data Confidentiality lightly. Rule of thumb — salary data never leaves the sandbox; never paste it into a public chatbot.</div></figure></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81e9-bc09-d834489f98f3" class="">Segment 2 — The HR data + compa-ratio (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814a-94e6-c0526f3cd4db" class="">Open the two data files and the policy doc together; explain the one formula they need:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8132-aa43-fb092b02c0e9" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Compa-Ratio = Current Salary / Market Midpoint
-( &lt; 1.0 = paid below market ;  ~1.0 = on market ;  &gt; 1.0 = above )</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e9-b63e-c45eeab1b07a" class="">Show <code>market_rates.csv</code> bands (Grade 1–4) and that <code>employees.csv</code> has a grade + rating + salary per person.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815f-801e-ca1956bbaff5" class="">Segment 3 — Hands-on: flag the underpaid (35 min)</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b1-89b4-ed1d5cd225c5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Analyse our current compensation in employees.csv against the market
+            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-818f-b11f-de7a510e4865" class="">Day 2 — Navigating the Workspace &amp; Tools</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8191-a499-f65a71ba0947" class=""><strong>Learning outcomes: </strong>Learners understand tool calls and permissions, run a real data analysis on the sandbox, and read a compa-ratio result. Security awareness is introduced.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8143-a0cd-ebec17a83e63" class="">Segment 1 — Agent Tools &amp; Permissions</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8178-9bec-dd15620d7420" class=""><p>An agent interacts with files and directories through <strong>Tool Calls</strong> (e.g. reading a file or executing a query). <strong>MCP (Model Context Protocol)</strong> functions as a secure connector to these resources. As the director, you must review and approve each tool call, akin to granting a contractor keys to a specific filing cabinet drawer one at a time.</p></p></div><div style="display:contents" dir="ltr"><div class="alert-box security"><div class="icon">🔒</div><div class="alert-content"><strong>Data Security Rule:</strong> Compensation and employee PII must remain inside the sandboxed folder. Never paste employee data, CSV lists, or compensation formulas into external, public chatbots.</div></div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81e9-bc09-d834489f98f3" class="">Segment 2 — Understanding the Compa-Ratio</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814a-94e6-c0526f3cd4db" class="">Open the dataset and review the formula used to analyze employee positioning in the market:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8132-aa43-fb092b02c0e9" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Compa-Ratio = Current Salary / Market Midpoint
+( &lt; 1.0 = paid below market ;  ~1.0 = on market ;  &gt; 1.0 = above )</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e9-b63e-c45eeab1b07a" class="">Show <code>market_rates.csv</code> bands (Grade 1–4) and that <code>employees.csv</code> has a grade + rating + salary per person.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-815f-801e-ca1956bbaff5" class="">Segment 3 — Hands-on Exercise: Identifying Compensation Discrepancies</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b1-89b4-ed1d5cd225c5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Analyse our current compensation in employees.csv against the market
 bands in market_rates.csv. Flag anyone whose salary sits below the
 market minimum for their grade, and show me the list with their
-compa-ratio. Don&#x27;t change any files — just report.</code></pre></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-815b-8126-f5e5873b036b" class="bulleted-list"><li style="list-style-type:disc">Expect: the agent reads both CSVs, computes compa-ratios, returns a flagged list.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81ec-be9f-c1d1325f2afd" class="bulleted-list"><li style="list-style-type:disc">Have learners audit one flagged person by hand to confirm the agent is right (hallucination check).</li></ul></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81a9-b224-e5b91ed0529c" class="">Debrief (10 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8155-936f-fbfd21178970" class="bulleted-list"><li style="list-style-type:disc">What did you check before approving the agent&#x27;s tool calls?</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-815a-9e3b-dbc3bb3b6f38" class="bulleted-list"><li style="list-style-type:disc">Where could PII have leaked, and what stopped it?</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-8118-a896-c698286d1039"/></div>
+compa-ratio. Don&#x27;t change any files — just report.</code></pre></div><div style="display:contents" dir="auto"><div class="takeaway-box"><strong>👉 Verification Task:</strong> Once the agent returns the flagged list, select one employee and perform a manual math audit (Compa-Ratio = Salary / Market Midpoint) to confirm that the agent's calculation is correct.</div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81a9-b224-e5b91ed0529c" class="">Debrief (10 min)</h3></div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q1</div>
+                <div class="q-text">What should you check before granting tool call permissions to the agent?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">Verify that the targeted file path is correct, the action conforms to the approved plan, and the command does not leak sensitive information outside the workspace boundaries.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q2</div>
+                <div class="q-text">Where could PII have leaked, and what corporate governance guideline protects it?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">PII could leak if the agent makes a network request or if you copy sensitive tables into a public AI tool. The sandboxing rule ensures salary data never leaves the <code>HR_Mission_Control</code> environment.</div>
+            </div>
+        </div>
+        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-8118-a896-c698286d1039"/></div>
         </section>
 
         <!-- 📅 DAY 3 TAB CONTENT -->
         <section class="tab-content" id="day3-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8163-b73d-d146714ccee1" class="">Day 3 — Agentic Orchestration &amp; Subagents</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81a7-96ec-c4ed953239eb" class=""><strong>Learning outcomes: </strong>Learners coordinate two specialist subagents, read a Thought Process as an audit trail, and merge findings into one report.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-819a-82b7-fe4ef8774084" class="">Segment 1 — Why orchestrate (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e2-a460-ec56ab53ede9" class="">Frame the HR Manager coordinating specialists. Teach when to split work (distinct, parallel angles) vs. keep it single-threaded (one linear task). Introduce the Thought Process as the live audit trail you read to catch drift early.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81fd-aab8-dcc4324ae7a7" class="">Segment 2 — Demo one subagent (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-8d35-f8f24939b3a0" class="">Spawn a single subagent and read its Thought Process aloud, narrating what it intends before it acts — so learners see transparency in action.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81f0-be1c-dfdca034dc8f" class="">Segment 3 — Hands-on: two subagents (40 min)</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8117-b551-fde880cb9a5d" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Deploy two specialist subagents to analyse employees.csv:
+            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8163-b73d-d146714ccee1" class="">Day 3 — Agentic Orchestration &amp; Subagents</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81a7-96ec-c4ed953239eb" class=""><strong>Learning outcomes: </strong>Learners coordinate two specialist subagents, read a Thought Process as an audit trail, and merge findings into one report.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-819a-82b7-fe4ef8774084" class="">Segment 1 — Multi-Agent Orchestration</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e2-a460-ec56ab53ede9" class=""><p>Complex tasks can be split across specialized **subagents** operating in parallel (e.g. an Equity Auditor and a Market Analyst). You will monitor their coordination through the **Thought Process** panel, which acts as a live audit trail allowing you to inspect their logic before they request permissions.</p></p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81fd-aab8-dcc4324ae7a7" class="">Segment 2 — Tracing Subagent Activities</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-8d35-f8f24939b3a0" class="">Review how a subagent plans and reads files. Observe the Thought Process logs to verify its strategy step-by-step.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81f0-be1c-dfdca034dc8f" class="">Segment 3 — Hands-on Exercise: Deploying Specialized Subagents</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8117-b551-fde880cb9a5d" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Deploy two specialist subagents to analyse employees.csv:
   1) a &quot;Gender Pay Equity Auditor&quot; — compare pay of men vs women
      within the same grade and role, and surface any gaps.
   2) a &quot;Market Positioning Analyst&quot; — compare everyone to their
      grade market midpoint and group them as below / on / above market.
-Then merge both findings into one summary report under exercises/.</code></pre></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8126-9315-f0a0f3158952" class="bulleted-list"><li style="list-style-type:disc">Coach reconciling conflicting findings — what to do when two subagents disagree.</li></ul></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8178-8380-f581b5d3f12d" class="">Debrief (10 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81ab-b653-e2ad9890a62d" class="bulleted-list"><li style="list-style-type:disc">What did the Thought Process let you catch that a final answer alone wouldn&#x27;t?</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8182-8841-c3af558f7df9" class="bulleted-list"><li style="list-style-type:disc">When is orchestration worth it, and when is it overkill?</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-810d-bb4e-e256b56fb35b"/></div>
+Then merge both findings into one summary report under exercises/.</code></pre></div><div style="display:contents" dir="auto"><div class="takeaway-box"><strong>💡 Reconciling Outputs:</strong> If the subagents return conflicting figures in their final files, open the Thought Process history of both agents to trace where the formula or data source diverged.</div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8178-8380-f581b5d3f12d" class="">Debrief (10 min)</h3></div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q1</div>
+                <div class="q-text">What does reading the agent's Thought Process let you check that a final report alone won't show?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">It reveals the intermediate logic steps, how the formulas were translated, and any incorrect assumptions the agent made before compiling the final summary.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q2</div>
+                <div class="q-text">When is multi-agent orchestration worth deploying, and when is it overkill?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">It is worth deploying for multi-dimensional tasks that can run in parallel (like equity checks vs. market positioning). It is overkill for simple, linear file edits.</div>
+            </div>
+        </div>
+        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-810d-bb4e-e256b56fb35b"/></div>
         </section>
 
         <!-- 📅 DAY 4 TAB CONTENT -->
         <section class="tab-content" id="day4-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-81ca-9c84-de54b79fbd82" class="">Day 4 — Building the Pay Review Tool (Capstone)</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-999c-ca9e30ed66a0" class=""><strong>Learning outcomes: </strong>Learners run a full, policy-compliant FY 2026-27 pay review end-to-end, produce the results CSV and draft letters, and exercise all three HITL checkpoints. This is the graduation moment.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81ec-91e3-faff8daf2438" class="">Segment 1 — The guardrail chain (20 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cc-af80-f9ca6062c577" class="">Walk the full policy logic on screen, in order, so learners know what &#x27;correct&#x27; looks like before the agent runs:</p></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-814d-becb-e09a83823a6e" class="numbered-list" start="1"><li>Apply the performance rating grid (Outstanding 12–15%, … Needs Improvement 0%).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8142-85cb-e32da4422784" class="numbered-list" start="2"><li>Market correction first: if below market_min and rating ≥ Meets, lift up to 10% (or to market_min, whichever is lower) BEFORE the performance increase.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8110-a842-d3e7c3241b21" class="numbered-list" start="3"><li>Over-market cap: if above market_max, cap total increase at 3%.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81eb-8580-e57e8a7418e2" class="numbered-list" start="4"><li>Budget cap: all increases together must stay within 8% of total payroll.</li></ol></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8121-98b2-ebb6bf4aaf80" class="">Segment 2 — Hands-on capstone (60 min)</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b8-b5e5-d3b124cee5cb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Run the FY 2026-27 pay review for everyone in employees.csv.
+            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-81ca-9c84-de54b79fbd82" class="">Day 4 — Building the Pay Review Tool (Capstone)</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-999c-ca9e30ed66a0" class=""><strong>Learning outcomes: </strong>Learners run a full, policy-compliant FY 2026-27 pay review end-to-end, produce the results CSV and draft letters, and exercise all three HITL checkpoints. This is the graduation moment.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-81ec-91e3-faff8daf2438" class="">Segment 1 — Annual Compensation Guidelines</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cc-af80-f9ca6062c577" class="">Before launching the review tool, align on the core compliance guardrails laid out in the guidelines:</p></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-814d-becb-e09a83823a6e" class="numbered-list" start="1"><li>Apply the performance rating grid (Outstanding 12–15%, … Needs Improvement 0%).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8142-85cb-e32da4422784" class="numbered-list" start="2"><li>Market correction first: if below market_min and rating ≥ Meets, lift up to 10% (or to market_min, whichever is lower) BEFORE the performance increase.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8110-a842-d3e7c3241b21" class="numbered-list" start="3"><li>Over-market cap: if above market_max, cap total increase at 3%.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81eb-8580-e57e8a7418e2" class="numbered-list" start="4"><li>Budget cap: all increases together must stay within 8% of total payroll.</li></ol></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8121-98b2-ebb6bf4aaf80" class="">Segment 2 — Capstone Project: Running the Pay Review</h3></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b8-b5e5-d3b124cee5cb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Run the FY 2026-27 pay review for everyone in employees.csv.
 Follow compensation_guidelines.md exactly — apply market corrections,
 the performance grid, the over-market cap, and keep the total within
 the 8% budget cap. Show me your plan and the calculations for sign-off
 BEFORE writing anything. Then generate pay_review_results.csv and draft
-individual letters under letters/ using the template.</code></pre></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8163-b28c-c0eda061b8c6" class="bulleted-list"><li style="list-style-type:disc"><strong>HITL checkpoint 1: </strong>review compa-ratio calculations before increases are drafted.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81dd-afe5-cc3e43ff5b90" class="bulleted-list"><li style="list-style-type:disc"><strong>HITL checkpoint 2: </strong>any increase breaching the budget cap or outside the grid is flagged for manual approval.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8161-a172-c02ca6ab21f3" class="bulleted-list"><li style="list-style-type:disc"><strong>HITL checkpoint 3: </strong>audit the letters for accuracy and tone before they&#x27;re &#x27;final&#x27;.</li></ul></div><div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-8169-93a6-c973f1ce2e70"><div style="font-size:1.5em"><span class="icon">🛠️</span></div><div style="width:100%">If the agent gets stuck on the budget cap, teach the recovery prompt: “Pause and tell me which constraint is blocking you.” Then decide together how to resolve it.</div></figure></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8181-a8fb-eefa09428ff8" class="">Segment 3 — Wrap &amp; save the work (15 min)</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-bf9f-fe2f993fecf0" class="">Have learners review their CSV + letters, then introduce Commit as the &#x27;dated save point&#x27; to preserve the finished work. Close by mapping what they learned back to the five days.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8166-b73d-d97a1d482824" class="">Debrief &amp; close (15 min)</h3></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8132-8a9b-e8de165ce983" class="bulleted-list"><li style="list-style-type:disc">Where did a guardrail stop the agent from doing the wrong thing?</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8174-95e0-ea0fa4a7523f" class="bulleted-list"><li style="list-style-type:disc">How is being an &#x27;HR Architect&#x27; different from how you work today?</li></ul></div><div style="display:contents" dir="auto"><blockquote id="37c4d454-8ff5-811f-b5b8-c25bd6682f16" class="">“You didn&#x27;t write a single line of code — but you ran a governed, auditable pay review. That&#x27;s the shift: from doing the work to directing and verifying it.”</blockquote></div></div>
+individual letters under letters/ using the template.</code></pre></div><div style="display:contents" dir="auto"><ul><li><strong>HITL Checkpoint 1 (Plan Stage):</strong> Review computed compa-ratios and proposed increase lists before letting the agent generate the results.</li><li><strong>HITL Checkpoint 2 (Budget Stage):</strong> Flag any payroll adjustments exceeding the 8% budget limit or performance ratings constraints.</li><li><strong>HITL Checkpoint 3 (Audit Stage):</strong> Manually verify that drafted letters in <code>letters/</code> match the calculated compensation adjustments.</li></ul></div><div style="display:contents" dir="ltr"><div class="takeaway-box"><strong>💡 Troubleshooting Recovery:</strong> If the agent reports it cannot satisfy both the budget limit and performance bands, prompt: <em>"Pause and report which specific constraint is blocking you."</em> Use this feedback to override or balance guidelines.</div></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8181-a8fb-eefa09428ff8" class="">Segment 3 — Saving Workbook Progress</h3></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-bf9f-fe2f993fecf0" class="">Verify your generated CSV and drafted compensation letters. Then, run a Git Commit to establish a permanent save point for your capstone project deliverables.</p></div><div style="display:contents" dir="auto"><h3 id="37c4d454-8ff5-8166-b73d-d97a1d482824" class="">Program Wrap-up &amp; Reflection</h3></div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q1</div>
+                <div class="q-text">Where did a compensation policy guardrail stop the agent from doing the wrong thing in the capstone?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">The budget limit cap (8% total payroll) and the performance-band rating grid prevented the agent from granting out-of-policy raises to employees.</div>
+            </div>
+        </div>
+        
+        <div class="q-card">
+            <div class="q-row">
+                <div class="q-num">Q2</div>
+                <div class="q-text">How does being an 'HR Director' of an AI agent differ from traditional manual operations?</div>
+                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+            </div>
+            <div class="q-answer">
+                <div class="q-answer-content">Instead of performing manual data entries and compiling spreadsheets, you act as a systems auditor. You direct the outcomes, define policy guardrails, and audit output verification.</div>
+            </div>
+        </div>
+        </div></div></div>
         </section>
     </main>
 
@@ -988,12 +1555,12 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         const dayBadge = document.getElementById('panel-day-badge');
 
         const tabMetadata = {
-            'home': { title: 'Upskilling Facilitator Portal', subtitle: 'Facilitator Mission Control', badge: 'SYSTEM ACTIVE' },
-            'day0': { title: 'Day 0: Welcome to the Command Desk', subtitle: 'IDE & Agent Basics (150 min)', badge: 'RESTRICTED SANDBOX' },
+            'home': { title: 'HR Learner Workbook', subtitle: 'Upskilling Workspace', badge: 'SYSTEM ACTIVE' },
+            'day0': { title: 'Day 0: Welcome to the Command Desk', subtitle: 'Workspace Setup & Metaphors (150 min)', badge: 'RESTRICTED SANDBOX' },
             'day1': { title: 'Day 1: Goals vs. Orders', subtitle: 'The Mindset Shift (120 min)', badge: 'SAFE-TO-FAIL' },
             'day2': { title: 'Day 2: Navigating the Workspace', subtitle: 'Tooling & Security Audits (120 min)', badge: 'PII SECURE' },
             'day3': { title: 'Day 3: Subagents & Orchestration', subtitle: 'Multi-Agent Department Loops (120 min)', badge: 'ORCHESTRATOR' },
-            'day4': { title: 'Day 4: Annual Pay Review Capstone', subtitle: 'Graduation Capstone Project (150 min)', badge: 'GRADUATION GRADIENT' }
+            'day4': { title: 'Day 4: Annual Pay Review Capstone', subtitle: 'Graduation Capstone Project (150 min)', badge: 'CAPSTONE grad' }
         };
 
         function switchTab(targetId) {
@@ -1015,25 +1582,25 @@ individual letters under letters/ using the template.</code></pre></div><div sty
                 daySubtitleText.textContent = meta.subtitle;
                 dayBadge.textContent = meta.badge;
 
-                // Sync colors of dayBadge based on day
+                // Sync color style for badge
                 if (targetId === 'home') {
-                    dayBadge.style.color = 'var(--accent-cyan)';
+                    dayBadge.style.color = 'var(--jio-blue)';
                     dayBadge.style.borderColor = 'var(--border-color)';
                 } else if (targetId === 'day0') {
-                    dayBadge.style.color = 'var(--accent-blue)';
-                    dayBadge.style.borderColor = 'hsla(217, 91%, 60%, 0.3)';
+                    dayBadge.style.color = '#2563eb';
+                    dayBadge.style.borderColor = 'rgba(37, 99, 235, 0.2)';
                 } else if (targetId === 'day1') {
-                    dayBadge.style.color = 'var(--accent-cyan)';
-                    dayBadge.style.borderColor = 'hsla(187, 85%, 45%, 0.3)';
+                    dayBadge.style.color = 'var(--teal-border)';
+                    dayBadge.style.borderColor = 'rgba(14, 165, 233, 0.2)';
                 } else if (targetId === 'day2') {
-                    dayBadge.style.color = 'var(--accent-amber)';
-                    dayBadge.style.borderColor = 'hsla(38, 92%, 50%, 0.3)';
+                    dayBadge.style.color = 'var(--amber-border)';
+                    dayBadge.style.borderColor = 'rgba(245, 158, 11, 0.2)';
                 } else if (targetId === 'day3') {
-                    dayBadge.style.color = 'var(--accent-violet)';
-                    dayBadge.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+                    dayBadge.style.color = 'var(--violet-border)';
+                    dayBadge.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                 } else if (targetId === 'day4') {
-                    dayBadge.style.color = 'var(--accent-emerald)';
-                    dayBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+                    dayBadge.style.color = 'var(--emerald-border)';
+                    dayBadge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
                 }
                 
                 // Scroll to top of panel
@@ -1081,7 +1648,7 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             // Create code block header
             const header = document.createElement('div');
             header.className = 'code-header';
-            header.innerHTML = '<span>Console Brief / Prompt</span>';
+            header.innerHTML = '<span>Learner Brief / Prompt to Copy</span>';
             
             // Create copy button
             const copyBtn = document.createElement('button');
@@ -1089,7 +1656,6 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             copyBtn.innerHTML = '📋 <span>Copy Brief</span>';
             
             copyBtn.addEventListener('click', () => {
-                // Strip prompt markers if necessary, otherwise copy verbatim
                 const textToCopy = code.innerText.trim();
                 navigator.clipboard.writeText(textToCopy).then(() => {
                     copyBtn.classList.add('copied');
@@ -1111,6 +1677,43 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             container.appendChild(pre);
         });
 
+        // Interactive folder grid details action
+        const folderData = {
+            readme: { title: '📁 README.md (The Welcome Sign)', desc: 'Explains the project folder structure. Think of this as the welcome sign on the door when you step into a new office workspace.' },
+            context: { title: '📁 context.md (The Standing Brief)', desc: 'Rules and policies the agent must always follow. Think of this as the standing brief or guidelines given to a contractor.' },
+            plan: { title: '📁 implementation_plan.md (The Project Proposal)', desc: "The agent's plan, drafted for your review and sign-off. Before the agent writes any code or modifies files, you must audit and approve this plan." },
+            task: { title: '📁 task.md (The Whiteboard)', desc: 'Live progress tracking checklist. Shows completed ([x]), in-progress ([/]), and uncompleted ([ ]) tasks.' },
+            handover: { title: '📁 handover.md (The Shift Report)', desc: "The transition summary when the agent finishes its work. Think of this as the shift report showing what was done, what was verified, and next steps." }
+        };
+        document.querySelectorAll('.folder-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.folder-card').forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                const key = card.getAttribute('data-folder');
+                const data = folderData[key];
+                const detailBox = document.getElementById('folder-details-panel');
+                detailBox.querySelector('.details-placeholder').style.display = 'none';
+                const content = detailBox.querySelector('.details-content');
+                content.style.display = 'block';
+                document.getElementById('folder-details-title').textContent = data.title;
+                document.getElementById('folder-details-desc').textContent = data.desc;
+            });
+        });
+
+        // Reveal Debrief Answer toggler function
+        window.toggleAnswer = function(btn) {
+            const answer = btn.closest('.q-card').querySelector('.q-answer');
+            if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+                answer.style.maxHeight = '0px';
+                btn.textContent = 'Reveal Answer ▽';
+                btn.classList.remove('active');
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                btn.textContent = 'Hide Answer △';
+                btn.classList.add('active');
+            }
+        }
+
         // Modal Dialog Glossary loops
         const glossaryDialog = document.getElementById('glossary-dialog');
         const openGlossaryBtn = document.getElementById('open-glossary-btn');
@@ -1119,7 +1722,6 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         const glossaryIframe = document.getElementById('glossary-iframe');
 
         openGlossaryBtn.addEventListener('click', () => {
-            // Reload iframe if needed
             glossaryDialog.showModal();
         });
 
