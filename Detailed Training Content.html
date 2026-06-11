@@ -640,6 +640,88 @@
             line-height: 1.5;
         }
 
+        /* Premium Agenda Table */
+        .agenda-table-container {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            margin-top: 20px;
+        }
+
+        .agenda-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .agenda-table th {
+            background: rgba(15, 44, 167, 0.04);
+            color: var(--jio-blue);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .agenda-row {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .agenda-row:last-child {
+            border-bottom: none;
+        }
+
+        .agenda-row:hover {
+            background-color: var(--jio-blue-glow);
+            transform: scale(1.002);
+        }
+
+        .agenda-row td {
+            padding: 18px 20px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+
+        .agenda-day-badge {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .agenda-title-cell {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--jio-blue);
+        }
+
+        .agenda-desc-cell {
+            color: var(--text-muted);
+        }
+
+        .agenda-action-cell {
+            font-family: 'Fira Code', monospace;
+            font-size: 12.5px;
+            color: var(--jio-blue);
+            font-weight: 600;
+        }
+
         /* Interactive Folder Tabs Graphic style */
         .folders-grid-container {
             background: #ffffff;
@@ -1247,32 +1329,49 @@
             </div>
 
             <h3 style="margin-top: 35px; margin-bottom: 20px; border-left-color: var(--jio-blue);">Workbook Content At-a-Glance</h3>
-            <div class="curriculum-grid">
-                <div class="day-card" data-trigger-tab="day0">
-                    <div class="day-card-num">Day 0</div>
-                    <div class="day-card-title">Welcome to the Command Desk</div>
-                    <div class="day-card-desc">Set up your workspace. Understand the Expert Contractor metaphor, the five core context files, and run basic setup verification.</div>
-                </div>
-                <div class="day-card" data-trigger-tab="day1">
-                    <div class="day-card-num">Day 1</div>
-                    <div class="day-card-title">Delegating Goals vs. Orders</div>
-                    <div class="day-card-desc">Adopt the outcome-based brief. Review the agent's project proposal (implementation plan) and learn to iterate.</div>
-                </div>
-                <div class="day-card" data-trigger-tab="day2">
-                    <div class="day-card-num">Day 2</div>
-                    <div class="day-card-title">Workspace & Tool Auditing</div>
-                    <div class="day-card-desc">Understand tool calls and MCP permissions. Audit file changes and run compensation ratio data analyses.</div>
-                </div>
-                <div class="day-card" data-trigger-tab="day3">
-                    <div class="day-card-num">Day 3</div>
-                    <div class="day-card-title">Agentic Orchestration</div>
-                    <div class="day-card-desc">Coordinate specialized subagents (Equity and Positioning) and inspect intermediate reasoning Thought Processes.</div>
-                </div>
-                <div class="day-card" data-trigger-tab="day4">
-                    <div class="day-card-num">Day 4</div>
-                    <div class="day-card-title">Pay Review Capstone</div>
-                    <div class="day-card-desc">Run a full, policy-compliant annual pay review, generate adjustment spreadsheets, and compile letter batches.</div>
-                </div>
+            <div class="agenda-table-container">
+                <table class="agenda-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 12%;">Module</th>
+                            <th style="width: 25%;">Topic / Title</th>
+                            <th style="width: 45%;">Description &amp; Learning Focus</th>
+                            <th style="width: 18%;">Practical Exercise Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="agenda-row" data-trigger-tab="day0">
+                            <td><span class="agenda-day-badge" style="background-color: var(--jio-red); box-shadow: 0 2px 6px var(--jio-red-glow);">Day 0</span></td>
+                            <td class="agenda-title-cell">Welcome to the Command Desk</td>
+                            <td class="agenda-desc-cell">Set up your workspace. Understand the Expert Contractor metaphor, the five core context files, and run basic setup verification.</td>
+                            <td class="agenda-action-cell">Workspace Setup &amp; Onboarding Brief</td>
+                        </tr>
+                        <tr class="agenda-row" data-trigger-tab="day1">
+                            <td><span class="agenda-day-badge" style="background-color: var(--jio-blue); box-shadow: 0 2px 6px var(--jio-blue-glow);">Day 1</span></td>
+                            <td class="agenda-title-cell">Delegating Goals vs. Orders</td>
+                            <td class="agenda-desc-cell">Adopt the outcome-based brief. Review the agent's project proposal (implementation plan) and learn to iterate.</td>
+                            <td class="agenda-action-cell">Onboarding Folder Creation</td>
+                        </tr>
+                        <tr class="agenda-row" data-trigger-tab="day2">
+                            <td><span class="agenda-day-badge" style="background-color: var(--amber-border); box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);">Day 2</span></td>
+                            <td class="agenda-title-cell">Workspace &amp; Tool Auditing</td>
+                            <td class="agenda-desc-cell">Understand tool calls and MCP permissions. Audit file changes and run compensation ratio data analyses.</td>
+                            <td class="agenda-action-cell">Compa-ratio CSV Audit</td>
+                        </tr>
+                        <tr class="agenda-row" data-trigger-tab="day3">
+                            <td><span class="agenda-day-badge" style="background-color: var(--violet-border); box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);">Day 3</span></td>
+                            <td class="agenda-title-cell">Agentic Orchestration</td>
+                            <td class="agenda-desc-cell">Coordinate specialized subagents (Equity and Positioning) and inspect intermediate reasoning Thought Processes.</td>
+                            <td class="agenda-action-cell">Multi-Agent Salary Check</td>
+                        </tr>
+                        <tr class="agenda-row" data-trigger-tab="day4">
+                            <td><span class="agenda-day-badge" style="background-color: var(--emerald-border); box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);">Day 4</span></td>
+                            <td class="agenda-title-cell">Pay Review Capstone</td>
+                            <td class="agenda-desc-cell">Run a full, policy-compliant annual pay review, generate adjustment spreadsheets, and compile letter batches.</td>
+                            <td class="agenda-action-cell">Annual Review &amp; Letter Batch</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -1616,7 +1715,7 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         });
 
         // Setup Runsheet Day Cards triggers on Home Tab
-        document.querySelectorAll('.day-card').forEach(card => {
+        document.querySelectorAll('.day-card, .agenda-row').forEach(card => {
             card.addEventListener('click', () => {
                 const target = card.getAttribute('data-trigger-tab');
                 switchTab(target);
