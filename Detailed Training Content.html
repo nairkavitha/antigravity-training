@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antigravity 2.0 - Learner Workbook Portal</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             /* Brand Colors */
@@ -17,20 +20,23 @@
             --jio-blue-deep: #003D7A;
             --jio-blue-light: #1A6FBE;
             --jio-blue-pale: #E8F1FA;
-            
+
             --jio-red: #E8001D;
             --jio-red-light: #FF4D62;
             --jio-red-pale: #FFF0F2;
-            
+
             --jio-cyan: #00B4D8;
             --jio-cyan-pale: #E0F7FB;
 
             /* Neutrals & Surfaces */
             --white: #FFFFFF;
-            --off-white: #F7F9FC;     /* Body background */
-            --surface: #F0F4F9;       /* Inactive tracks, secondary sections */
-            --surface-2: #E3EBF5;     /* Tags and borders */
-            
+            --off-white: #F7F9FC;
+            /* Body background */
+            --surface: #F0F4F9;
+            /* Inactive tracks, secondary sections */
+            --surface-2: #E3EBF5;
+            /* Tags and borders */
+
             /* Borders */
             --border: #D0DFF0;
             --border-light: #EAF0F8;
@@ -44,10 +50,10 @@
             /* Accent & Status Colors */
             --green: #00875A;
             --green-pale: #E3F9F0;
-            
+
             --amber: #E67E22;
             --amber-pale: #FEF5EC;
-            
+
             --purple: #6C47BB;
             --purple-pale: #F0EBFB;
 
@@ -67,7 +73,7 @@
             --bg-card: var(--white);
             --border-color: var(--border-light);
             --text-main: var(--text-primary);
-            
+
             /* Glow effects updated to new Jio Blue/Red */
             --jio-blue-glow: rgba(0, 90, 172, 0.15);
             --jio-red-glow: rgba(232, 0, 29, 0.15);
@@ -106,13 +112,16 @@
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
+
         ::-webkit-scrollbar-thumb {
             background: rgba(15, 23, 42, 0.15);
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--jio-blue);
         }
@@ -342,9 +351,17 @@
             margin-bottom: 4px;
         }
 
-        .stat-card:nth-child(2) .stat-val { color: var(--jio-red); }
-        .stat-card:nth-child(3) .stat-val { color: #d97706; }
-        .stat-card:nth-child(4) .stat-val { color: #059669; }
+        .stat-card:nth-child(2) .stat-val {
+            color: var(--jio-red);
+        }
+
+        .stat-card:nth-child(3) .stat-val {
+            color: #d97706;
+        }
+
+        .stat-card:nth-child(4) .stat-val {
+            color: #059669;
+        }
 
         .stat-lbl {
             font-size: 11px;
@@ -441,8 +458,15 @@
         }
 
         @keyframes contentFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Structured Curriculum Typography overrides */
@@ -532,7 +556,7 @@
             margin: 20px 0;
             font-size: 15px;
             line-height: 1.5;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         /* Callout Cards overriding Notion */
@@ -563,18 +587,25 @@
             border-left-color: var(--teal-border);
             background: var(--teal-bg);
         }
-        .callout.callout-install, .callout-install {
+
+        .callout.callout-install,
+        .callout-install {
             border-left-color: var(--blue-border);
             background: var(--blue-bg);
         }
-        .alert-box.warning, .callout.callout-warning {
+
+        .alert-box.warning,
+        .callout.callout-warning {
             border-left-color: var(--amber-border);
             background: var(--amber-bg);
         }
-        .alert-box.security, .callout.callout-security {
+
+        .alert-box.security,
+        .callout.callout-security {
             border-left-color: var(--violet-border);
             background: var(--violet-bg);
         }
+
         .callout.callout-success {
             border-left-color: var(--emerald-border);
             background: var(--emerald-bg);
@@ -601,7 +632,7 @@
             border: 1px solid var(--border-color);
             background: #ffffff;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         }
 
         .code-header {
@@ -708,7 +739,7 @@
             border-radius: 8px;
             padding: 16px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .stat-val {
@@ -741,7 +772,7 @@
             padding: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .day-card:hover {
@@ -863,7 +894,7 @@
             border-radius: 12px;
             padding: 24px;
             margin: 25px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
 
         .folders-grid {
@@ -925,6 +956,7 @@
         .folder-card:hover .folder-tab {
             background: var(--jio-blue);
         }
+
         .folder-card:hover .folder-body {
             background: var(--jio-blue-glow);
             border-color: var(--jio-blue);
@@ -934,11 +966,13 @@
         .folder-card.active .folder-tab {
             background: var(--jio-red);
         }
+
         .folder-card.active .folder-body {
             background: rgba(225, 37, 27, 0.04);
             border-color: var(--jio-red);
             box-shadow: 0 4px 15px rgba(225, 37, 27, 0.08);
         }
+
         .folder-card.active .folder-title {
             color: var(--jio-red);
         }
@@ -967,6 +1001,7 @@
             color: var(--jio-blue);
             margin-bottom: 6px;
         }
+
         .details-content p {
             font-size: 14.5px;
             color: var(--text-main);
@@ -980,7 +1015,7 @@
             border-radius: 12px;
             padding: 30px;
             margin: 25px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             overflow-x: auto;
         }
 
@@ -1053,8 +1088,17 @@
         }
 
         @keyframes pulseArrow {
-            0%, 100% { transform: translateX(0); opacity: 0.6; }
-            50% { transform: translateX(5px); opacity: 1; }
+
+            0%,
+            100% {
+                transform: translateX(0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateX(5px);
+                opacity: 1;
+            }
         }
 
         .connector-label {
@@ -1072,7 +1116,7 @@
             border-radius: 12px;
             padding: 24px;
             margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
 
         .knowledge-check-header {
@@ -1277,19 +1321,23 @@
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
+
             .top-nav-menu {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 4px;
             }
+
             .top-nav-btn {
                 padding: 6px 12px;
                 font-size: 13px;
             }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 margin-top: -20px;
             }
+
             .segments-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -1301,25 +1349,31 @@
                 grid-template-columns: 1fr;
                 margin-top: -15px;
             }
+
             .segments-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
+
             .welcome-stats {
                 grid-template-columns: 1fr;
             }
+
             .folders-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .diagram-container {
                 flex-direction: column;
                 min-width: 100%;
                 gap: 20px;
             }
+
             .diagram-connector {
                 width: 100%;
                 height: 40px;
             }
+
             .connector-arrow {
                 transform: rotate(90deg);
                 animation: pulseArrowVertical 2s infinite;
@@ -1327,11 +1381,21 @@
         }
 
         @keyframes pulseArrowVertical {
-            0%, 100% { transform: rotate(90deg) translateX(0); opacity: 0.6; }
-            50% { transform: rotate(90deg) translateX(5px); opacity: 1; }
+
+            0%,
+            100% {
+                transform: rotate(90deg) translateX(0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: rotate(90deg) translateX(5px);
+                opacity: 1;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Top Sticky Header Navigation Bar -->
@@ -1341,30 +1405,33 @@
                 <span class="nav-brand-logo">🌌</span>
                 <span>ANTIGRAVITY 2.0</span>
             </div>
-            
+
             <nav>
                 <ul class="top-nav-menu">
                     <li class="top-nav-item">
                         <button class="top-nav-btn active" data-target="home">Home</button>
                     </li>
                     <li class="top-nav-item">
-                        <button class="top-nav-btn" data-target="day0">Day 0</button>
+                        <button class="top-nav-btn" data-target="day0">Basics and installation</button>
                     </li>
                     <li class="top-nav-item">
-                        <button class="top-nav-btn" data-target="day1">Day 1</button>
+                        <button class="top-nav-btn" data-target="day0-walkthrough">Antigravity UI walkthrough</button>
                     </li>
                     <li class="top-nav-item">
-                        <button class="top-nav-btn" data-target="day2">Day 2</button>
+                        <button class="top-nav-btn" data-target="day1">1</button>
                     </li>
                     <li class="top-nav-item">
-                        <button class="top-nav-btn" data-target="day3">Day 3</button>
+                        <button class="top-nav-btn" data-target="day2">2</button>
                     </li>
                     <li class="top-nav-item">
-                        <button class="top-nav-btn" data-target="day4">Day 4</button>
+                        <button class="top-nav-btn" data-target="day3">3</button>
+                    </li>
+                    <li class="top-nav-item">
+                        <button class="top-nav-btn" data-target="day4">4</button>
                     </li>
                 </ul>
             </nav>
-            
+
             <div class="top-nav-actions">
                 <button class="action-btn primary-action" id="open-glossary-btn">
                     <span>📖</span> <span class="btn-text">Open AI Glossary</span>
@@ -1376,55 +1443,65 @@
     <!-- Majestic Hero Banner -->
     <section class="hero-banner">
         <div class="hero-container">
-            <span class="hero-badge" id="panel-day-badge">SYSTEM INITIALIZED</span>
-            <h1 class="hero-title" id="panel-day-title">HR Learner Workbook</h1>
-            <p class="hero-subtitle" id="panel-day-subtitle">Upskilling Workspace</p>
+            <span class="hero-badge" id="panel-day-badge">Jio HR Training</span>
+            <h1 class="hero-title" id="panel-day-title">Welcome to the Antigravity 2.0 Upskilling Program</h1>
+            <p class="hero-subtitle" id="panel-day-subtitle">Training Workspace</p>
         </div>
     </section>
 
-    <!-- Global Stats Dashboard Grid -->
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 30px; width: 100%;">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-val">5 Days</div>
-                <div class="stat-lbl">Course Modules</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val">2.5 Hours</div>
-                <div class="stat-lbl">Module 0 Duration</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val">Jio Brand</div>
-                <div class="stat-lbl">Light Mode Design</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val">Sandboxed</div>
-                <div class="stat-lbl">Practice Environment</div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Main Content Panel -->
     <main class="main-panel">
 
         <!-- 🏠 HOME/WELCOME TAB CONTENT -->
         <section class="tab-content active" id="home-content">
-            <div class="welcome-hero">
-                <h2>Welcome to the Antigravity 2.0 Upskilling Program</h2>
-                <p style="margin-top: 10px; font-size: 16px; color: var(--text-main);">
-                    This portal serves as your interactive workbook and course guide for the Antigravity 2.0 upskilling course. 
-                    Follow along with your facilitator to explore core metaphors, execute hands-on exercises, copy prompts, and complete self-assessments.
-                </p>
-            </div>
-            
+
 
 
             <div style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; border-left-color: var(--jio-blue);">Overview & Course Scope</h3>
-                <div style="display:contents" dir="ltr"><figure class="callout" style="white-space:pre-wrap;display:flex" id="37c4d454-8ff5-81f8-989b-fdd9c4b4223a"><div style="font-size:1.5em"><span class="icon">🎯</span></div><div style="width:100%">Interactive workbook portal for the 5-day Antigravity 2.0 workshop. Follow along with your facilitator to complete hands-on activities, copy prompts, and verify your AI agent's deliverables.</div></figure></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-818c-97b7-cfa2b3dd9e48" class="">Scope note: this workshop makes the team fluent in Antigravity as a tool. It is foundational — it deliberately does NOT cover BRD / user stories / journeys / the production Pay Review build. The sandbox pay-review is a teaching microcosm only.</p></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-81e3-a4ff-c2ce69c744cc"/></div>
+                <h3 style="margin-bottom: 15px; border-left-color: var(--jio-blue);">Overview &amp; Course Scope</h3>
+                
+                <div class="day-overview-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <!-- Left Box: What you can find on this portal -->
+                    <div class="callout callout-install" style="margin: 0; height: 100%; display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon">📦</div>
+                        <div class="callout-body">
+                            <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--jio-blue); margin-bottom: 8px;">What you can find on this portal</h4>
+                            <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+                                <li><strong>Basics &amp; Installation:</strong> Guidelines and prerequisites for setting up your workspace desk.</li>
+                                <li><strong>UI Walkthrough:</strong> An interactive visual map of all Antigravity command panels and features.</li>
+                                <li><strong>Core Modules 1–4:</strong> Structured training files covering goal delegation, tools, subagents, and the Capstone Pay Review.</li>
+                                <li><strong>Assessments:</strong> Interactive checks to test your knowledge at the end of each module.</li>
+                                <li><strong>Prompt Copier:</strong> Pre-formatted, copyable text briefs for your practice sandboxes.</li>
+                                <li><strong>AI Glossary:</strong> Human-centric office analogies explaining key terms like subagents and Permission Gates.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Box: Learning Objectives -->
+                    <div class="callout callout-target" style="margin: 0; height: 100%; display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon">🎯</div>
+                        <div class="callout-body">
+                            <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 8px;">Learning Objectives</h4>
+                            <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+                                <li>Master the physical "Command Desk" and "Expert Contractor" alignment metaphors.</li>
+                                <li>Shift from micromanaging step lists to defining clear, outcome-based goal briefs.</li>
+                                <li>Audit Model Context Protocol (MCP) permissions and terminal logs to prevent PII leaks.</li>
+                                <li>Spawn, coordinate, and review specialized subagent department loops.</li>
+                                <li>Orchestrate a policy-compliant annual pay review Capstone process from end-to-end.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:contents" dir="auto">
+                    <hr id="37c4d454-8ff5-81e3-a4ff-c2ce69c744cc" />
+                </div>
             </div>
 
-            <h3 style="margin-top: 35px; margin-bottom: 20px; border-left-color: var(--jio-blue);">Workbook Content At-a-Glance</h3>
+            <h3 style="margin-top: 35px; margin-bottom: 20px; border-left-color: var(--jio-blue);">Workbook Content
+                At-a-Glance</h3>
             <div class="agenda-table-container">
                 <table class="agenda-table">
                     <thead>
@@ -1437,33 +1514,56 @@
                     </thead>
                     <tbody>
                         <tr class="agenda-row" data-trigger-tab="day0">
-                            <td><span class="agenda-day-badge" style="background-color: var(--jio-red); box-shadow: 0 2px 6px var(--jio-red-glow);">Day 0</span></td>
-                            <td class="agenda-title-cell">Welcome to the Command Desk</td>
-                            <td class="agenda-desc-cell">Set up your workspace. Understand the Expert Contractor metaphor, the five core context files, and run basic setup verification.</td>
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: var(--jio-red); box-shadow: 0 2px 6px var(--jio-red-glow);">Setup</span>
+                            </td>
+                            <td class="agenda-title-cell">Basics &amp; Installation</td>
+                            <td class="agenda-desc-cell">Set up your workspace. Understand the Expert Contractor
+                                metaphor, the five core context files, and run basic setup verification.</td>
                             <td class="agenda-action-cell">Workspace Setup &amp; Onboarding Brief</td>
                         </tr>
+                        <tr class="agenda-row" data-trigger-tab="day0-walkthrough">
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: #6366f1; box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);">Tour</span>
+                            </td>
+                            <td class="agenda-title-cell">Antigravity UI Walkthrough</td>
+                            <td class="agenda-desc-cell">Tour the Integrated Command Desk panels. Practice expanding the reasoning log, and manage tool authorizations in the Permission Gate.</td>
+                            <td class="agenda-action-cell">Command Desk Navigation &amp; Thought Log Audit</td>
+                        </tr>
                         <tr class="agenda-row" data-trigger-tab="day1">
-                            <td><span class="agenda-day-badge" style="background-color: var(--jio-blue); box-shadow: 0 2px 6px var(--jio-blue-glow);">Day 1</span></td>
-                            <td class="agenda-title-cell">Delegating Goals vs. Orders</td>
-                            <td class="agenda-desc-cell">Adopt the outcome-based brief. Review the agent's project proposal (implementation plan) and learn to iterate.</td>
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: var(--jio-blue); box-shadow: 0 2px 6px var(--jio-blue-glow);">1</span>
+                            </td>
+                            <td class="agenda-title-cell">Goals vs. Orders</td>
+                            <td class="agenda-desc-cell">Adopt the outcome-based brief. Review the agent's project
+                                proposal (implementation plan) and learn to iterate.</td>
                             <td class="agenda-action-cell">Onboarding Folder Creation</td>
                         </tr>
                         <tr class="agenda-row" data-trigger-tab="day2">
-                            <td><span class="agenda-day-badge" style="background-color: var(--amber-border); box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);">Day 2</span></td>
-                            <td class="agenda-title-cell">Workspace &amp; Tool Auditing</td>
-                            <td class="agenda-desc-cell">Understand tool calls and MCP permissions. Audit file changes and run compensation ratio data analyses.</td>
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: var(--amber-border); box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);">2</span>
+                            </td>
+                            <td class="agenda-title-cell">Workspace &amp; Tools</td>
+                            <td class="agenda-desc-cell">Understand tool calls and MCP permissions. Audit file changes
+                                and run compensation ratio data analyses.</td>
                             <td class="agenda-action-cell">Compa-ratio CSV Audit</td>
                         </tr>
                         <tr class="agenda-row" data-trigger-tab="day3">
-                            <td><span class="agenda-day-badge" style="background-color: var(--violet-border); box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);">Day 3</span></td>
-                            <td class="agenda-title-cell">Agentic Orchestration</td>
-                            <td class="agenda-desc-cell">Coordinate specialized subagents (Equity and Positioning) and inspect intermediate reasoning Thought Processes.</td>
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: var(--violet-border); box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);">3</span>
+                            </td>
+                            <td class="agenda-title-cell">Subagents</td>
+                            <td class="agenda-desc-cell">Coordinate specialized subagents (Equity and Positioning) and
+                                inspect intermediate reasoning Thought Processes.</td>
                             <td class="agenda-action-cell">Multi-Agent Salary Check</td>
                         </tr>
                         <tr class="agenda-row" data-trigger-tab="day4">
-                            <td><span class="agenda-day-badge" style="background-color: var(--emerald-border); box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);">Day 4</span></td>
-                            <td class="agenda-title-cell">Pay Review Capstone</td>
-                            <td class="agenda-desc-cell">Run a full, policy-compliant annual pay review, generate adjustment spreadsheets, and compile letter batches.</td>
+                            <td><span class="agenda-day-badge"
+                                    style="background-color: var(--emerald-border); box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);">4</span>
+                            </td>
+                            <td class="agenda-title-cell">Pay Review</td>
+                            <td class="agenda-desc-cell">Run a full, policy-compliant annual pay review, generate
+                                adjustment spreadsheets, and compile letter batches.</td>
                             <td class="agenda-action-cell">Annual Review &amp; Letter Batch</td>
                         </tr>
                     </tbody>
@@ -1473,445 +1573,1123 @@
 
         <!-- 📅 DAY 0 TAB CONTENT -->
         <section class="tab-content" id="day0-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8116-9cda-e06da597875a" class="">Day 0: Welcome to the Command Desk - IDE & Agent Basics (150 min)</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81d5-9e3c-e235881c0e26" class=""><strong>Learning outcomes: </strong>By the end, every learner has Antigravity installed and open, can explain in plain words what an AI Agent is (vs a chatbot), recognises the five context files, and has run one safe agent task.</p></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81fe-aaa2-eed6ccb70007" class=""><strong>Materials: </strong>Installer link, authorised Google account, the HR_Mission_Control folder pre-placed on each desktop, glossary.html, a projector for the live demo.</p></div><div style="display:contents" dir="auto"><div class="segments-grid">
-        <div class="segment-card">
-            <div class="segment-card-num">01</div>
-            <h3 id="37c4d454-8ff5-8174-904b-f5ece9dd433d" class="">Segment 1 — Welcome &amp; The Shift in Mindset</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e4-95a6-c163606c080e" class="">Our workshop centers on a key change in how you approach AI tools:</p></div><div style="display:contents" dir="auto"><blockquote id="37c4d454-8ff5-81bf-ad53-cb328d5b6151" class="">“For the next five days, you are not learning to code. You are learning to direct. The agent is your Expert Contractor — highly capable, extremely fast, but operating with zero institutional knowledge and zero judgment about consequences. It will do exactly what you asked, not what you meant. A human team member would flag when something seems off. The agent won't — it will produce a clean, confident output and wait for your approval. That's why your sign-off is not a formality. It's the only safeguard in the chain.”</blockquote></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cf-a72b-c789c88919d4" class=""><div class="takeaway-box"><strong>What to Expect:</strong> You will not write code during this workshop. The sandbox is a safe-to-fail practicing space. By Day 4, you will run an annual pay review end-to-end yourself.</div></p></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <h2 id="37c4d454-8ff5-8116-9cda-e06da597875a" class="" style="margin-bottom: 20px;">Welcome to the
+                    Command Desk - Basics &amp; Installation (150 min)</h2>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">02</div>
-            <h3 id="37c4d454-8ff5-8140-a180-e0e18bb738f8" class="">Segment 2 — Navigating the Workspace</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-a9d7-c1855517342e" class=""><p>An IDE (Integrated Development Environment) is a software application that provides a comprehensive, centralized workspace for programmers to write, test, build, and debug code. It enhances developer productivity by combining tools like a code editor, compiler, and debugger into a single, cohesive graphical user interface; we call it our <strong>Command Desk</strong> because it is where all our work, tools, and sandbox live.</p></p></div><div style="display:contents" dir="auto">
+            <div class="day-overview-panel"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div class="callout callout-target"
+                    style="margin: 0; height: 100%; display: flex; gap: 15px; align-items: flex-start;">
+                    <div class="icon">🎯</div>
+                    <div class="callout-body">
+                        <h4
+                            style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 8px;">
+                            Learning Outcomes</h4>
+                        <p style="font-size: 13.5px; line-height: 1.5; color: var(--text-secondary); margin: 0;">By the
+                            end of this module, every learner will have Antigravity installed, explain in plain words
+                            what an AI Agent is (vs. a chatbot), recognize the five context files, and run one safe
+                            sandbox task.</p>
+                    </div>
+                </div>
+                <div class="callout callout-install"
+                    style="margin: 0; height: 100%; display: flex; gap: 15px; align-items: flex-start;">
+                    <div class="icon">📦</div>
+                    <div class="callout-body">
+                        <h4
+                            style="font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--jio-blue); margin-bottom: 8px;">
+                            Required Materials &amp; Setup</h4>
+                        <p style="font-size: 13.5px; line-height: 1.5; color: var(--text-secondary); margin: 0;">
+                            Antigravity installer, authorized Jio Google account, the <code>HR_Mission_Control</code>
+                            folder pre-placed on the desktop, <code>glossary.html</code>, and a projector for the
+                            facilitator walkthrough.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">03</div>
-            <h3 id="37c4d454-8ff5-8116-bfd6-edb75e4e96f6" class="">Segment 3 — Agents, LLMs &amp; Hallucination</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8120-9804-dc8d853bdfc6" class="bulleted-list"><li style="list-style-type:disc"><strong>Chatbot vs. Agent:</strong> A chatbot simply responds to text prompts (like an advisor on the phone). An AI Agent acts—it plans, navigates folders, runs tools, and creates documents (like a team member who does the work).</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-814a-bd81-e0d078844b8c" class="bulleted-list"><li style="list-style-type:disc"><strong>LLM: </strong>the engine underneath — a prediction machine trained on language. It is powerful but not a database; it predicts plausible text. When the agent reads your files, it's not guessing — it's pulling the actual data. Where it predicts is in interpreting that data, making connections, and writing the analysis. The numbers it reads are real. The conclusions it draws need checking.</li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-811a-bb64-dc5e0ef8ae8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Hallucination: </strong>because it predicts rather than looks up, it can state a wrong figure confidently. This is THE reason we keep a human in the loop and always check artifacts against source files.</li></ul></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Key Concept: Confidence is not Correctness.</strong> Because LLMs predict plausible text rather than searching a static database, they can state wrong facts with absolute confidence (known as "hallucination"). This is why human review (Human-in-the-Loop) is the ultimate safeguard.</div></div></div><div style="display:contents" dir="auto">
+            
+            <!-- What is Antigravity Video Section -->
+            <div class="callout" style="display: block; padding: 25px; margin: 20px 0 30px 0; background-color: var(--off-white); border-left: 4px solid var(--jio-blue); border-radius: 8px;">
+                <h3 style="margin: 0 0 15px 0; font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); border-left: none; padding-left: 0;">What is Antigravity?</h3>
+                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+                    Watch this brief video introduction to understand how the Antigravity 2.0 command workspace integrates AI agents, security permission gates, and data tools to support human-supervised HR tasks.
+                </p>
+                
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 700px; background: #000; border-radius: 6px; border: 1px solid var(--border-color); margin: 0 auto 15px auto;">
+                    <iframe src="https://www.youtube.com/embed/6C0FjHoN3qE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://www.youtube.com/watch?v=6C0FjHoN3qE" target="_blank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--jio-blue); font-weight: 600; padding: 6px 12px; border-radius: 4px; background: var(--jio-blue-glow);">
+                        <span>↗️</span> Open Video in YouTube
+                    </a>
+                </div>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">04</div>
-            <h3 id="37c4d454-8ff5-815f-bbe9-ebfefe0ee6f3" class="">Segment 4 — The Five Core Context Files</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p>To coordinate with the agent, we use **five core context files**. They act as the documentation and alignment trail for our project. Click the folders below to inspect their purpose:</p></div><div style="display:contents" dir="auto">
-<div class="folders-grid-container">
-    <div class="folders-grid">
-        <div class="folder-card" data-folder="readme">
-            <div class="folder-tab"></div>
-            <div class="folder-body">
-                <span class="folder-icon">📄</span>
-                <span class="folder-title">README.md</span>
-                <span class="folder-tag">The Welcome Sign</span>
+
+            <div style="display:contents" dir="auto">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <div class="segment-card-num">01</div>
+                        <h3 id="37c4d454-8ff5-8174-904b-f5ece9dd433d" class="">Segment 1 — Welcome &amp; The Shift in
+                            Mindset</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81e4-95a6-c163606c080e" class="">Our workshop centers on a key change
+                                in how you approach AI tools:</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <blockquote id="37c4d454-8ff5-81bf-ad53-cb328d5b6151" class="">“For the next five days, you
+                                are not learning to code. You are learning to direct. The agent is your Expert
+                                Contractor — highly capable, extremely fast, but operating with zero institutional
+                                knowledge and zero judgment about consequences. It will do exactly what you asked, not
+                                what you meant. A human team member would flag when something seems off. The agent won't
+                                — it will produce a clean, confident output and wait for your approval. That's why your
+                                sign-off is not a formality. It's the only safeguard in the chain.”</blockquote>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81cf-a72b-c789c88919d4" class="">
+                            <div class="takeaway-box"><strong>What to Expect:</strong> You will not write code during
+                                this workshop. The sandbox is a safe-to-fail practicing space. By core module 4, you
+                                will run an annual pay review end-to-end yourself.</div>
+                            </p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">02</div>
+                        <h3 id="37c4d454-8ff5-8140-a180-e0e18bb738f8" class="">Segment 2 — Navigating the Command Desk
+                        </h3>
+                        <div class="segment-card-body">
+                            <p style="margin-bottom: 15px;">To orchestrate our sandbox workflow, we use the
+                                <strong>Integrated Command Desk (IDE)</strong>. Think of a physical office desk: it puts
+                                your filing drawer, typing pad, calculator, and assistant telephone in one arm's-reach
+                                workspace so you don't have to keep walking to different rooms. The Command Desk does
+                                the same on your screen, combining everything into a single workspace.
+                            </p>
+
+                            <h4
+                                style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--jio-blue); margin-bottom: 12px; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                Physical Office vs. Command Desk Map</h4>
+
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-primary); font-size: 13.5px;">
+                                        <span>🗄️</span> <span
+                                            style="font-family: 'Rajdhani', sans-serif; font-weight: 700;">Filing
+                                            Cabinet</span>
+                                    </div>
+                                    <div
+                                        style="font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; text-transform: uppercase;">
+                                        File Explorer (Left)</div>
+                                    <p
+                                        style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                                        Access raw files like <code>employees.csv</code> and guidelines in the
+                                        <code>policies/</code> directory.
+                                    </p>
+                                </div>
+
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-primary); font-size: 13.5px;">
+                                        <span>📝</span> <span
+                                            style="font-family: 'Rajdhani', sans-serif; font-weight: 700;">Writing
+                                            Pad</span>
+                                    </div>
+                                    <div
+                                        style="font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; text-transform: uppercase;">
+                                        Editor View (Center)</div>
+                                    <p
+                                        style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                                        Where you read, write, and review documents like the
+                                        <code>implementation_plan.md</code> proposal.
+                                    </p>
+                                </div>
+
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-primary); font-size: 13.5px;">
+                                        <span>📞</span> <span
+                                            style="font-family: 'Rajdhani', sans-serif; font-weight: 700;">Hotline
+                                            Phone</span>
+                                    </div>
+                                    <div
+                                        style="font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; text-transform: uppercase;">
+                                        AI Chat Panel (Right)</div>
+                                    <p
+                                        style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                                        Your direct line to delegate business outcomes to the agent and review their
+                                        intermediate drafts.</p>
+                                </div>
+
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div
+                                        style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-primary); font-size: 13.5px;">
+                                        <span>🧠</span> <span
+                                            style="font-family: 'Rajdhani', sans-serif; font-weight: 700;">Assistant
+                                            Notes</span>
+                                    </div>
+                                    <div
+                                        style="font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; text-transform: uppercase;">
+                                        Thought Process Logs</div>
+                                    <p
+                                        style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">
+                                        A collapsible reasoning log inside Chat that exposes the agent's calculations
+                                        and logic live.</p>
+                                </div>
+                            </div>
+
+                            <div class="alert-box info" style="margin-top: 15px; border-left-color: var(--jio-blue);">
+                                <div class="icon">💡</div>
+                                <div class="alert-content">
+                                    <strong>Visual Walkthrough Available:</strong> We have compiled a detailed,
+                                    screenshot-mapped guide of each Command Desk panel. Click on the <strong>UI
+                                        Walkthrough</strong> tab at the top of this portal to view the visual interface
+                                    map before proceeding.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">03</div>
+                        <h3 id="37c4d454-8ff5-8116-bfd6-edb75e4e96f6" class="">Segment 3 — Agents, LLMs &amp;
+                            Hallucination</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ul id="37c4d454-8ff5-8120-9804-dc8d853bdfc6" class="bulleted-list">
+                                <li style="list-style-type:disc"><strong>Chatbot vs. Agent:</strong> A chatbot simply
+                                    responds to text prompts (like an advisor on the phone). An AI Agent acts—it plans,
+                                    navigates folders, runs tools, and creates documents (like a team member who does
+                                    the work).</li>
+                            </ul>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ul id="37c4d454-8ff5-814a-bd81-e0d078844b8c" class="bulleted-list">
+                                <li style="list-style-type:disc"><strong>LLM: </strong>the engine underneath — a
+                                    prediction machine trained on language. It is powerful but not a database; it
+                                    predicts plausible text. When the agent reads your files, it's not guessing — it's
+                                    pulling the actual data. Where it predicts is in interpreting that data, making
+                                    connections, and writing the analysis. The numbers it reads are real. The
+                                    conclusions it draws need checking.</li>
+                            </ul>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ul id="37c4d454-8ff5-811a-bb64-dc5e0ef8ae8b" class="bulleted-list">
+                                <li style="list-style-type:disc"><strong>Hallucination: </strong>because it predicts
+                                    rather than looks up, it can state a wrong figure confidently. This is THE reason we
+                                    keep a human in the loop and always check artifacts against source files.</li>
+                            </ul>
+                        </div>
+                        <div style="display:contents" dir="ltr">
+                            <div class="alert-box warning">
+                                <div class="icon">⚠️</div>
+                                <div class="alert-content"><strong>Key Concept: Confidence is not Correctness.</strong>
+                                    Because LLMs predict plausible text rather than searching a static database, they
+                                    can state wrong facts with absolute confidence (known as "hallucination"). This is
+                                    why human review (Human-in-the-Loop) is the ultimate safeguard.</div>
+                            </div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">04</div>
+                        <h3 id="37c4d454-8ff5-815f-bbe9-ebfefe0ee6f3" class="">Segment 4 — The Five Core Context Files
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p>To coordinate with the agent, we use **five core context files**. They act as the
+                                documentation and alignment trail for our project. Click the folders below to inspect
+                                their purpose:</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <div class="folders-grid-container">
+                                <div class="folders-grid">
+                                    <div class="folder-card" data-folder="readme">
+                                        <div class="folder-tab"></div>
+                                        <div class="folder-body">
+                                            <span class="folder-icon">📄</span>
+                                            <span class="folder-title">README.md</span>
+                                            <span class="folder-tag">The Welcome Sign</span>
+                                        </div>
+                                    </div>
+                                    <div class="folder-card" data-folder="context">
+                                        <div class="folder-tab"></div>
+                                        <div class="folder-body">
+                                            <span class="folder-icon">📄</span>
+                                            <span class="folder-title">context.md</span>
+                                            <span class="folder-tag">The Standing Brief</span>
+                                        </div>
+                                    </div>
+                                    <div class="folder-card" data-folder="plan">
+                                        <div class="folder-tab"></div>
+                                        <div class="folder-body">
+                                            <span class="folder-icon">📄</span>
+                                            <span class="folder-title">implementation_plan.md</span>
+                                            <span class="folder-tag">The Proposal</span>
+                                        </div>
+                                    </div>
+                                    <div class="folder-card" data-folder="task">
+                                        <div class="folder-tab"></div>
+                                        <div class="folder-body">
+                                            <span class="folder-icon">📄</span>
+                                            <span class="folder-title">task.md</span>
+                                            <span class="folder-tag">The Whiteboard</span>
+                                        </div>
+                                    </div>
+                                    <div class="folder-card" data-folder="handover">
+                                        <div class="folder-tab"></div>
+                                        <div class="folder-body">
+                                            <span class="folder-icon">📄</span>
+                                            <span class="folder-title">handover.md</span>
+                                            <span class="folder-tag">The Shift Report</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="folder-details" id="folder-details-panel">
+                                    <div class="details-placeholder">👉 Click a folder above to inspect the file's
+                                        governance purpose...</div>
+                                    <div class="details-content" style="display: none;">
+                                        <h4 id="folder-details-title"></h4>
+                                        <p id="folder-details-desc"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">05</div>
+                        <h3 id="37c4d454-8ff5-81db-8036-f897ec4e8783" class="">Segment 5 — Hands-on: Install Antigravity
+                            2.0 (45 min)</h3>
+                        <div class="segment-card-body">
+                            <ol class="numbered-list" style="padding-left: 20px; margin-bottom: 20px;">
+                                <li style="margin-bottom: 12px;">Download and run the Antigravity installer for your OS
+                                    (Windows or macOS).
+                                    <br><small style="color: var(--text-secondary); display: block; margin-top: 5px;"><em>⚠️ <strong>Crucial Step:</strong> During the installation wizard (demonstrated at the <strong>1:09 mark</strong> of the tutorial video), make sure to select the <strong>"Keep the antigravity IDE"</strong> option if you wish to retain your existing IDE configuration and prevent the installer from automatically replacing it.</em></small>
+                                </li>
+                                <li style="margin-bottom: 12px;">Authenticate with your authorized Jio Google account.
+                                </li>
+                            </ol>
+
+                            <div class="alert-box warning"
+                                style="margin-bottom: 20px; border-left-color: var(--amber-border);">
+                                <div class="icon">⚠️</div>
+                                <div class="alert-content">
+                                    <strong>Governance Notice:</strong> Use only your Jio-provisioned Google Workspace
+                                    account. Do not authenticate with personal accounts. All HR data processed in this
+                                    environment is subject to corporate data governance policies.
+                                </div>
+                            </div>
+
+                            <ol class="numbered-list" start="3" style="padding-left: 20px; margin-bottom: 20px;">
+                                <li style="margin-bottom: 12px;">Click <strong>Open Workspace</strong> and select the
+                                    pre-placed <code>HR_Mission_Control</code> folder.
+                                    <br><small
+                                        style="color: var(--text-secondary); display: block; margin-top: 5px;"><em>Note:
+                                            We have configured the sandbox so the agent works within this folder only.
+                                            Do not change the workspace path — this boundary is the foundation of data
+                                            security for this program.</em></small>
+                                </li>
+                            </ol>
+
+                            <div class="callout callout-install"
+                                style="margin-top: 20px; border-left-color: var(--blue-border); background: var(--blue-bg);">
+                                <div class="icon">💡</div>
+                                <div class="callout-body">
+                                    <strong>Installation Support:</strong> If you experience issues during installation,
+                                    pair up with a neighbor. Participants experiencing installation blockers must have
+                                    an IT support slot scheduled for the same day.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">06</div>
+                        <h3 id="37c4d454-8ff5-81a5-882d-d22e88c19815" class="">Segment 6 — Workspace Interface Tour</h3>
+                        <div class="segment-card-body">
+                            <p style="margin-bottom: 20px;">Take a quick tour of the three primary workspaces on your
+                                Command Desk. Each area is designed to support the Plan-Act-Verify cycle:</p>
+
+                            <div
+                                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; display:flex; flex-direction:column; gap: 8px;">
+                                    <h4
+                                        style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--jio-blue); margin: 0; display:flex; align-items:center; gap:8px;">
+                                        <span>🖥️</span> <span>Manager Surface (The Control Room)</span>
+                                    </h4>
+                                    <p
+                                        style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                                        This is where you spawn background agents, coordinate parallel routines, and
+                                        manage scheduled scripts.</p>
+                                    <div style="margin-top: auto; padding-top: 10px;"><span class="try-badge">👉 Try it:
+                                            Find the "spawn agent" button and hover over it.</span></div>
+                                </div>
+
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; display:flex; flex-direction:column; gap: 8px;">
+                                    <h4
+                                        style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--jio-blue); margin: 0; display:flex; align-items:center; gap:8px;">
+                                        <span>✍️</span> <span>Editor View (The Work Desk)</span>
+                                    </h4>
+                                    <p
+                                        style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                                        Contains the Prompt Bar where you brief the agent, and the integrated Browser
+                                        &amp; Terminal panels where you watch the agent work live.</p>
+                                    <div style="margin-top: auto; padding-top: 10px;"><span class="try-badge">👉 Try it:
+                                            Click inside the Prompt Bar.</span></div>
+                                </div>
+
+                                <div
+                                    style="background: var(--off-white); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; display:flex; flex-direction:column; gap: 8px;">
+                                    <h4
+                                        style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--jio-blue); margin: 0; display:flex; align-items:center; gap:8px;">
+                                        <span>🛡️</span> <span>Artifacts &amp; Trust Panel</span>
+                                    </h4>
+                                    <p
+                                        style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                                        The most critical area for HR compliance. Review task lists, audit proposed
+                                        compensation sheets, and leave comments to guide calculations.</p>
+                                    <div style="margin-top: auto; padding-top: 10px;"><span class="try-badge">👉 Try it:
+                                            Open the pre-placed markdown file in the Artifacts Panel.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="alert-box info" style="margin-top: 15px; border-left-color: var(--jio-blue);">
+                                <div class="icon">💡</div>
+                                <div class="alert-content">
+                                    <strong>Facilitator Tip:</strong> Direct learners to click the **UI Walkthrough**
+                                    tab at the top of the portal. This shows a complete screenshot-mapped layout of
+                                    these panels.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">07</div>
+                        <h3 id="37c4d454-8ff5-81d0-9b35-dbae0d933477" class="">Segment 7 — Your First Agent Prompt</h3>
+                        <div class="segment-card-body">
+                            <p style="margin-bottom: 20px;">Now, let's run your first prompt to see how the agent
+                                operates. We will complete this in two distinct steps:</p>
+
+                            <div style="margin-bottom: 25px;">
+                                <h4
+                                    style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; display:flex; align-items:center; gap:8px;">
+                                    <span
+                                        style="background: var(--jio-blue-glow); color: var(--jio-blue); border-radius: 50%; width: 22px; height: 22px; display:flex; align-items:center; justify-content:center; font-size: 11px;">1</span>
+                                    <span>Step 1: Workspace Verification (Silent Path Test)</span>
+                                </h4>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;">Before
+                                    delegating complex HR tasks, we run a quick 30-second verification prompt to ensure
+                                    the agent has read access to the local sandbox folder. Type this in the prompt bar
+                                    and press Enter:</p>
+                                <div class="code-container">
+                                    <pre
+                                        class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">List the files inside HR_Mission_Control/data/</code></pre>
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <h4
+                                    style="font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; display:flex; align-items:center; gap:8px;">
+                                    <span
+                                        style="background: var(--jio-blue-glow); color: var(--jio-blue); border-radius: 50%; width: 22px; height: 22px; display:flex; align-items:center; justify-content:center; font-size: 11px;">2</span>
+                                    <span>Step 2: Value Demonstration (Delegating Onboarding Checklist)</span>
+                                </h4>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;">Now,
+                                    delegate a business goal. Unlike standard chatbots, the agent will analyze the
+                                    workspace structure and compile a structured, onboarding document checklist. Type
+                                    this prompt:</p>
+                                <div class="code-container">
+                                    <pre
+                                        class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">We've just hired Rohan Verma as a new HR Business Partner. List the documents he'll need for onboarding, organised by category. Refer to the files in our workspace if needed.</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="callout callout-target"
+                                style="margin-top: 20px; border-left-color: var(--teal-border); background: var(--teal-bg);">
+                                <div class="icon">💡</div>
+                                <div class="callout-body">
+                                    <strong>Next Step:</strong> Once the agent responds, double-click
+                                    <code>glossary.html</code> on your desktop to open the Interactive Glossary in your
+                                    browser, and study at least 5 flashcards of your choice.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">08</div>
+                        <h3 id="37c4d454-8ff5-815b-8aad-f721cc76ed41" class="">Debrief (5 min)</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div class="knowledge-check-container">
+                            <h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q1</div>
+                                    <div class="q-text">What is the difference between a chatbot and an agent?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">A chatbot is like an advisor on the phone (it simply
+                                        answers text questions). An AI Agent acts like a team member doing the work—it
+                                        plans, reads and writes files, runs commands, and creates documents to achieve a
+                                        goal.</div>
+                                </div>
+                            </div>
+
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q2</div>
+                                    <div class="q-text">Why must we always review and check the agent's work?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">Because LLM agents are prediction engines, they can
+                                        hallucinate and state incorrect facts or figures with absolute confidence.
+                                        Checking calculations against source data ensures corporate policy compliance.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q3</div>
+                                    <div class="q-text">If the agent generates a salary analysis tomorrow that looks
+                                        complete and well-formatted, what's the one thing you should do before
+                                        presenting it to your manager?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">Perform a manual math check and audit at least one
+                                        calculation line against the source file (e.g. <code>employees.csv</code>) to
+                                        verify data accuracy.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- 📅 DAY 0 WALKTHROUGH TAB CONTENT -->
+        <section class="tab-content" id="day0-walkthrough-content">
+            <div style="display:contents" dir="auto">
+                <h2>Antigravity 2.0 Interface &amp; Feature Walkthrough</h2>
             </div>
-        </div>
-        <div class="folder-card" data-folder="context">
-            <div class="folder-tab"></div>
-            <div class="folder-body">
-                <span class="folder-icon">📄</span>
-                <span class="folder-title">context.md</span>
-                <span class="folder-tag">The Standing Brief</span>
+            <p>Welcome to your command desk! Use the visual mockup and guide below to identify each component as you
+                complete the sandbox tasks.</p>
+
+            <div class="welcome-hero"
+                style="padding: 20px; text-align: center; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 30px;">
+                <img src="./assets/antigravity_ui.png" alt="Antigravity 2.0 User Interface Mockup"
+                    style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             </div>
-        </div>
-        <div class="folder-card" data-folder="plan">
-            <div class="folder-tab"></div>
-            <div class="folder-body">
-                <span class="folder-icon">📄</span>
-                <span class="folder-title">implementation_plan.md</span>
-                <span class="folder-tag">The Proposal</span>
+
+            <h3 style="border-left-color: var(--accent-violet);">1. Left Sidebar: File Explorer</h3>
+            <p>The file tree displaying your local workspace directory. You will find the
+                <code>HR_Mission_Control</code> folder structure containing files like <code>data/employees.csv</code>
+                and <code>policies/compensation_guidelines.md</code>. Double-click files here to open them in the center
+                pane.
+            </p>
+
+            <h3 style="border-left-color: var(--accent-cyan);">2. Center Pane: Code/Markdown Editor</h3>
+            <p>The main work desk where active files, spreadsheet lists, and plans are opened. This is where you inspect
+                the agent's calculations or review its <code>implementation_plan.md</code> before giving approval.</p>
+
+            <h3 style="border-left-color: var(--accent-blue);">3. Right Panel: AI Chat &amp; Prompt Input</h3>
+            <p>Your communication channel with the agent. You write prompts at the bottom and read replies in the
+                message stream. Use outcome-based briefs rather than micromanaging instructions.</p>
+
+            <h3 style="border-left-color: var(--accent-violet);">4. Collapsible Log: Thought Process Reasoning</h3>
+            <p>A collapsible transparency drawer inside the Chat Panel. It exposes the step-by-step reasoning the agent
+                uses to plan and carry out tasks. Auditing this reasoning log helps you catch logic drifts early.</p>
+
+            <h3 style="border-left-color: var(--accent-emerald);">5. Interactive Overlay: The Permission Gate</h3>
+            <p>A pop-up authorization card that intercepts agent requests to read/write directories or run scripts. You
+                can inspect the path the agent wants to touch and click <strong>Approve</strong> or
+                <strong>Reject</strong>.
+            </p>
+
+            <h3 style="border-left-color: var(--accent-amber);">6. Bottom Panel: Terminal Console</h3>
+            <p>The engine room console. The agent uses the terminal to run tests or perform operations. You don't write
+                commands here, but you can monitor execution logs and Git history commits.</p>
+
+            <div class="callout animate delay-1"
+                style="border-left-color: var(--teal-border); background: var(--teal-bg);">
+                <div class="icon">🛠️</div>
+                <div style="width:100%">
+                    <strong>Basics Practice Exercise:</strong>
+                    <ol style="margin-top: 10px; padding-left: 20px;">
+                        <li>Open the file explorer on the left.</li>
+                        <li>Double-click <code>HR_Mission_Control/data/employees.csv</code> to open it in the editor.
+                        </li>
+                        <li>Enter the prompt:
+                            <code>Verify the files inside the HR_Mission_Control folder and read context.md.</code>
+                        </li>
+                        <li>Expand the <strong>Thought Process</strong> and authorize the file reading tool inside the
+                            <strong>Permission Gate</strong> pop-up.
+                        </li>
+                    </ol>
+                </div>
             </div>
-        </div>
-        <div class="folder-card" data-folder="task">
-            <div class="folder-tab"></div>
-            <div class="folder-body">
-                <span class="folder-icon">📄</span>
-                <span class="folder-title">task.md</span>
-                <span class="folder-tag">The Whiteboard</span>
-            </div>
-        </div>
-        <div class="folder-card" data-folder="handover">
-            <div class="folder-tab"></div>
-            <div class="folder-body">
-                <span class="folder-icon">📄</span>
-                <span class="folder-title">handover.md</span>
-                <span class="folder-tag">The Shift Report</span>
-            </div>
-        </div>
-    </div>
-    <div class="folder-details" id="folder-details-panel">
-        <div class="details-placeholder">👉 Click a folder above to inspect the file's governance purpose...</div>
-        <div class="details-content" style="display: none;">
-            <h4 id="folder-details-title"></h4>
-            <p id="folder-details-desc"></p>
-        </div>
-    </div>
-</div>
-</div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">05</div>
-            <h3 id="37c4d454-8ff5-81db-8036-f897ec4e8783" class="">Segment 5 — Hands-on: Install Antigravity 2.0 (45 min)</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81f3-b6d6-ef4d6bad8ea7" class="numbered-list" start="1"><li>Download &amp; run the installer for your OS (Windows/macOS).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8103-96f6-e58f6c87dbb8" class="numbered-list" start="2"><li>Authenticate with your authorised Google account.</li></ol></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Governance Notice:</strong> Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. All HR data processed in this environment is subject to corporate data governance policies.</div></div></div><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Governance Notice:</strong> Use only your Jio-provisioned Google Workspace account. Do not authenticate with personal accounts. All HR data processed in this environment is subject to corporate data governance policies.</div></div></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81e4-9668-cfbb58cd02a7" class="numbered-list" start="3"><li>Click <strong>Open Workspace</strong> and select the pre-placed <code>HR_Mission_Control</code> folder. Emphasise: We've configured the sandbox so the agent works within this folder only. Don't change the workspace path — that boundary is the foundation of your data security for this programme.</li></ol></div><div style="display:contents" dir="ltr"><div class="takeaway-box"><strong>💡 Installation Support:</strong> If you experience issues during installation, pair up with a neighbour. Participants experiencing installation blockers MUST have an IT support slot scheduled for the same day.</div></div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">06</div>
-            <h3 id="37c4d454-8ff5-81a5-882d-d22e88c19815" class="">Segment 6 — Workspace Interface Tour</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-8190-a431-cd7c60f5e584" class="bulleted-list"><li style="list-style-type:disc"><strong>Manager Surface (the Control Room): </strong>spawn agents, watch several run in parallel, schedule background routines. <span class="try-badge">👉 Try it: Find the "spawn agent" button and hover over it.</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81ff-9260-d115fd9d1878" class="bulleted-list"><li style="list-style-type:disc"><strong>Editor View (the Work Desk): </strong>the Prompt Bar (where you brief the agent), the integrated Browser &amp; Terminal (watch it work live). <span class="try-badge">👉 Try it: Click inside the Prompt Bar.</span></li></ul></div><div style="display:contents" dir="auto"><ul id="37c4d454-8ff5-81f7-9e98-dbc99e3ed683" class="bulleted-list"><li style="list-style-type:disc"><strong>Artifacts &amp; Trust: </strong>Task Lists, screenshots/walkthroughs, and Google-Doc-style comments to steer mid-task. This is the most important feature for HR — it is how you audit. When the agent produces a document, this panel is where you compare the output against the source file before approving. <span class="try-badge">👉 Try it: Open the pre-placed markdown file in the Artifacts Panel and read the first line.</span></li></ul></div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">07</div>
-            <h3 id="37c4d454-8ff5-81d0-9b35-dbae0d933477" class="">Segment 7 — Your First Agent Prompt</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814c-805b-d142a7f4a058" class="">Run a 30-second silent setup verification prompt (everyone runs it, facilitator confirms the files are present):</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="37c4d454-8ff5-81d8-9e11-f2b2af4c8584" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">List the files inside HR_Mission_Control/data/</code></pre></div><div style="display:contents" dir="auto"><p class="">Now delegate the actual first prompt to see a value-driven HR output and value proposition immediately:</p></div><div style="display:contents" dir="auto"><pre class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">We've just hired Rohan Verma as a new HR Business Partner. List the documents he'll need for onboarding, organised by category.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8163-bd95-eebc53c526df" class="">Then have them open glossary.html in the browser and study 5 flashcards of their choice.</p></div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">08</div>
-            <h3 id="37c4d454-8ff5-815b-8aad-f721cc76ed41" class="">Debrief (5 min)</h3>
-            <div class="segment-card-body">
-                </div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q1</div>
-                <div class="q-text">What is the difference between a chatbot and an agent?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">A chatbot is like an advisor on the phone (it simply answers text questions). An AI Agent acts like a team member doing the work—it plans, reads and writes files, runs commands, and creates documents to achieve a goal.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q2</div>
-                <div class="q-text">Why must we always review and check the agent's work?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">Because LLM agents are prediction engines, they can hallucinate and state incorrect facts or figures with absolute confidence. Checking calculations against source data ensures corporate policy compliance.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q3</div>
-                <div class="q-text">If the agent generates a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you should do before presenting it to your manager?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">Perform a manual math check and audit at least one calculation line against the source file (e.g. <code>employees.csv</code>) to verify data accuracy.</div>
-            </div>
-        </div>
-        </div><div style="display:contents" dir="auto"><ul class="bulleted-list"><li style="list-style-type:disc">Ask: “If the agent gives you a salary analysis tomorrow that looks complete and well-formatted, what's the one thing you'd do before presenting it to your manager?” (Answer: "Check it against the source data" to verify accuracy.)</li></ul></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-812f-b5d2-fb90a787c3f1"/></div>
-            </div>
-        </div>
-        </div>
         </section>
 
         <!-- 📅 DAY 1 TAB CONTENT -->
         <section class="tab-content" id="day1-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-814d-bc3c-f0c38ab7b2c1" class="">Day 1 — Delegating Goals vs. Giving Orders</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8154-a8b1-d4726be88236" class=""><strong>Learning outcomes: </strong>Learners write an outcome-based brief (not a step list), read an implementation plan, give one round of feedback, and consciously approve.</p></div><div style="display:contents" dir="auto"><div class="segments-grid">
-        <div class="segment-card">
-            <div class="segment-card-num">01</div>
-            <h3 id="37c4d454-8ff5-813d-bdf3-f4088fb1eac1" class="">Segment 1 — Mindset Shift: Goals vs. Commands</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81bf-b0ce-cbe43535d8a8" class="">Compare how the agent interprets micro-managing commands versus outcome-driven goal briefs:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81cb-8f4b-f21bd2d227ea" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">BAD (micro-managing):
+            <div style="display:contents" dir="auto">
+                <h2 id="37c4d454-8ff5-814d-bc3c-f0c38ab7b2c1" class="">1 — Delegating Goals vs. Giving Orders</h2>
+            </div>
+            <div style="display:contents" dir="auto">
+                <p id="37c4d454-8ff5-8154-a8b1-d4726be88236" class=""><strong>Learning outcomes: </strong>Learners write
+                    an outcome-based brief (not a step list), read an implementation plan, give one round of feedback,
+                    and consciously approve.</p>
+            </div>
+            <div style="display:contents" dir="auto">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <div class="segment-card-num">01</div>
+                        <h3 id="37c4d454-8ff5-813d-bdf3-f4088fb1eac1" class="">Segment 1 — Mindset Shift: Goals vs.
+                            Commands</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81bf-b0ce-cbe43535d8a8" class="">Compare how the agent interprets
+                                micro-managing commands versus outcome-driven goal briefs:</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-81cb-8f4b-f21bd2d227ea" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">BAD (micro-managing):
 Open employees.csv. Go to row 3. Create a folder. Name it Rohan.
 Now make three subfolders...
 
 GOOD (delegating):
 Set up an onboarding folder structure for our new hire Rohan Verma,
 with places for his contracts, benefits, and compliance documents.
-Show me your plan before creating anything.</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-815e-954f-e35925f94022" class=""><strong>The lesson: </strong>describe the <strong>outcome</strong> and the <strong>constraints</strong>, then let the contractor propose the how. Over-specifying wastes the agent&#x27;s intelligence.</p></div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">02</div>
-            <h3 id="37c4d454-8ff5-810b-934c-fb6b960da0b4" class="">Segment 2 — The Plan ➔ Act ➔ Verify Loop</h3>
-            <div class="segment-card-body">
+Show me your plan before creating anything.</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-815e-954f-e35925f94022" class=""><strong>The lesson: </strong>describe
+                                the <strong>outcome</strong> and the <strong>constraints</strong>, then let the
+                                contractor propose the how. Over-specifying wastes the agent&#x27;s intelligence.</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">02</div>
+                        <h3 id="37c4d454-8ff5-810b-934c-fb6b960da0b4" class="">Segment 2 — The Plan ➔ Act ➔ Verify Loop
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div class="diagram-wrapper">
+                            <div class="diagram-container">
+                                <div class="diagram-node">
+                                    <div class="node-icon">📝</div>
+                                    <div class="node-title">1. Plan</div>
+                                    <div class="node-subtitle">Agent drafts proposal</div>
+                                    <div class="node-desc">The agent generates <code>implementation_plan.md</code> and
+                                        halts, waiting for your sign-off.</div>
+                                </div>
+                                <div class="diagram-connector">
+                                    <div class="connector-arrow">➔</div>
+                                    <div class="connector-label">Feedback / Approval</div>
+                                </div>
+                                <div class="diagram-node">
+                                    <div class="node-icon">⚙️</div>
+                                    <div class="node-title">2. Act</div>
+                                    <div class="node-subtitle">Agent runs in sandbox</div>
+                                    <div class="node-desc">Upon approval, the agent executes changes and details
+                                        progress in <code>task.md</code>.</div>
+                                </div>
+                                <div class="diagram-connector">
+                                    <div class="connector-arrow">➔</div>
+                                    <div class="connector-label">Auditing Loop</div>
+                                </div>
+                                <div class="diagram-node">
+                                    <div class="node-icon">🔍</div>
+                                    <div class="node-title">3. Verify</div>
+                                    <div class="node-subtitle">Human-in-the-Loop</div>
+                                    <div class="node-desc">You manually verify calculations, review diff outputs, and
+                                        authorize final handover.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-8144-8984-ee3b2755f1fc" class="">We coordinate with the agent using a
+                                standard <strong>Plan ➔ Act ➔ Verify</strong> rhythm. The agent proposes a plan, you
+                                iterate with feedback, and you approve the plan before execution begins.</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-818c-8aaf-f73d1b072e65" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Good start, but put compliance documents BEFORE benefits, and add a
+subfolder for his signed offer letter. Update the plan and show me again.</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">03</div>
+                        <h3 id="37c4d454-8ff5-8179-9c71-d239a22963b6" class="">Segment 3 — Hands-on Exercise: Onboarding
+                            Rohan Verma</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ol class="numbered-list">
+                                <li>Brief the agent using the outcome-based template. Prompt: <em>"Set up an onboarding
+                                        structure... Show me your plan first."</em></li>
+                                <li>Open and read the newly created <code>implementation_plan.md</code>. Request exactly
+                                    one modification (e.g. folder order or letter template subfolder).</li>
+                                <li>Approve the revised plan and watch the agent build the folders under
+                                    <code>exercises/</code> in real-time.
+                                </li>
+                            </ol>
+                            <div style="display:contents" dir="ltr">
+                                <div class="alert-box warning">
+                                    <div class="icon">⚠️</div>
+                                    <div class="alert-content"><strong>Caution: Avoid Auto-Approvals.</strong> The
+                                        implementation plan approval step is your primary governance control. If you
+                                        approve a plan without reading it, you are signing off on unknown actions.</div>
+                                </div>
+                            </div>
+                            <div style="display:contents" dir="auto">
+                            </div>
+                        </div>
+
+                        <div class="segment-card">
+                            <div class="segment-card-num">04</div>
+                            <h3 id="37c4d454-8ff5-8108-b068-d049dddce5e1" class="">Debrief (10 min)</h3>
+                            <div class="segment-card-body">
+                            </div>
+                            <div class="knowledge-check-container">
+                                <h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+                                <div class="q-card">
+                                    <div class="q-row">
+                                        <div class="q-num">Q1</div>
+                                        <div class="q-text">What changed when you stopped giving step-by-step commands
+                                            and started giving outcome-based goals?</div>
+                                        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                    </div>
+                                    <div class="q-answer">
+                                        <div class="q-answer-content">You transitioned from coding/micromanaging to
+                                            directing. Outcome-based goals allow the agent to use its reasoning
+                                            capability to find the best path, saving time and keeping you focused on
+                                            guardrails.</div>
+                                    </div>
+                                </div>
+
+                                <div class="q-card">
+                                    <div class="q-row">
+                                        <div class="q-num">Q2</div>
+                                        <div class="q-text">When is the right moment to catch a mistake: before or after
+                                            the agent executes the changes?</div>
+                                        <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                    </div>
+                                    <div class="q-answer">
+                                        <div class="q-answer-content">Before—at the planning stage. Relentlessly
+                                            auditing the <code>implementation_plan.md</code> lets you correct errors
+                                            before files are written or directories created.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <hr id="37c4d454-8ff5-814e-a79f-d28ca247bae1" />
+                        </div>
+                    </div>
                 </div>
-<div class="diagram-wrapper">
-    <div class="diagram-container">
-        <div class="diagram-node">
-            <div class="node-icon">📝</div>
-            <div class="node-title">1. Plan</div>
-            <div class="node-subtitle">Agent drafts proposal</div>
-            <div class="node-desc">The agent generates <code>implementation_plan.md</code> and halts, waiting for your sign-off.</div>
-        </div>
-        <div class="diagram-connector">
-            <div class="connector-arrow">➔</div>
-            <div class="connector-label">Feedback / Approval</div>
-        </div>
-        <div class="diagram-node">
-            <div class="node-icon">⚙️</div>
-            <div class="node-title">2. Act</div>
-            <div class="node-subtitle">Agent runs in sandbox</div>
-            <div class="node-desc">Upon approval, the agent executes changes and details progress in <code>task.md</code>.</div>
-        </div>
-        <div class="diagram-connector">
-            <div class="connector-arrow">➔</div>
-            <div class="connector-label">Auditing Loop</div>
-        </div>
-        <div class="diagram-node">
-            <div class="node-icon">🔍</div>
-            <div class="node-title">3. Verify</div>
-            <div class="node-subtitle">Human-in-the-Loop</div>
-            <div class="node-desc">You manually verify calculations, review diff outputs, and authorize final handover.</div>
-        </div>
-    </div>
-</div>
-<div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8144-8984-ee3b2755f1fc" class="">We coordinate with the agent using a standard <strong>Plan ➔ Act ➔ Verify</strong> rhythm. The agent proposes a plan, you iterate with feedback, and you approve the plan before execution begins.</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-818c-8aaf-f73d1b072e65" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Good start, but put compliance documents BEFORE benefits, and add a
-subfolder for his signed offer letter. Update the plan and show me again.</code></pre></div><div style="display:contents" dir="auto">
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">03</div>
-            <h3 id="37c4d454-8ff5-8179-9c71-d239a22963b6" class="">Segment 3 — Hands-on Exercise: Onboarding Rohan Verma</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><ol class="numbered-list"><li>Brief the agent using the outcome-based template. Prompt: <em>"Set up an onboarding structure... Show me your plan first."</em></li><li>Open and read the newly created <code>implementation_plan.md</code>. Request exactly one modification (e.g. folder order or letter template subfolder).</li><li>Approve the revised plan and watch the agent build the folders under <code>exercises/</code> in real-time.</li></ol><div style="display:contents" dir="ltr"><div class="alert-box warning"><div class="icon">⚠️</div><div class="alert-content"><strong>Caution: Avoid Auto-Approvals.</strong> The implementation plan approval step is your primary governance control. If you approve a plan without reading it, you are signing off on unknown actions.</div></div></div><div style="display:contents" dir="auto">
-            </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">04</div>
-            <h3 id="37c4d454-8ff5-8108-b068-d049dddce5e1" class="">Debrief (10 min)</h3>
-            <div class="segment-card-body">
-                </div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q1</div>
-                <div class="q-text">What changed when you stopped giving step-by-step commands and started giving outcome-based goals?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">You transitioned from coding/micromanaging to directing. Outcome-based goals allow the agent to use its reasoning capability to find the best path, saving time and keeping you focused on guardrails.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q2</div>
-                <div class="q-text">When is the right moment to catch a mistake: before or after the agent executes the changes?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">Before—at the planning stage. Relentlessly auditing the <code>implementation_plan.md</code> lets you correct errors before files are written or directories created.</div>
-            </div>
-        </div>
-        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-814e-a79f-d28ca247bae1"/></div>
-            </div>
-        </div>
-        </div>
         </section>
 
         <!-- 📅 DAY 2 TAB CONTENT -->
         <section class="tab-content" id="day2-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-818f-b11f-de7a510e4865" class="">Day 2 — Navigating the Workspace &amp; Tools</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8191-a499-f65a71ba0947" class=""><strong>Learning outcomes: </strong>Learners understand tool calls and permissions, run a real data analysis on the sandbox, and read a compa-ratio result. Security awareness is introduced.</p></div><div style="display:contents" dir="auto"><div class="segments-grid">
-        <div class="segment-card">
-            <div class="segment-card-num">01</div>
-            <h3 id="37c4d454-8ff5-8143-a0cd-ebec17a83e63" class="">Segment 1 — Agent Tools &amp; Permissions</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8178-9bec-dd15620d7420" class=""><p>An agent interacts with files and directories through <strong>Tool Calls</strong> (e.g. reading a file or executing a query). <strong>MCP (Model Context Protocol)</strong> functions as a secure connector to these resources. As the director, you must review and approve each tool call, akin to granting a contractor keys to a specific filing cabinet drawer one at a time.</p></p></div><div style="display:contents" dir="ltr"><div class="alert-box security"><div class="icon">🔒</div><div class="alert-content"><strong>Data Security Rule:</strong> Compensation and employee PII must remain inside the sandboxed folder. Never paste employee data, CSV lists, or compensation formulas into external, public chatbots.</div></div></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <h2 id="37c4d454-8ff5-818f-b11f-de7a510e4865" class="">2 — Navigating the Workspace &amp; Tools</h2>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">02</div>
-            <h3 id="37c4d454-8ff5-81e9-bc09-d834489f98f3" class="">Segment 2 — Understanding the Compa-Ratio</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-814a-94e6-c0526f3cd4db" class="">Open the dataset and review the formula used to analyze employee positioning in the market:</p></div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8132-aa43-fb092b02c0e9" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Compa-Ratio = Current Salary / Market Midpoint
-( &lt; 1.0 = paid below market ;  ~1.0 = on market ;  &gt; 1.0 = above )</code></pre></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e9-b63e-c45eeab1b07a" class="">Show <code>market_rates.csv</code> bands (Grade 1–4) and that <code>employees.csv</code> has a grade + rating + salary per person.</p></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <p id="37c4d454-8ff5-8191-a499-f65a71ba0947" class=""><strong>Learning outcomes: </strong>Learners
+                    understand tool calls and permissions, run a real data analysis on the sandbox, and read a
+                    compa-ratio result. Security awareness is introduced.</p>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">03</div>
-            <h3 id="37c4d454-8ff5-815f-801e-ca1956bbaff5" class="">Segment 3 — Hands-on Exercise: Identifying Compensation Discrepancies</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b1-89b4-ed1d5cd225c5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Analyse our current compensation in employees.csv against the market
+            <div style="display:contents" dir="auto">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <div class="segment-card-num">01</div>
+                        <h3 id="37c4d454-8ff5-8143-a0cd-ebec17a83e63" class="">Segment 1 — Agent Tools &amp; Permissions
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-8178-9bec-dd15620d7420" class="">
+                            <p>An agent interacts with files and directories through <strong>Tool Calls</strong> (e.g.
+                                reading a file or executing a query). <strong>MCP (Model Context Protocol)</strong>
+                                functions as a secure connector to these resources. As the director, you must review and
+                                approve each tool call, akin to granting a contractor keys to a specific filing cabinet
+                                drawer one at a time.</p>
+                            </p>
+                        </div>
+                        <div style="display:contents" dir="ltr">
+                            <div class="alert-box security">
+                                <div class="icon">🔒</div>
+                                <div class="alert-content"><strong>Data Security Rule:</strong> Compensation and
+                                    employee PII must remain inside the sandboxed folder. Never paste employee data, CSV
+                                    lists, or compensation formulas into external, public chatbots.</div>
+                            </div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">02</div>
+                        <h3 id="37c4d454-8ff5-81e9-bc09-d834489f98f3" class="">Segment 2 — Understanding the Compa-Ratio
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-814a-94e6-c0526f3cd4db" class="">Open the dataset and review the
+                                formula used to analyze employee positioning in the market:</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-8132-aa43-fb092b02c0e9" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Compa-Ratio = Current Salary / Market Midpoint
+( &lt; 1.0 = paid below market ;  ~1.0 = on market ;  &gt; 1.0 = above )</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81e9-b63e-c45eeab1b07a" class="">Show <code>market_rates.csv</code>
+                                bands (Grade 1–4) and that <code>employees.csv</code> has a grade + rating + salary per
+                                person.</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">03</div>
+                        <h3 id="37c4d454-8ff5-815f-801e-ca1956bbaff5" class="">Segment 3 — Hands-on Exercise:
+                            Identifying Compensation Discrepancies</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-81b1-89b4-ed1d5cd225c5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Analyse our current compensation in employees.csv against the market
 bands in market_rates.csv. Flag anyone whose salary sits below the
 market minimum for their grade, and show me the list with their
-compa-ratio. Don&#x27;t change any files — just report.</code></pre></div><div style="display:contents" dir="auto"><div class="takeaway-box"><strong>👉 Verification Task:</strong> Once the agent returns the flagged list, select one employee and perform a manual math audit (Compa-Ratio = Salary / Market Midpoint) to confirm that the agent's calculation is correct.</div></div><div style="display:contents" dir="auto">
+compa-ratio. Don&#x27;t change any files — just report.</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <div class="takeaway-box"><strong>👉 Verification Task:</strong> Once the agent returns the
+                                flagged list, select one employee and perform a manual math audit (Compa-Ratio = Salary
+                                / Market Midpoint) to confirm that the agent's calculation is correct.</div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">04</div>
+                        <h3 id="37c4d454-8ff5-81a9-b224-e5b91ed0529c" class="">Debrief (10 min)</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div class="knowledge-check-container">
+                            <h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q1</div>
+                                    <div class="q-text">What should you check before granting tool call permissions to
+                                        the agent?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">Verify that the targeted file path is correct, the
+                                        action conforms to the approved plan, and the command does not leak sensitive
+                                        information outside the workspace boundaries.</div>
+                                </div>
+                            </div>
+
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q2</div>
+                                    <div class="q-text">Where could PII have leaked, and what corporate governance
+                                        guideline protects it?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">PII could leak if the agent makes a network request or
+                                        if you copy sensitive tables into a public AI tool. The sandboxing rule ensures
+                                        salary data never leaves the <code>HR_Mission_Control</code> environment.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:contents" dir="auto">
+                        <hr id="37c4d454-8ff5-8118-a896-c698286d1039" />
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">04</div>
-            <h3 id="37c4d454-8ff5-81a9-b224-e5b91ed0529c" class="">Debrief (10 min)</h3>
-            <div class="segment-card-body">
-                </div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q1</div>
-                <div class="q-text">What should you check before granting tool call permissions to the agent?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
             </div>
-            <div class="q-answer">
-                <div class="q-answer-content">Verify that the targeted file path is correct, the action conforms to the approved plan, and the command does not leak sensitive information outside the workspace boundaries.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q2</div>
-                <div class="q-text">Where could PII have leaked, and what corporate governance guideline protects it?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">PII could leak if the agent makes a network request or if you copy sensitive tables into a public AI tool. The sandboxing rule ensures salary data never leaves the <code>HR_Mission_Control</code> environment.</div>
-            </div>
-        </div>
-        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-8118-a896-c698286d1039"/></div>
-            </div>
-        </div>
-        </div>
         </section>
 
         <!-- 📅 DAY 3 TAB CONTENT -->
         <section class="tab-content" id="day3-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-8163-b73d-d146714ccee1" class="">Day 3 — Agentic Orchestration &amp; Subagents</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81a7-96ec-c4ed953239eb" class=""><strong>Learning outcomes: </strong>Learners coordinate two specialist subagents, read a Thought Process as an audit trail, and merge findings into one report.</p></div><div style="display:contents" dir="auto"><div class="segments-grid">
-        <div class="segment-card">
-            <div class="segment-card-num">01</div>
-            <h3 id="37c4d454-8ff5-819a-82b7-fe4ef8774084" class="">Segment 1 — Multi-Agent Orchestration</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e2-a460-ec56ab53ede9" class=""><p>Complex tasks can be split across specialized **subagents** operating in parallel (e.g. an Equity Auditor and a Market Analyst). You will monitor their coordination through the **Thought Process** panel, which acts as a live audit trail allowing you to inspect their logic before they request permissions.</p></p></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <h2 id="37c4d454-8ff5-8163-b73d-d146714ccee1" class="">3 — Agentic Orchestration &amp; Subagents</h2>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">02</div>
-            <h3 id="37c4d454-8ff5-81fd-aab8-dcc4324ae7a7" class="">Segment 2 — Tracing Subagent Activities</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81e8-8d35-f8f24939b3a0" class="">Review how a subagent plans and reads files. Observe the Thought Process logs to verify its strategy step-by-step.</p></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <p id="37c4d454-8ff5-81a7-96ec-c4ed953239eb" class=""><strong>Learning outcomes: </strong>Learners
+                    coordinate two specialist subagents, read a Thought Process as an audit trail, and merge findings
+                    into one report.</p>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">03</div>
-            <h3 id="37c4d454-8ff5-81f0-be1c-dfdca034dc8f" class="">Segment 3 — Hands-on Exercise: Deploying Specialized Subagents</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-8117-b551-fde880cb9a5d" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Deploy two specialist subagents to analyse employees.csv:
+            <div style="display:contents" dir="auto">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <div class="segment-card-num">01</div>
+                        <h3 id="37c4d454-8ff5-819a-82b7-fe4ef8774084" class="">Segment 1 — Multi-Agent Orchestration
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81e2-a460-ec56ab53ede9" class="">
+                            <p>Complex tasks can be split across specialized **subagents** operating in parallel (e.g.
+                                an Equity Auditor and a Market Analyst). You will monitor their coordination through the
+                                **Thought Process** panel, which acts as a live audit trail allowing you to inspect
+                                their logic before they request permissions.</p>
+                            </p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">02</div>
+                        <h3 id="37c4d454-8ff5-81fd-aab8-dcc4324ae7a7" class="">Segment 2 — Tracing Subagent Activities
+                        </h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81e8-8d35-f8f24939b3a0" class="">Review how a subagent plans and reads
+                                files. Observe the Thought Process logs to verify its strategy step-by-step.</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">03</div>
+                        <h3 id="37c4d454-8ff5-81f0-be1c-dfdca034dc8f" class="">Segment 3 — Hands-on Exercise: Deploying
+                            Specialized Subagents</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-8117-b551-fde880cb9a5d" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Deploy two specialist subagents to analyse employees.csv:
   1) a &quot;Gender Pay Equity Auditor&quot; — compare pay of men vs women
      within the same grade and role, and surface any gaps.
   2) a &quot;Market Positioning Analyst&quot; — compare everyone to their
      grade market midpoint and group them as below / on / above market.
-Then merge both findings into one summary report under exercises/.</code></pre></div><div style="display:contents" dir="auto"><div class="takeaway-box"><strong>💡 Reconciling Outputs:</strong> If the subagents return conflicting figures in their final files, open the Thought Process history of both agents to trace where the formula or data source diverged.</div></div><div style="display:contents" dir="auto">
+Then merge both findings into one summary report under exercises/.</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <div class="takeaway-box"><strong>💡 Reconciling Outputs:</strong> If the subagents return
+                                conflicting figures in their final files, open the Thought Process history of both
+                                agents to trace where the formula or data source diverged.</div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">04</div>
+                        <h3 id="37c4d454-8ff5-8178-8380-f581b5d3f12d" class="">Debrief (10 min)</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div class="knowledge-check-container">
+                            <h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q1</div>
+                                    <div class="q-text">What does reading the agent's Thought Process let you check that
+                                        a final report alone won't show?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">It reveals the intermediate logic steps, how the
+                                        formulas were translated, and any incorrect assumptions the agent made before
+                                        compiling the final summary.</div>
+                                </div>
+                            </div>
+
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q2</div>
+                                    <div class="q-text">When is multi-agent orchestration worth deploying, and when is
+                                        it overkill?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">It is worth deploying for multi-dimensional tasks that
+                                        can run in parallel (like equity checks vs. market positioning). It is overkill
+                                        for simple, linear file edits.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:contents" dir="auto">
+                        <hr id="37c4d454-8ff5-810d-bb4e-e256b56fb35b" />
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">04</div>
-            <h3 id="37c4d454-8ff5-8178-8380-f581b5d3f12d" class="">Debrief (10 min)</h3>
-            <div class="segment-card-body">
-                </div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q1</div>
-                <div class="q-text">What does reading the agent's Thought Process let you check that a final report alone won't show?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
             </div>
-            <div class="q-answer">
-                <div class="q-answer-content">It reveals the intermediate logic steps, how the formulas were translated, and any incorrect assumptions the agent made before compiling the final summary.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q2</div>
-                <div class="q-text">When is multi-agent orchestration worth deploying, and when is it overkill?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">It is worth deploying for multi-dimensional tasks that can run in parallel (like equity checks vs. market positioning). It is overkill for simple, linear file edits.</div>
-            </div>
-        </div>
-        </div></div><div style="display:contents" dir="auto"><hr id="37c4d454-8ff5-810d-bb4e-e256b56fb35b"/></div>
-            </div>
-        </div>
-        </div>
         </section>
 
         <!-- 📅 DAY 4 TAB CONTENT -->
         <section class="tab-content" id="day4-content">
-            <div style="display:contents" dir="auto"><h2 id="37c4d454-8ff5-81ca-9c84-de54b79fbd82" class="">Day 4 — Building the Pay Review Tool (Capstone)</h2></div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-999c-ca9e30ed66a0" class=""><strong>Learning outcomes: </strong>Learners run a full, policy-compliant FY 2026-27 pay review end-to-end, produce the results CSV and draft letters, and exercise all three HITL checkpoints. This is the graduation moment.</p></div><div style="display:contents" dir="auto"><div class="segments-grid">
-        <div class="segment-card">
-            <div class="segment-card-num">01</div>
-            <h3 id="37c4d454-8ff5-81ec-91e3-faff8daf2438" class="">Segment 1 — Annual Compensation Guidelines</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-81cc-af80-f9ca6062c577" class="">Before launching the review tool, align on the core compliance guardrails laid out in the guidelines:</p></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-814d-becb-e09a83823a6e" class="numbered-list" start="1"><li>Apply the performance rating grid (Outstanding 12–15%, … Needs Improvement 0%).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8142-85cb-e32da4422784" class="numbered-list" start="2"><li>Market correction first: if below market_min and rating ≥ Meets, lift up to 10% (or to market_min, whichever is lower) BEFORE the performance increase.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-8110-a842-d3e7c3241b21" class="numbered-list" start="3"><li>Over-market cap: if above market_max, cap total increase at 3%.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="37c4d454-8ff5-81eb-8580-e57e8a7418e2" class="numbered-list" start="4"><li>Budget cap: all increases together must stay within 8% of total payroll.</li></ol></div><div style="display:contents" dir="auto">
+            <div style="display:contents" dir="auto">
+                <h2 id="37c4d454-8ff5-81ca-9c84-de54b79fbd82" class="">4 — Building the Pay Review Tool (Capstone)</h2>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">02</div>
-            <h3 id="37c4d454-8ff5-8121-98b2-ebb6bf4aaf80" class="">Segment 2 — Capstone Project: Running the Pay Review</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><pre id="37c4d454-8ff5-81b8-b5e5-d3b124cee5cb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Run the FY 2026-27 pay review for everyone in employees.csv.
+            <div style="display:contents" dir="auto">
+                <p id="37c4d454-8ff5-8123-999c-ca9e30ed66a0" class=""><strong>Learning outcomes: </strong>Learners run a
+                    full, policy-compliant FY 2026-27 pay review end-to-end, produce the results CSV and draft letters,
+                    and exercise all three HITL checkpoints. This is the graduation moment.</p>
+            </div>
+            <div style="display:contents" dir="auto">
+                <div class="segments-grid">
+                    <div class="segment-card">
+                        <div class="segment-card-num">01</div>
+                        <h3 id="37c4d454-8ff5-81ec-91e3-faff8daf2438" class="">Segment 1 — Annual Compensation
+                            Guidelines</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-81cc-af80-f9ca6062c577" class="">Before launching the review tool,
+                                align on the core compliance guardrails laid out in the guidelines:</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ol type="1" id="37c4d454-8ff5-814d-becb-e09a83823a6e" class="numbered-list" start="1">
+                                <li>Apply the performance rating grid (Outstanding 12–15%, … Needs Improvement 0%).</li>
+                            </ol>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ol type="1" id="37c4d454-8ff5-8142-85cb-e32da4422784" class="numbered-list" start="2">
+                                <li>Market correction first: if below market_min and rating ≥ Meets, lift up to 10% (or
+                                    to market_min, whichever is lower) BEFORE the performance increase.</li>
+                            </ol>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ol type="1" id="37c4d454-8ff5-8110-a842-d3e7c3241b21" class="numbered-list" start="3">
+                                <li>Over-market cap: if above market_max, cap total increase at 3%.</li>
+                            </ol>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ol type="1" id="37c4d454-8ff5-81eb-8580-e57e8a7418e2" class="numbered-list" start="4">
+                                <li>Budget cap: all increases together must stay within 8% of total payroll.</li>
+                            </ol>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">02</div>
+                        <h3 id="37c4d454-8ff5-8121-98b2-ebb6bf4aaf80" class="">Segment 2 — Capstone Project: Running the
+                            Pay Review</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <pre id="37c4d454-8ff5-81b8-b5e5-d3b124cee5cb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Run the FY 2026-27 pay review for everyone in employees.csv.
 Follow compensation_guidelines.md exactly — apply market corrections,
 the performance grid, the over-market cap, and keep the total within
 the 8% budget cap. Show me your plan and the calculations for sign-off
 BEFORE writing anything. Then generate pay_review_results.csv and draft
-individual letters under letters/ using the template.</code></pre></div><div style="display:contents" dir="auto"><ul><li><strong>HITL Checkpoint 1 (Plan Stage):</strong> Review computed compa-ratios and proposed increase lists before letting the agent generate the results.</li><li><strong>HITL Checkpoint 2 (Budget Stage):</strong> Flag any payroll adjustments exceeding the 8% budget limit or performance ratings constraints.</li><li><strong>HITL Checkpoint 3 (Audit Stage):</strong> Manually verify that drafted letters in <code>letters/</code> match the calculated compensation adjustments.</li></ul></div><div style="display:contents" dir="ltr"><div class="takeaway-box"><strong>💡 Troubleshooting Recovery:</strong> If the agent reports it cannot satisfy both the budget limit and performance bands, prompt: <em>"Pause and report which specific constraint is blocking you."</em> Use this feedback to override or balance guidelines.</div></div><div style="display:contents" dir="auto">
+individual letters under letters/ using the template.</code></pre>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <ul>
+                                <li><strong>HITL Checkpoint 1 (Plan Stage):</strong> Review computed compa-ratios and
+                                    proposed increase lists before letting the agent generate the results.</li>
+                                <li><strong>HITL Checkpoint 2 (Budget Stage):</strong> Flag any payroll adjustments
+                                    exceeding the 8% budget limit or performance ratings constraints.</li>
+                                <li><strong>HITL Checkpoint 3 (Audit Stage):</strong> Manually verify that drafted
+                                    letters in <code>letters/</code> match the calculated compensation adjustments.</li>
+                            </ul>
+                        </div>
+                        <div style="display:contents" dir="ltr">
+                            <div class="takeaway-box"><strong>💡 Troubleshooting Recovery:</strong> If the agent reports
+                                it cannot satisfy both the budget limit and performance bands, prompt: <em>"Pause and
+                                    report which specific constraint is blocking you."</em> Use this feedback to
+                                override or balance guidelines.</div>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">03</div>
+                        <h3 id="37c4d454-8ff5-8181-a8fb-eefa09428ff8" class="">Segment 3 — Saving Workbook Progress</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div style="display:contents" dir="auto">
+                            <p id="37c4d454-8ff5-8123-bf9f-fe2f993fecf0" class="">Verify your generated CSV and drafted
+                                compensation letters. Then, run a Git Commit to establish a permanent save point for
+                                your capstone project deliverables.</p>
+                        </div>
+                        <div style="display:contents" dir="auto">
+                        </div>
+                    </div>
+
+                    <div class="segment-card">
+                        <div class="segment-card-num">04</div>
+                        <h3 id="37c4d454-8ff5-8166-b73d-d97a1d482824" class="">Program Wrap-up &amp; Reflection</h3>
+                        <div class="segment-card-body">
+                        </div>
+                        <div class="knowledge-check-container">
+                            <h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q1</div>
+                                    <div class="q-text">Where did a compensation policy guardrail stop the agent from
+                                        doing the wrong thing in the capstone?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">The budget limit cap (8% total payroll) and the
+                                        performance-band rating grid prevented the agent from granting out-of-policy
+                                        raises to employees.</div>
+                                </div>
+                            </div>
+
+                            <div class="q-card">
+                                <div class="q-row">
+                                    <div class="q-num">Q2</div>
+                                    <div class="q-text">How does being an 'HR Director' of an AI agent differ from
+                                        traditional manual operations?</div>
+                                    <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
+                                </div>
+                                <div class="q-answer">
+                                    <div class="q-answer-content">Instead of performing manual data entries and
+                                        compiling spreadsheets, you act as a systems auditor. You direct the outcomes,
+                                        define policy guardrails, and audit output verification.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">03</div>
-            <h3 id="37c4d454-8ff5-8181-a8fb-eefa09428ff8" class="">Segment 3 — Saving Workbook Progress</h3>
-            <div class="segment-card-body">
-                </div><div style="display:contents" dir="auto"><p id="37c4d454-8ff5-8123-bf9f-fe2f993fecf0" class="">Verify your generated CSV and drafted compensation letters. Then, run a Git Commit to establish a permanent save point for your capstone project deliverables.</p></div><div style="display:contents" dir="auto">
             </div>
-        </div>
-        
-        <div class="segment-card">
-            <div class="segment-card-num">04</div>
-            <h3 id="37c4d454-8ff5-8166-b73d-d97a1d482824" class="">Program Wrap-up &amp; Reflection</h3>
-            <div class="segment-card-body">
-                </div><div class="knowledge-check-container"><h3 class="knowledge-check-header">💡 Interactive Knowledge Check</h3>
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q1</div>
-                <div class="q-text">Where did a compensation policy guardrail stop the agent from doing the wrong thing in the capstone?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
             </div>
-            <div class="q-answer">
-                <div class="q-answer-content">The budget limit cap (8% total payroll) and the performance-band rating grid prevented the agent from granting out-of-policy raises to employees.</div>
-            </div>
-        </div>
-        
-        <div class="q-card">
-            <div class="q-row">
-                <div class="q-num">Q2</div>
-                <div class="q-text">How does being an 'HR Director' of an AI agent differ from traditional manual operations?</div>
-                <button class="reveal-btn" onclick="toggleAnswer(this)">Reveal Answer ▽</button>
-            </div>
-            <div class="q-answer">
-                <div class="q-answer-content">Instead of performing manual data entries and compiling spreadsheets, you act as a systems auditor. You direct the outcomes, define policy guardrails, and audit output verification.</div>
-            </div>
-        </div>
-        </div></div></div>
-            </div>
-        </div>
-        </div>
         </section>
     </main>
 
@@ -1923,7 +2701,8 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             </div>
             <div class="modal-controls">
                 <button class="modal-ctrl-btn" id="modal-maximize-btn" title="Maximize">🔲</button>
-                <a class="modal-ctrl-btn" href="./glossary.html" target="_blank" title="Open in New Tab" style="text-decoration: none;">↗</a>
+                <a class="modal-ctrl-btn" href="./glossary.html" target="_blank" title="Open in New Tab"
+                    style="text-decoration: none;">↗</a>
                 <button class="modal-ctrl-btn close-btn" id="modal-close-btn" title="Close">✕</button>
             </div>
         </div>
@@ -1942,12 +2721,13 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         const dayBadge = document.getElementById('panel-day-badge');
 
         const tabMetadata = {
-            'home': { title: 'HR Learner Workbook', subtitle: 'Upskilling Workspace', badge: 'SYSTEM ACTIVE' },
-            'day0': { title: 'Day 0: Welcome to the Command Desk', subtitle: 'Workspace Setup & Metaphors (150 min)', badge: 'RESTRICTED SANDBOX' },
-            'day1': { title: 'Day 1: Goals vs. Orders', subtitle: 'The Mindset Shift (120 min)', badge: 'SAFE-TO-FAIL' },
-            'day2': { title: 'Day 2: Navigating the Workspace', subtitle: 'Tooling & Security Audits (120 min)', badge: 'PII SECURE' },
-            'day3': { title: 'Day 3: Subagents & Orchestration', subtitle: 'Multi-Agent Department Loops (120 min)', badge: 'ORCHESTRATOR' },
-            'day4': { title: 'Day 4: Annual Pay Review Capstone', subtitle: 'Graduation Capstone Project (150 min)', badge: 'CAPSTONE GRAD' }
+            'home': { title: 'Welcome to the Antigravity 2.0 Upskilling Program', subtitle: 'Training Workspace', badge: 'Jio HR Training' },
+            'day0': { title: 'Basics and installation', subtitle: 'Workspace Setup & Metaphors (150 min)', badge: 'RESTRICTED SANDBOX' },
+            'day0-walkthrough': { title: 'Antigravity UI walkthrough', subtitle: 'Detailed Feature Tour', badge: 'INTERFACE TOUR' },
+            'day1': { title: '1 - Goals vs. Orders', subtitle: 'The Mindset Shift (120 min)', badge: 'SAFE-TO-FAIL' },
+            'day2': { title: '2 - Workspace & Tools', subtitle: 'Tooling & Security Audits (120 min)', badge: 'PII SECURE' },
+            'day3': { title: '3 - Subagents', subtitle: 'Multi-Agent Department Loops (120 min)', badge: 'ORCHESTRATOR' },
+            'day4': { title: '4 - Pay Review', subtitle: 'Graduation Capstone Project (150 min)', badge: 'CAPSTONE GRAD' }
         };
 
         function switchTab(targetId) {
@@ -1962,7 +2742,7 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             if (targetBtn && targetContent) {
                 targetBtn.classList.add('active');
                 targetContent.classList.add('active');
-                
+
                 // Update header details
                 const meta = tabMetadata[targetId] || tabMetadata['home'];
                 dayTitleText.textContent = meta.title;
@@ -1975,6 +2755,9 @@ individual letters under letters/ using the template.</code></pre></div><div sty
                     dayBadge.style.borderColor = 'var(--border-color)';
                 } else if (targetId === 'day0') {
                     dayBadge.style.color = '#2563eb';
+                    dayBadge.style.borderColor = 'rgba(37, 99, 235, 0.2)';
+                } else if (targetId === 'day0-walkthrough') {
+                    dayBadge.style.color = 'var(--jio-blue)';
                     dayBadge.style.borderColor = 'rgba(37, 99, 235, 0.2)';
                 } else if (targetId === 'day1') {
                     dayBadge.style.color = 'var(--teal-border)';
@@ -1989,7 +2772,7 @@ individual letters under letters/ using the template.</code></pre></div><div sty
                     dayBadge.style.color = 'var(--emerald-border)';
                     dayBadge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
                 }
-                
+
                 // Scroll to top of panel
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -2031,17 +2814,17 @@ individual letters under letters/ using the template.</code></pre></div><div sty
             // Create container
             const container = document.createElement('div');
             container.className = 'code-container';
-            
+
             // Create code block header
             const header = document.createElement('div');
             header.className = 'code-header';
             header.innerHTML = '<span>Learner Brief / Prompt to Copy</span>';
-            
+
             // Create copy button
             const copyBtn = document.createElement('button');
             copyBtn.className = 'copy-btn';
             copyBtn.innerHTML = '📋 <span>Copy Brief</span>';
-            
+
             copyBtn.addEventListener('click', () => {
                 const textToCopy = code.innerText.trim();
                 navigator.clipboard.writeText(textToCopy).then(() => {
@@ -2055,9 +2838,9 @@ individual letters under letters/ using the template.</code></pre></div><div sty
                     console.error('Failed to copy text: ', err);
                 });
             });
-            
+
             header.appendChild(copyBtn);
-            
+
             // Re-arrange DOM
             pre.parentNode.replaceChild(container, pre);
             container.appendChild(header);
@@ -2088,7 +2871,7 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         });
 
         // Reveal Debrief Answer toggler function
-        window.toggleAnswer = function(btn) {
+        window.toggleAnswer = function (btn) {
             const answer = btn.closest('.q-card').querySelector('.q-answer');
             if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
                 answer.style.maxHeight = '0px';
@@ -2135,4 +2918,5 @@ individual letters under letters/ using the template.</code></pre></div><div sty
         });
     </script>
 </body>
+
 </html>
