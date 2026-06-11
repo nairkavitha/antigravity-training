@@ -7,21 +7,21 @@ This folder contains the local sandbox `HR_Mission_Control` for the training pro
 
 ## Daily Schedule
 
-### Day 0: Welcome to the Command Deck (IDE & Agent Basics)
+### Day 0: Welcome to the Command Desk (IDE & Agent Basics)
 - **Goal**: Understand what an IDE and an AI Agent are, why they are used together, differentiate key context files, and run a basic check-in with the agent.
-- **Analogy**: The "Integrated Command Desk" (IDE) where everything is within arm's reach, and the "Digital Intern" (AI Agent) who works at the desk under your supervision.
+- **Analogy**: The "Integrated Command Desk" (IDE) where everything is within arm's reach, and the "Expert Contractor" (AI Agent) who works at the desk under your supervision.
 - **Key Context Files**:
   - 📄 `README.md` (The Welcome Sign): Explains the project folder structure.
   - 📄 `context.md` (The Standing Brief): Company policies and guidelines.
   - 📄 `implementation_plan.md` (The Project Proposal): Plan drafted by the agent for human sign-off.
   - 📄 `task.md` (The Whiteboard): Live progress tracking checklist (`[ ]` / `[/]` / `[x]`).
   - 📄 `handover.md` (The Shift Report): Transition summary when changing tasks.
-- **Exercise**: Open the IDE, locate and read [README.md](HR_Mission_Control/README.md), open the interactive [glossary.html](glossary.html) in your browser to study the terms, and send a welcome prompt in the Chat Panel asking the agent to list the files inside `HR_Mission_Control/data/`.
+- **Exercise**: Open the IDE, locate and read [README.md](HR_Mission_Control/README.md), open the interactive [glossary.html](glossary.html) in your browser to study the terms, and run a welcome prompt in the Chat Panel to perform a silent setup path verification (listing files inside `HR_Mission_Control/data/`), followed by a prompt to list onboarding documents for a new hire (Rohan Verma) to see the agent's value proposition immediately.
 
 
 ### Day 1: Delegating Goals vs. Giving Orders (The Mindset Shift)
 - **Goal**: Move from telling the agent *how* to do a task to telling it *what* you want to achieve.
-- **Analogy**: The "Digital Intern" who handles the details. You review their "Project Proposal" (`implementation_plan.md`) before signing off.
+- **Analogy**: The "Expert Contractor" who handles the details. You review their "Project Proposal" (`implementation_plan.md`) before signing off.
 - **Exercise**: Create an onboarding structure under `HR_Mission_Control/onboarding` for a new employee named *Rohan Verma*. Ask the agent to plan folders for 'contracts', 'benefits', and 'compliance', modify it via feedback, and then approve.
 
 ### Day 2: Navigating the Workspace and Tool Understanding (The Office Setup)
