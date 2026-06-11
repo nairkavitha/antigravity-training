@@ -16,7 +16,7 @@ This folder contains the local sandbox `HR_Mission_Control` for the training pro
   - 📄 `implementation_plan.md` (The Project Proposal): Plan drafted by the agent for human sign-off.
   - 📄 `task.md` (The Whiteboard): Live progress tracking checklist (`[ ]` / `[/]` / `[x]`).
   - 📄 `handover.md` (The Shift Report): Transition summary when changing tasks.
-- **Exercise**: Open the IDE, locate and read [README.md](file:///Users/kavitha.nair/Library/CloudStorage/OneDrive-RelianceCorporateITParkLimited/Documents/04%20My%20Projects/Antigravity%202.0%20Training/HR_Mission_Control/README.md), open the interactive [glossary.html](file:///Users/kavitha.nair/Library/CloudStorage/OneDrive-RelianceCorporateITParkLimited/Documents/04%20My%20Projects/Antigravity%202.0%20Training/HR_Mission_Control/glossary.html) in your browser to study the terms, and send a welcome prompt in the Chat Panel asking the agent to list the files inside `HR_Mission_Control/data/`.
+- **Exercise**: Open the IDE, locate and read [README.md](HR_Mission_Control/README.md), open the interactive [glossary.html](glossary.html) in your browser to study the terms, and send a welcome prompt in the Chat Panel asking the agent to list the files inside `HR_Mission_Control/data/`.
 
 
 ### Day 1: Delegating Goals vs. Giving Orders (The Mindset Shift)

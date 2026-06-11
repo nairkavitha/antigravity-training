@@ -8,8 +8,8 @@ Currently, the repository contains the following training modules:
 
 ### 1. 💼 [HR Mission Control](HR_Mission_Control/README.md)
 A hands-on, safe-to-fail sandbox environment designed specifically for Human Resources professionals.
-- **Syllabus**: [Syllabus.md](HR_Mission_Control/Syllabus.md) (5-day hands-on workbook)
-- **Interactive Glossary**: [Interactive AI Glossary](HR_Mission_Control/glossary.html) (featuring 3D Flashcards, search, and bulk CSV uploader)
+- **Syllabus**: [Syllabus.md](Syllabus.md) (5-day hands-on workbook)
+- **Interactive Glossary**: [Interactive AI Glossary](glossary.html) (featuring 3D Flashcards, search, and bulk CSV uploader)
 - **Mock Sandbox Data**: Located in the `data/`, `policies/`, and `templates/` subfolders.
 
 ---
