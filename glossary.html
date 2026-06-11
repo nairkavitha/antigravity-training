@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -18,26 +18,26 @@
       --bg-card-back: rgba(28, 24, 65, 0.9);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --primary: #0f2ca7; /* Jio Blue */
-      --primary-glow: rgba(15, 44, 167, 0.35);
-      --accent: #e1251b; /* Jio Red */
-      --success: #10b981; /* Emerald */
+      --primary: #005AAC; /* Jio Blue */
+      --primary-glow: rgba(0, 90, 172, 0.35);
+      --accent: #E8001D; /* Jio Red */
+      --success: #00875A; /* Green from design system */
       --border-color: rgba(255, 255, 255, 0.08);
       --transition-speed: 0.3s;
     }
 
     /* Light Theme Variables */
     body.light-theme {
-      --bg-dark: #f4f6fa;
-      --bg-gradient: linear-gradient(135deg, #f4f6fa 0%, #eef1f6 50%, #e2e8f0 100%);
-      --bg-card: #ffffff;
-      --bg-card-back: #f8fafc;
-      --text-main: #0f172a;
-      --text-muted: #5e6e82;
-      --primary: #0f2ca7; /* Jio Blue */
-      --primary-glow: rgba(15, 44, 167, 0.15);
-      --accent: #e1251b; /* Jio Red */
-      --border-color: rgba(15, 23, 42, 0.08);
+      --bg-dark: #F7F9FC; /* off-white */
+      --bg-gradient: linear-gradient(135deg, #F7F9FC 0%, #F0F4F9 50%, #E3EBF5 100%);
+      --bg-card: #FFFFFF;
+      --bg-card-back: #F7F9FC;
+      --text-main: #0A1628; /* text-primary */
+      --text-muted: #3D5278; /* text-secondary */
+      --primary: #005AAC; /* Jio Blue */
+      --primary-glow: #E8F1FA; /* Jio Blue pale */
+      --accent: #E8001D; /* Jio Red */
+      --border-color: #D0DFF0; /* border */
     }
 
     * {
@@ -49,7 +49,7 @@
     body {
       background: var(--bg-gradient);
       color: var(--text-main);
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
       padding: 2rem 1rem;
       transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
@@ -373,7 +373,7 @@
     }
 
     .category-badge {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -385,7 +385,7 @@
     }
 
     .custom-badge {
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
       font-weight: 600;
       color: var(--success);
@@ -437,7 +437,7 @@
 
     /* Typography inside Card */
     .term-name {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
@@ -452,7 +452,7 @@
     }
 
     .analogy-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -472,7 +472,7 @@
     }
 
     .example-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
