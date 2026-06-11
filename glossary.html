@@ -79,17 +79,26 @@
       margin: 0 auto;
     }
 
-    /* Header Section */
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
+    /* Top Bar Section */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding: 8px 4px;
+    }
+
+    .top-bar .brand-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .header-actions {
-      position: absolute;
-      top: 0;
-      right: 0;
       display: flex;
       gap: 0.75rem;
     }
@@ -107,33 +116,64 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .action-btn:hover {
       border-color: var(--accent);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Header Majestic Hero Card */
+    header {
+      background: linear-gradient(135deg, var(--jio-blue-deep) 0%, var(--jio-blue) 45%, var(--jio-blue-light) 100%);
+      padding: 48px 40px;
+      border-radius: var(--radius);
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      text-align: left;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -60px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(0,180,216,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     h1 {
+      font-family: 'Rajdhani', sans-serif;
       font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.025em;
-      background: linear-gradient(to right, #ffffff, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    body.light-theme h1 {
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      position: relative;
+      z-index: 2;
     }
 
     .subtitle {
       font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 2;
     }
 
     /* Controls: Search and Filters */
@@ -944,17 +984,19 @@
 </head>
 <body class="light-theme">
 
-<div class="container">
-  <div class="header-actions">
-    <button class="action-btn" id="addTermBtn">
-      <span>➕</span> <span>Add Custom Term</span>
-    </button>
-    <button class="action-btn" id="bulkImportBtn">
-      <span>📥</span> <span>Bulk Import</span>
-    </button>
-    <button class="action-btn theme-toggle" id="themeToggleBtn">
-      <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Dark Mode</span>
-    </button>
+  <div class="top-bar">
+    <div class="brand-title">🌌 <span>ANTIGRAVITY 2.0 GLOSSARY</span></div>
+    <div class="header-actions">
+      <button class="action-btn" id="addTermBtn">
+        <span>➕</span> <span>Add Custom Term</span>
+      </button>
+      <button class="action-btn" id="bulkImportBtn">
+        <span>📥</span> <span>Bulk Import</span>
+      </button>
+      <button class="action-btn theme-toggle" id="themeToggleBtn">
+        <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Dark Mode</span>
+      </button>
+    </div>
   </div>
 
   <header>
