@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive AI Glossary</title>
+  
+  <!-- Modern Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+      --bg-card: rgba(22, 30, 49, 0.75);
+      --bg-card-back: rgba(30, 27, 75, 0.85);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #4f46e5; /* Indigo */
+      --primary-glow: rgba(79, 70, 229, 0.4);
+      --accent: #ec4899; /* Jio Pink/Magenta accent */
+      --success: #10b981; /* Emerald */
+      --border-color: rgba(255, 255, 255, 0.08);
+      --transition-speed: 0.3s;
+    }
+
+    /* Light Theme Variables */
+    body.light-theme {
+      --bg-dark: #f8fafc;
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+      --bg-card: rgba(255, 255, 255, 0.8);
+      --bg-card-back: rgba(243, 244, 246, 0.95);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #4f46e5;
+      --primary-glow: rgba(79, 70, 229, 0.15);
+      --accent: #db2777;
+      --border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .header-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .action-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body.light-theme h1 {
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Controls: Search and Filters */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(8px);
+    }
+
+    @media (min-width: 992px) {
+      .controls {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .search-input:focus + .search-icon {
+      color: var(--primary);
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .clear-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    body.light-theme .clear-btn:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: var(--text-muted);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .view-toggle {
+      display: flex;
+      background: var(--bg-dark);
+      padding: 0.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      align-self: flex-start;
+    }
+
+    .view-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .view-btn.active {
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Term Counter */
+    .counter {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Glossary Grid & Card Flip Mechanics */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      perspective: 1000px;
+    }
+
+    .card-container {
+      height: 280px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card-container.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      overflow-y: auto;
+    }
+
+    .card-front {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+    }
+
+    .card-front:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    body.light-theme .card-front:hover {
+      border-color: var(--primary);
+    }
+
+    .card-back {
+      background: var(--bg-card-back);
+      transform: rotateY(180deg);
+      border-color: var(--accent);
+    }
+
+    /* Badges & Actions row */
+    .badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .badge-row-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge-row-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .category-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(236, 72, 153, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    .custom-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--success);
+      border: 1px solid var(--success);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .card-action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .card-action-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+      background: var(--primary-glow);
+      transform: scale(1.15);
+    }
+
+    .card-action-btn.delete-btn:hover {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    .flip-indicator {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Typography inside Card */
+    .term-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .term-definition {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .analogy-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--success);
+      margin-bottom: 0.25rem;
+    }
+
+    .analogy-text {
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      padding-left: 0.5rem;
+      border-left: 3px solid var(--success);
+    }
+
+    .example-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .example-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Flip Alert / Instruction banner */
+    .alert-banner {
+      background: rgba(79, 70, 229, 0.1);
+      border-left: 4px solid var(--primary);
+      color: var(--text-main);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .alert-banner strong {
+      color: var(--accent);
+    }
+
+    .banner-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .export-payload-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .export-payload-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .reset-defaults-btn {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    .reset-defaults-btn:hover {
+      background: #ef4444 !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* Flashcard View Mode adjustments */
+    .glossary-grid.flashcard-mode {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flashcard-mode .card-container {
+      width: 100%;
+      max-width: 600px;
+      height: 350px;
+      margin: 0 auto;
+    }
+
+    .flashcard-nav {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .flashcard-mode-active .flashcard-nav {
+      display: flex;
+    }
+
+    .nav-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-info {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Dialog/Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #0f172a;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      max-width: 550px;
+      width: 90%;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    body.light-theme .modal-content {
+      background: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .form-row-split {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row-split > .form-group {
+      flex: 1;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .modal-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .btn-secondary:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 4px 12px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-action-small {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      background: rgba(236, 72, 153, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.4rem;
+    }
+
+    .btn-action-small:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Loading Spinner Section */
+    .spinner-wrapper {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .spinner {
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--success);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1100;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Bulk Import Drag & Drop Styles */
+    .drag-drop-zone {
+      border: 2px dashed rgba(79, 70, 229, 0.4);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    body.light-theme .drag-drop-zone {
+      background: rgba(0, 0, 0, 0.01);
+    }
+    
+    .drag-drop-zone.dragover {
+      border-color: var(--accent);
+      background: rgba(236, 72, 153, 0.05);
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.15);
+    }
+    
+    .drag-drop-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    
+    .drag-drop-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    
+    .drag-drop-text strong {
+      color: var(--primary);
+    }
+    
+    body.light-theme .drag-drop-text strong {
+      color: var(--accent);
+    }
+
+    /* Preview Table Styles */
+    .preview-section {
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    .preview-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .preview-table-wrapper {
+      max-height: 250px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--bg-dark);
+    }
+    
+    .preview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    
+    .preview-table th, .preview-table td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--border-color);
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .preview-table th {
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+      color: var(--text-main);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    
+    body.light-theme .preview-table th {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    
+    .preview-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .preview-badge-status {
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
+    .status-valid {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+    
+    .status-invalid {
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+      border: 1px solid #ef4444;
+    }
+    
+    .status-warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: #fbbf24;
+      border: 1px solid #f59e0b;
+    }
+
+    .validation-summary {
+      font-size: 0.85rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body class="light-theme">
+
+<div class="container">
+  <div class="header-actions">
+    <button class="action-btn" id="addTermBtn">
+      <span>➕</span> <span>Add Custom Term</span>
+    </button>
+    <button class="action-btn" id="bulkImportBtn">
+      <span>📥</span> <span>Bulk Import</span>
+    </button>
+    <button class="action-btn theme-toggle" id="themeToggleBtn">
+      <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Dark Mode</span>
+    </button>
+  </div>
+
+  <header>
+    <h1>Interactive AI Glossary</h1>
+    <div class="subtitle">Agentic AI Terms, Analogies & Study Deck</div>
+  </header>
+
+  <div class="alert-banner">
+    <div>💡 <strong>Learning Hack:</strong> Click to flip a card. <strong>Double-click</strong> any card to edit, or use the ✏️ and 🗑️ buttons to manage them!</div>
+    <div class="banner-actions">
+      <button class="export-payload-btn reset-defaults-btn" id="resetDefaultsBtn" onclick="resetDefaults()">🔄 Restore Defaults</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <!-- Search Bar Wrapper with SVG Icon and Clear Button -->
+    <div class="search-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search terms, analogies, or categories...">
+      <button class="clear-btn" id="clearSearchBtn" title="Clear search">✕</button>
+    </div>
+
+    <div class="filter-group" id="filterGroup">
+      <button class="filter-btn active" data-filter="all">All Categories</button>
+      <button class="filter-btn" data-filter="basics">Basics</button>
+      <button class="filter-btn" data-filter="workflows">Workflows</button>
+      <button class="filter-btn" data-filter="context files">Context Files</button>
+      <button class="filter-btn" data-filter="tools & security">Tools & Security</button>
+      <button class="filter-btn" data-filter="hr analytics">HR Analytics</button>
+    </div>
+
+    <div class="view-toggle">
+      <button class="view-btn active" id="viewGridBtn">Grid</button>
+      <button class="view-btn" id="viewDeckBtn">Flashcard Deck</button>
+    </div>
+  </div>
+
+  <span class="counter" id="termCounter">Showing 14 terms</span>
+
+  <!-- Glossary Cards Grid -->
+  <div class="glossary-grid" id="glossaryGrid">
+    <!-- Cards will be populated dynamically by JavaScript -->
+  </div>
+
+  <!-- Flashcard navigation controls (shown only in deck mode) -->
+  <div class="flashcard-nav" id="flashcardNav">
+    <button class="nav-btn" id="prevCardBtn">← Previous</button>
+    <div class="nav-info" id="deckProgress">1 / 14</div>
+    <button class="nav-btn" id="nextCardBtn">Next →</button>
+  </div>
+
+  <footer>
+    <div style="margin-bottom: 0.5rem;">© 2026 • Designed for the Agentic AI Orchestration Workshop.</div>
+    <div style="font-size: 0.8rem;">
+      Additional Resource: <a href="https://www.moveworks.com/us/en/resources/ai-terms-glossary" target="_blank" rel="noopener" class="footer-link">Moveworks AI Terms Glossary</a>
+    </div>
+  </footer>
+</div>
+
+<!-- Modal Overlay for Add Term -->
+<div class="modal-overlay" id="addTermModal">
+  <div class="modal-content">
+    <h3 class="modal-title" id="modalTitle">Add Custom Glossary Term</h3>
+    <form id="addTermForm">
+      <div class="form-group">
+        <label class="form-label" for="termName">Term Name</label>
+        <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+          <input type="text" style="flex: 1;" class="form-input" id="termName" placeholder="e.g., LLM (Large Language Model)" required>
+          <button type="button" class="modal-btn btn-primary" style="padding: 0.6rem 1rem;" id="autoGenBtn" title="Fetch definition online and auto-generate analogy">🔍 Fetch Online</button>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div class="spinner-wrapper" id="modalSpinner">
+          <div class="spinner"></div>
+          <span id="spinnerText">Searching online...</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="termCategory">Category</label>
+        <select class="form-select" id="termCategory">
+          <option value="basics">Basics</option>
+          <option value="workflows">Workflows</option>
+          <option value="context files">Context Files</option>
+          <option value="tools & security">Tools & Security</option>
+          <option value="hr analytics">HR Analytics</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="termDefinition">Official Definition</label>
+        <textarea class="form-textarea" id="termDefinition" placeholder="The formal technical definition of this term..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="termAnalogy">Business Analogy (Brief)</label>
+        <input type="text" class="form-input" id="termAnalogy" placeholder="e.g., The Office Archive Room" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="termAnalogyDetail">Analogy Explanation</label>
+        <textarea class="form-textarea" id="termAnalogyDetail" placeholder="Explain the analogy in a simple, non-technical sentence..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="termExample">Jio HR Sandbox Example</label>
+        <textarea class="form-textarea" id="termExample" placeholder="How does the team encounter or use this in HR_Mission_Control?" required></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn btn-secondary" id="closeModalBtn">Cancel</button>
+        <button type="submit" class="modal-btn btn-primary" id="saveTermBtn">Save Term</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Overlay for Bulk Import -->
+<div class="modal-overlay" id="bulkImportModal">
+  <div class="modal-content" style="max-width: 650px;">
+    <h3 class="modal-title">Bulk Import Glossary Terms</h3>
+    
+    <div style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+      Import multiple terms using an Excel-compatible CSV file. 
+      <button type="button" class="btn-action-small" id="downloadTemplateBtn" style="display: inline-flex; margin-top: 0.5rem;">
+        📥 Download CSV Template
+      </button>
+    </div>
+    
+    <div class="drag-drop-zone" id="dropZone">
+      <span class="drag-drop-icon">📁</span>
+      <div class="drag-drop-text">
+        Drag & drop your CSV file here or <strong>browse files</strong>
+      </div>
+      <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+    </div>
+    
+    <!-- Validation Summary Alert -->
+    <div class="validation-summary" id="validationSummary"></div>
+    
+    <!-- Preview Section -->
+    <div class="preview-section" id="previewSection">
+      <div class="preview-title">
+        <span>Data Preview</span>
+        <span style="font-size: 0.8rem; color: var(--text-muted);" id="previewCount">0 rows found</span>
+      </div>
+      <div class="preview-table-wrapper">
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Category</th>
+              <th>Definition</th>
+              <th>Analogy</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="previewTableBody">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="modal-actions">
+      <button type="button" class="modal-btn btn-secondary" id="closeImportModalBtn">Cancel</button>
+      <button type="button" class="modal-btn btn-primary" id="confirmImportBtn" disabled>Confirm Import</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toastNotification">Term added successfully!</div>
+
+<script>
+  // Static Glossary Data
+  const staticTerms = [
+    {
+      term: "IDE (Integrated Development Environment)",
+      category: "basics",
+      definition: "A consolidated workspace and application interface that gathers all necessary tools—files, document editors, AI chat panels, and operational logs—into a single window.",
+      analogy: "The Integrated Command Desk",
+      analogyDetail: "Like a premium manager's desk with dedicated compartments: built-in trays for folder organization (File Explorer), a clear writing pad for drafting policies (Editor), and a direct phone to call your assistant (AI Chat Panel). You don't have to walk to different rooms to do your job.",
+      example: "Opening the 'HR_Mission_Control' sandbox inside Cursor to review guidelines in one window while prompting Antigravity on the right."
+    },
+    {
+      term: "AI Agent",
+      category: "basics",
+      definition: "An intelligent, task-capable program that does not just answer queries like a standard chatbot, but makes plans and invokes local tools to execute goals autonomously.",
+      analogy: "The Digital Intern",
+      analogyDetail: "Instead of a copy-clerk who only writes what you dictate line-by-line, this intern reviews the objective, checks your template folders, designs a project plan, and organizes the documents—always asking for your approval.",
+      example: "Giving a single instruction to reorganize folders, and the agent does it rather than you moving files manually."
+    },
+    {
+      term: "Antigravity 2.0",
+      category: "basics",
+      definition: "The specific, advanced AI agent system operating inside your IDE, uniquely equipped to plan, run scripts, manage subagents, and edit local files.",
+      analogy: "The Head Assistant Director",
+      analogyDetail: "Your primary point of contact in the workspace. They lead the planning, review all documentation rules, draft letters, and coordinate specialized temp staff.",
+      example: "The helper persona you text in the chat panel who writes your `implementation_plan.md` to run the annual pay review."
+    },
+    {
+      term: "Planning Mode / Implementation Plan",
+      category: "workflows",
+      definition: "A mandatory governance phase where the agent compiles a design file (`implementation_plan.md`) describing its approach, file changes, and testing steps.",
+      analogy: "The Project Proposal",
+      analogyDetail: "Before your intern starts making changes to employee folders, they must submit a written project proposal on your desk. They cannot execute the plan until you sign off on it.",
+      example: "Reviewing the proposal to verify that the agent will use correct performance-based raise increments before writing file edits."
+    },
+    {
+      term: "Task List (task.md)",
+      category: "workflows",
+      definition: "A living markdown checklist used by the agent to organize, tick off, and monitor its active progress during task execution.",
+      analogy: "The Shared Whiteboard",
+      analogyDetail: "A physical whiteboard in the office where tasks are marked: unchecked for pending [ ], half-crossed for in-progress [/], and ticked off for completed [x]. Everyone can see what's done.",
+      example: "Watching the agent update `task.md` to track letter generation status: `[x] Aarav Sharma Letter`, `[/] Aditi Patel Letter`."
+    },
+    {
+      term: "README.md",
+      category: "context files",
+      definition: "The landing document in a project directory that introduces the workspace structure, setup instructions, and primary rules.",
+      analogy: "The Welcome Manual & Directory",
+      analogyDetail: "The orientation handbook given to employees on day one. It tells them where the restrooms are, where documents are stored, and what the key project folders are.",
+      example: "The agent reading `HR_Mission_Control/README.md` first to find out where the mock data spreadsheets are stored."
+    },
+    {
+      term: "context.md",
+      category: "context files",
+      definition: "A persistent guidelines file that details long-term business logic, boundaries, and rules that the agent must remember across all conversations.",
+      analogy: "The Standing Policy Brief",
+      analogyDetail: "The standard code of conduct booklet pinned to the bulletin board. It doesn't change daily, and every employee must respect it no matter what project they are on.",
+      example: "Placing your corporate data privacy policies in a context file so the agent never uploads customer data to an external service."
+    },
+    {
+      term: "handover.md",
+      category: "context files",
+      definition: "A document summarizing the current state of a task, decisions made, and outstanding issues when transitioning between agent sessions.",
+      analogy: "The Shift Handover Report",
+      analogyDetail: "The note written by the night nurse to the day nurse: 'Patient took medicine A at 8 PM, needs check B at 9 AM.' It guarantees a seamless handoff.",
+      example: "Saving a progress log explaining that Grade 1 reviews are completed, but Grade 2 reviews still need manual rate-verifications."
+    },
+    {
+      term: "MCP (Model Context Protocol)",
+      category: "tools & security",
+      definition: "An open communication protocol that gives AI agents secure access to local files, external APIs, databases, or browsers.",
+      analogy: "The Temporary Gate Pass / Access Permit",
+      analogyDetail: "A magnetic access card key issued to the intern. It gives them permission to enter secure archives, use the heavy calculator, or use the office mail desk.",
+      example: "Granting the agent permission to use a file reading tool (`view_file`) to check the contents of `data/employees.csv`."
+    },
+    {
+      term: "Subagent",
+      category: "workflows",
+      definition: "An independent, specialized AI agent instance defined and invoked by the main agent to complete a specific task in parallel.",
+      analogy: "The Specialized Contract Worker",
+      analogyDetail: "Your chief intern hires a specialist contractor (like a Compensation Auditor) to handle one specific analysis in a separate office, then takes their summary report.",
+      example: "Antigravity spawning a 'Gender Pay Gap Analyst' agent to audit base salary distribution by gender."
+    },
+    {
+      term: "Human-in-the-Loop (HITL)",
+      category: "tools & security",
+      definition: "A workflows system design that mandates human review, validation, and manual confirmation before critical changes are executed.",
+      analogy: "The Manager's Signature Requirement",
+      analogyDetail: "No check can be signed, no offer letter sent, and no folder deleted until the department head inspects the draft and applies their official signature.",
+      example: "Approving the terminal command window in the IDE before the agent can write proposed salaries to `employees.csv`."
+    },
+    {
+      term: "PII (Personally Identifiable Information)",
+      category: "tools & security",
+      definition: "Sensitive personal data points (like Aadhaar card numbers, PAN card numbers, personal emails, or cell numbers) that can identify an individual.",
+      analogy: "Highly Confidential Personal Folders",
+      analogyDetail: "Files containing keys, locks, and private IDs. These must never be left lying around on desks or shown to people outside the department.",
+      example: "Redacting personal email addresses from spreadsheet analyses before submitting the reports to team managers."
+    },
+    {
+      term: "Local Sandbox",
+      category: "tools & security",
+      definition: "A restricted, secure directory on the computer where software operations and AI tools can run safely without affecting external systems.",
+      analogy: "The Locked Safe Room",
+      analogyDetail: "A secure workspace with thick glass walls. The intern can run calculations, sort files, and test templates inside this room, but no papers are allowed out.",
+      example: "Limiting all payload processes strictly within the `HR_Mission_Control` sandbox directory to protect employee salary records."
+    },
+    {
+      term: "Compa-Ratio",
+      category: "hr analytics",
+      definition: "A calculation showing where an employee's salary sits compared to the market midpoint for their specific grading category.",
+      analogy: "Salary Market Competitiveness Score",
+      analogyDetail: "A speedometer needle showing if your compensation is matching standard rates: below 1.0 means underpaid relative to market midpoint; above 1.0 means overpaid.",
+      example: "Dividing Rohan Verma's salary of 11.5L by the Grade 2 midpoint of 11.5L, resulting in a Compa-Ratio of exactly 1.00 (perfect market match)."
+    },
+    {
+      term: "LLM (Large Language Model)",
+      category: "basics",
+      definition: "A deep learning algorithm trained on massive datasets of text that can recognize, summarize, translate, predict, and generate content.",
+      analogy: "The Speed Reader & Writer",
+      analogyDetail: "An assistant who has read every book in the world's library. They can instantly draft essays or translate languages, but they don't 'know' things the way humans do—they just predict the next logical word.",
+      example: "The core language engine powering Antigravity 2.0."
+    },
+    {
+      term: "Prompt / Prompting",
+      category: "workflows",
+      definition: "The text instruction or query sent to an AI model to guide its output.",
+      analogy: "The Task Memo",
+      analogyDetail: "The written note you leave on your intern's desk explaining what you want them to draft or look up.",
+      example: "Typing 'Compare employee salaries to benchmarks' in the chat panel."
+    },
+    {
+      term: "Context Window",
+      category: "basics",
+      definition: "The limit on the amount of information (tokens) the AI can read and remember in a single interaction.",
+      analogy: "The Desk Surface Area",
+      analogyDetail: "If you have a small desk, you can only open one folder at a time. If you have a massive desk, you can lay out the guidelines, the database, and the template all at once.",
+      example: "Antigravity reading the entire 'compensation_guidelines.md' and 'employees.csv' simultaneously because of its large context window."
+    },
+    {
+      term: "Token / Tokens",
+      category: "basics",
+      definition: "The basic units of text (syllables or word pieces) that an AI model reads and generates.",
+      analogy: "Word Syllables",
+      analogyDetail: "Think of tokens as the individual pieces of jigsaw puzzle words that the model pieces together. 100 words is roughly 130 tokens.",
+      example: "Monitoring token usage in the logs to see how much data was processed."
+    },
+    {
+      term: "RAG (Retrieval-Augmented Generation)",
+      category: "workflows",
+      definition: "A technique that retrieves relevant documents from a database and provides them to the LLM as reference context to ground its answers in fact.",
+      analogy: "Open-Book Exam",
+      analogyDetail: "Instead of having the intern answer from memory (which might cause mistakes), you give them the company policy manual and tell them to look up page 12 before responding.",
+      example: "The agent reading the specific files in your 'HR_Mission_Control' folder to answer salary questions, rather than guessing."
+    },
+    {
+      term: "API Key (Application Programming Interface Key)",
+      category: "tools & security",
+      definition: "A unique code used to identify and authenticate a user or application calling an API.",
+      analogy: "Your Digital Signature / Office Badge",
+      analogyDetail: "A security card that proves who you are to the system and allows you to log in and use tools.",
+      example: "Pasting your Gemini API Key in the settings modal to authenticate online search tools."
+    }
+  ];
+
+  // DOM Elements
+  const glossaryGrid = document.getElementById('glossaryGrid');
+  const searchInput = document.getElementById('searchInput');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+  const filterGroup = document.getElementById('filterGroup');
+  const viewGridBtn = document.getElementById('viewGridBtn');
+  const viewDeckBtn = document.getElementById('viewDeckBtn');
+  const termCounter = document.getElementById('termCounter');
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeToggleIcon = document.getElementById('themeToggleIcon');
+  const themeToggleText = document.getElementById('themeToggleText');
+  const flashcardNav = document.getElementById('flashcardNav');
+  const prevCardBtn = document.getElementById('prevCardBtn');
+  const nextCardBtn = document.getElementById('nextCardBtn');
+  const deckProgress = document.getElementById('deckProgress');
+
+  // Modal elements
+  const addTermBtn = document.getElementById('addTermBtn');
+  const addTermModal = document.getElementById('addTermModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const addTermForm = document.getElementById('addTermForm');
+  const autoGenBtn = document.getElementById('autoGenBtn');
+  const modalSpinner = document.getElementById('modalSpinner');
+  const spinnerText = document.getElementById('spinnerText');
+  const toastNotification = document.getElementById('toastNotification');
+  const modalTitle = document.getElementById('modalTitle');
+  const saveTermBtn = document.getElementById('saveTermBtn');
+
+  // Bulk Import Modal elements
+  const bulkImportBtn = document.getElementById('bulkImportBtn');
+  const bulkImportModal = document.getElementById('bulkImportModal');
+  const closeImportModalBtn = document.getElementById('closeImportModalBtn');
+  const downloadTemplateBtn = document.getElementById('downloadTemplateBtn');
+  const dropZone = document.getElementById('dropZone');
+  const csvFileInput = document.getElementById('csvFileInput');
+  const confirmImportBtn = document.getElementById('confirmImportBtn');
+  const previewSection = document.getElementById('previewSection');
+  const previewTableBody = document.getElementById('previewTableBody');
+  const previewCount = document.getElementById('previewCount');
+  const validationSummary = document.getElementById('validationSummary');
+  
+  let parsedTermsToImport = [];
+
+  // Application State
+  let activeFilter = 'all';
+  let searchQuery = '';
+  let viewMode = 'grid'; // 'grid' or 'deck'
+  let currentDeckIndex = 0;
+  let editingTermOriginalName = null; // State tracking for edits
+  let localTerms = JSON.parse(localStorage.getItem('jio_hr_glossary_local_terms')) || [];
+  let deletedStaticTerms = JSON.parse(localStorage.getItem('jio_hr_glossary_deleted_static_terms')) || [];
+  let combinedTerms = [];
+  let filteredTerms = [];
+
+  // Initialize App
+  function init() {
+    renderTerms();
+    setupEventListeners();
+  }
+
+  // Combine static terms with local overrides/additions
+  function getCombinedTerms() {
+    const combined = [...localTerms];
+    staticTerms.forEach(staticItem => {
+      // Prioritize local overrides (same term name) and check if deleted
+      const isDeleted = deletedStaticTerms.some(name => name.toLowerCase() === staticItem.term.toLowerCase());
+      if (!isDeleted && !combined.some(t => t.term.toLowerCase() === staticItem.term.toLowerCase())) {
+        combined.push(staticItem);
+      }
+    });
+    return combined;
+  }
+
+  // Render Cards based on state
+  function renderTerms() {
+    combinedTerms = getCombinedTerms();
+    
+    // Filter data
+    filteredTerms = combinedTerms.filter(item => {
+      const matchesFilter = activeFilter === 'all' || item.category === activeFilter;
+      const matchesSearch = item.term.toLowerCase().includes(searchQuery) ||
+                            item.definition.toLowerCase().includes(searchQuery) ||
+                            item.analogy.toLowerCase().includes(searchQuery) ||
+                            item.analogyDetail.toLowerCase().includes(searchQuery) ||
+                            item.category.toLowerCase().includes(searchQuery);
+      return matchesFilter && matchesSearch;
+    });
+
+    // Update Counter
+    termCounter.textContent = `Showing ${filteredTerms.length} of ${combinedTerms.length} terms`;
+
+    // Toggle Clear button visibility
+    clearSearchBtn.style.display = searchQuery.length > 0 ? 'flex' : 'none';
+
+    if (filteredTerms.length === 0) {
+      glossaryGrid.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">
+          <h3>No terms found matching "${searchQuery}".</h3>
+          <p style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Would you like to search online and generate this card automatically?</p>
+          <button class="modal-btn btn-primary" id="instantGenBtn" onclick="autoGenerateCard('${searchQuery}')">🔍 Auto-Generate Card</button>
+        </div>
+      `;
+      flashcardNav.style.display = 'none';
+      return;
+    }
+
+    if (viewMode === 'grid') {
+      flashcardNav.style.display = 'none';
+      document.body.classList.remove('flashcard-mode-active');
+      glossaryGrid.classList.remove('flashcard-mode');
+      
+      glossaryGrid.innerHTML = filteredTerms.map((item, index) => createCardHTML(item, index)).join('');
+      
+      // Add click flip event to cards (ignoring action button clicks)
+      document.querySelectorAll('.card-container').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Do not flip if an action button was clicked
+          if (e.target.closest('.card-action-btn')) return;
+          card.classList.toggle('flipped');
+        });
+        
+        card.addEventListener('dblclick', (e) => {
+          // Do not edit if an action button was clicked
+          if (e.target.closest('.card-action-btn')) return;
+          const index = parseInt(card.dataset.index);
+          editTerm(index);
+        });
+      });
+    } else {
+      // Deck/Flashcard Mode
+      document.body.classList.add('flashcard-mode-active');
+      glossaryGrid.classList.add('flashcard-mode');
+      flashcardNav.style.display = 'flex';
+      
+      if (currentDeckIndex >= filteredTerms.length) {
+        currentDeckIndex = 0;
+      }
+      
+      const currentTerm = filteredTerms[currentDeckIndex];
+      glossaryGrid.innerHTML = createCardHTML(currentTerm, currentDeckIndex);
+      deckProgress.textContent = `${currentDeckIndex + 1} / ${filteredTerms.length}`;
+      
+      const card = glossaryGrid.querySelector('.card-container');
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-action-btn')) return;
+        card.classList.toggle('flipped');
+      });
+      card.addEventListener('dblclick', (e) => {
+        if (e.target.closest('.card-action-btn')) return;
+        const index = parseInt(card.dataset.index);
+        editTerm(index);
+      });
+    }
+  }
+
+  // Create Single Card HTML template
+  function createCardHTML(item, index) {
+    const isLocal = localTerms.some(t => t.term.toLowerCase() === item.term.toLowerCase());
+    const isStatic = staticTerms.some(t => t.term.toLowerCase() === item.term.toLowerCase());
+    
+    // Badges
+    const badgeHtml = isLocal && !isStatic ? `<span class="custom-badge">Custom</span>` : 
+                      isLocal && isStatic ? `<span class="custom-badge" style="color:var(--primary); border-color:var(--primary);">Customized</span>` : '';
+
+    // Action buttons: Delete and Edit are always visible for all cards
+    const deleteBtnHtml = `
+      <button class="card-action-btn delete-btn" onclick="event.stopPropagation(); deleteTerm(${index})" title="Delete Term">🗑️</button>
+    `;
+
+    const actionsHtml = `
+      <div class="card-actions">
+        <button class="card-action-btn edit-btn" onclick="event.stopPropagation(); editTerm(${index})" title="Edit details">✏️</button>
+        ${deleteBtnHtml}
+      </div>
+    `;
+
+    return `
+      <div class="card-container" data-index="${index}">
+        <div class="card-inner">
+          <!-- FRONT OF CARD -->
+          <div class="card-front">
+            <div class="badge-row">
+              <div class="badge-row-left">
+                <span class="category-badge">${item.category}</span>
+                ${badgeHtml}
+              </div>
+              <div class="badge-row-right">
+                ${actionsHtml}
+                <span class="flip-indicator">🔄</span>
+              </div>
+            </div>
+            <h2 class="term-name">${item.term}</h2>
+            <p class="term-definition">${item.definition}</p>
+          </div>
+          <!-- BACK OF CARD -->
+          <div class="card-back">
+            <div class="badge-row">
+              <div class="badge-row-left">
+                <span class="category-badge">${item.category}</span>
+                ${badgeHtml}
+              </div>
+              <div class="badge-row-right">
+                ${actionsHtml}
+                <span class="flip-indicator">🔄</span>
+              </div>
+            </div>
+            <div class="analogy-title">Business Analogy</div>
+            <div class="analogy-text">"${item.analogy}" - ${item.analogyDetail}</div>
+            <div class="example-title">HR Sandbox Example</div>
+            <p class="example-text">${item.example}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Open Add Modal and Pre-fill Term Name
+  window.openAddModalWithTerm = function(termName) {
+    const formattedName = termName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    document.getElementById('termName').value = formattedName;
+    
+    // Reset modal header
+    modalTitle.textContent = "Add Custom Glossary Term";
+    saveTermBtn.textContent = "Save Term";
+    editingTermOriginalName = null;
+    
+    addTermModal.classList.add('active');
+  }
+
+  // Edit Card Event Trigger
+  window.editTerm = function(index) {
+    const item = filteredTerms[index];
+    
+    // Prefill modal values
+    document.getElementById('termName').value = item.term;
+    document.getElementById('termCategory').value = item.category;
+    document.getElementById('termDefinition').value = item.definition;
+    document.getElementById('termAnalogy').value = item.analogy;
+    document.getElementById('termAnalogyDetail').value = item.analogyDetail;
+    document.getElementById('termExample').value = item.example;
+    
+    // Set edit header
+    modalTitle.textContent = "Edit Glossary Term";
+    saveTermBtn.textContent = "Update Details";
+    editingTermOriginalName = item.term;
+    
+    addTermModal.classList.add('active');
+  }
+
+  // Delete Card Event Trigger
+  window.deleteTerm = function(index) {
+    const item = filteredTerms[index];
+    const isStatic = staticTerms.some(t => t.term.toLowerCase() === item.term.toLowerCase());
+    
+    if (confirm(`Are you sure you want to delete the term "${item.term}"?`)) {
+      // Filter out this term from local storage list
+      localTerms = localTerms.filter(t => t.term.toLowerCase() !== item.term.toLowerCase());
+      localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+      
+      // If it's a default static term, add it to deleted static terms so it remains hidden
+      if (isStatic) {
+        if (!deletedStaticTerms.some(name => name.toLowerCase() === item.term.toLowerCase())) {
+          deletedStaticTerms.push(item.term);
+          localStorage.setItem('jio_hr_glossary_deleted_static_terms', JSON.stringify(deletedStaticTerms));
+        }
+      }
+      
+      renderTerms();
+      showToast(`"${item.term}" deleted.`);
+    }
+  }
+
+  // Reset all defaults and restore deleted cards
+  window.resetDefaults = function() {
+    if (confirm("Are you sure you want to restore all default terms and discard your edits to them? (This will keep your newly added custom terms)")) {
+      // Remove any local overrides that correspond to static terms
+      localTerms = localTerms.filter(t => !staticTerms.some(s => s.term.toLowerCase() === t.term.toLowerCase()));
+      localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+      
+      // Clear deleted static terms
+      deletedStaticTerms = [];
+      localStorage.setItem('jio_hr_glossary_deleted_static_terms', JSON.stringify(deletedStaticTerms));
+      
+      renderTerms();
+      showToast("Default terms restored.");
+    }
+  }
+
+  // Show dynamic status toast
+  function showToast(message) {
+    toastNotification.textContent = message;
+    toastNotification.classList.add('show');
+    setTimeout(() => {
+      toastNotification.classList.remove('show');
+    }, 3000);
+  }
+
+  // Query Wikipedia Search & Extract Definitions
+  async function fetchWikipediaDefinition(term) {
+    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(term)}&format=json&origin=*`;
+    const searchRes = await fetch(searchUrl);
+    const searchData = await searchRes.json();
+    
+    if (!searchData.query || searchData.query.search.length === 0) {
+      throw new Error("No Wikipedia pages found matching this term.");
+    }
+    
+    const pageTitle = searchData.query.search[0].title;
+    
+    const extractUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`;
+    const extractRes = await fetch(extractUrl);
+    const extractData = await extractRes.json();
+    
+    const pages = extractData.query.pages;
+    const pageId = Object.keys(pages)[0];
+    const extract = pages[pageId].extract;
+    
+    if (!extract) {
+      throw new Error("Could not retrieve definition summary from Wikipedia.");
+    }
+    
+    return {
+      term: pageTitle,
+      definition: extract.split('. ').slice(0, 2).join('. ') + '.' // limit to 2 sentences
+    };
+  }
+
+  // Template CSV Generation & Download
+  function downloadCSVTemplate() {
+    const headers = ["Term", "Category", "Definition", "Analogy", "AnalogyDetail", "Example"];
+    const rows = [
+      ["Cognitive Load", "basics", "The amount of mental effort and memory required to process information or complete a task.", "Office Desk clutter", "If your desk is piled high with loose papers, you can't focus on writing letters. A larger desk surface represents a larger context window that keeps everything organized.", "Antigravity reading guidelines and mock databases simultaneously without cluttering the screen."],
+      ["System Prompt", "workflows", "A set of master instructions that defines the persistent rules, behavior, and tone of an AI agent.", "The Employee Handbook", "The core handbook given to an assistant detailing the absolute DOs and DONTs, which they must follow on every single ticket.", "Setting strict compensation caps in a policy brief that the agent must respect during salary reviews."]
+    ];
+    
+    // Convert to CSV string, handling quotes properly
+    const csvContent = [
+      headers.map(h => `"${h.replace(/"/g, '""')}"`).join(","),
+      ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(","))
+    ].join("\n");
+    
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "jio_hr_glossary_template.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // RFC 4180 compliant CSV Parser
+  function parseCSV(text) {
+    const result = [];
+    let row = [];
+    let insideQuote = false;
+    let entry = '';
+    
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const nextChar = text[i + 1];
+      
+      if (insideQuote) {
+        if (char === '"') {
+          if (nextChar === '"') {
+            entry += '"';
+            i++; // skip next quote
+          } else {
+            insideQuote = false;
+          }
+        } else {
+          entry += char;
+        }
+      } else {
+        if (char === '"') {
+          insideQuote = true;
+        } else if (char === ',') {
+          row.push(entry.trim());
+          entry = '';
+        } else if (char === '\n' || char === '\r') {
+          row.push(entry.trim());
+          if (row.length > 1 || row[0] !== '') {
+            result.push(row);
+          }
+          row = [];
+          entry = '';
+          if (char === '\r' && nextChar === '\n') {
+            i++; // skip \n
+          }
+        } else {
+          entry += char;
+        }
+      }
+    }
+    if (entry || row.length > 0) {
+      row.push(entry.trim());
+      result.push(row);
+    }
+    return result;
+  }
+
+  // File loading and validation
+  function handleCSVFile(file) {
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const text = e.target.result;
+      try {
+        const rows = parseCSV(text);
+        if (rows.length < 2) {
+          showImportError("The CSV file is empty or contains no data rows.");
+          return;
+        }
+        
+        // Header verification
+        const rawHeaders = rows[0].map(h => h.toLowerCase().trim());
+        const requiredHeaders = ["term", "category", "definition", "analogy", "analogydetail", "example"];
+        
+        // Check if all required headers exist
+        const missingHeaders = [];
+        requiredHeaders.forEach(req => {
+          if (!rawHeaders.includes(req)) {
+            missingHeaders.push(req);
+          }
+        });
+        
+        if (missingHeaders.length > 0) {
+          showImportError(`Missing required column headers: <strong>${missingHeaders.join(", ")}</strong>.<br>Please download and use the template.`);
+          return;
+        }
+        
+        // Map raw row indices to standard keys
+        const termIdx = rawHeaders.indexOf("term");
+        const categoryIdx = rawHeaders.indexOf("category");
+        const definitionIdx = rawHeaders.indexOf("definition");
+        const analogyIdx = rawHeaders.indexOf("analogy");
+        const analogyDetailIdx = rawHeaders.indexOf("analogydetail");
+        const exampleIdx = rawHeaders.indexOf("example");
+        
+        parsedTermsToImport = [];
+        const previewRows = [];
+        let invalidCount = 0;
+        let duplicateCount = 0;
+        let validCount = 0;
+        
+        const validCategories = ["basics", "workflows", "context files", "tools & security", "hr analytics"];
+        
+        for (let i = 1; i < rows.length; i++) {
+          const row = rows[i];
+          if (row.length === 0 || (row.length === 1 && row[0] === "")) continue; // skip empty lines
+          
+          const term = row[termIdx] || "";
+          let category = (row[categoryIdx] || "").toLowerCase().trim();
+          const definition = row[definitionIdx] || "";
+          const analogy = row[analogyIdx] || "";
+          const analogyDetail = row[analogyDetailIdx] || "A simple corporate analogy.";
+          const example = row[exampleIdx] || "Encountered in Jio HR_Mission_Control sandbox.";
+          
+          // Validation checks
+          if (!term || !definition || !analogy) {
+            invalidCount++;
+            previewRows.push({
+              term: term || "<i>[Missing Term]</i>",
+              category: category || "basics",
+              definition: definition || "<i>[Missing Definition]</i>",
+              analogy: analogy || "<i>[Missing Analogy]</i>",
+              status: "invalid",
+              message: "Missing required fields"
+            });
+            continue;
+          }
+          
+          if (!validCategories.includes(category)) {
+            category = "basics"; // fallback
+          }
+          
+          // Check duplicate against combinedTerms
+          const isDuplicate = combinedTerms.some(t => t.term.toLowerCase() === term.toLowerCase());
+          const status = isDuplicate ? "duplicate" : "valid";
+          
+          if (isDuplicate) duplicateCount++;
+          else validCount++;
+          
+          const newTerm = { term, category, definition, analogy, analogyDetail, example };
+          parsedTermsToImport.push(newTerm);
+          
+          previewRows.push({
+            term,
+            category,
+            definition,
+            analogy,
+            status,
+            message: isDuplicate ? "Duplicate - Will Overwrite" : "Ready to Import"
+          });
+        }
+        
+        // Render Preview Table
+        previewTableBody.innerHTML = previewRows.map(r => {
+          const badgeClass = r.status === "valid" ? "status-valid" : r.status === "duplicate" ? "status-warning" : "status-invalid";
+          const statusLabel = r.status === "valid" ? "Ready" : r.status === "duplicate" ? "Overwrite" : "Invalid";
+          
+          return `
+            <tr>
+              <td><strong>${r.term}</strong></td>
+              <td><span class="category-badge" style="font-size:0.7rem;">${r.category}</span></td>
+              <td title="${r.definition}">${r.definition}</td>
+              <td title="${r.analogy}">${r.analogy}</td>
+              <td><span class="preview-badge-status ${badgeClass}" title="${r.message}">${statusLabel}</span></td>
+            </tr>
+          `;
+        }).join("");
+        
+        // Update summary text
+        validationSummary.style.display = "block";
+        validationSummary.style.borderColor = invalidCount > 0 ? "rgba(239, 68, 68, 0.35)" : "rgba(16, 185, 129, 0.35)";
+        validationSummary.innerHTML = `
+          <div style="font-weight:600; margin-bottom: 0.25rem; color: ${invalidCount > 0 ? '#f87171' : 'var(--success)'};">
+            ${invalidCount > 0 ? '⚠️ CSV contains validation issues' : '✅ CSV validation successful'}
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            Parsed <strong>${previewRows.length}</strong> rows: 
+            <span style="color: var(--success);">${validCount} new</span>, 
+            <span style="color: #fbbf24;">${duplicateCount} duplicates to overwrite</span>, 
+            <span style="color: #f87171;">${invalidCount} invalid rows skipped</span>.
+          </div>
+        `;
+        
+        previewCount.textContent = `${previewRows.length} rows found`;
+        previewSection.style.display = "block";
+        
+        // Enable import button if we have anything to import
+        confirmImportBtn.disabled = parsedTermsToImport.length === 0;
+      } catch (err) {
+        console.error(err);
+        showImportError(`Failed to parse CSV file: ${err.message}`);
+      }
+    };
+    reader.readAsText(file);
+  }
+  
+  function showImportError(message) {
+    validationSummary.style.display = "block";
+    validationSummary.style.borderColor = "rgba(239, 68, 68, 0.35)";
+    validationSummary.innerHTML = `
+      <div style="font-weight:600; color: #f87171; margin-bottom: 0.25rem;">⚠️ Error parsing file</div>
+      <div style="font-size: 0.85rem; color: var(--text-muted);">${message}</div>
+    `;
+    previewSection.style.display = "none";
+    confirmImportBtn.disabled = true;
+  }
+
+  // Event Listeners setup
+  function setupEventListeners() {
+    // Search input handler
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      currentDeckIndex = 0;
+      renderTerms();
+    });
+
+    // Clear search button handler
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      currentDeckIndex = 0;
+      searchInput.focus();
+      renderTerms();
+    });
+
+    // Category filter handler
+    filterGroup.addEventListener('click', (e) => {
+      if (e.target.classList.contains('filter-btn')) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        activeFilter = e.target.dataset.filter;
+        currentDeckIndex = 0;
+        renderTerms();
+      }
+    });
+
+    // View toggling
+    viewGridBtn.addEventListener('click', () => {
+      viewGridBtn.classList.add('active');
+      viewDeckBtn.classList.remove('active');
+      viewMode = 'grid';
+      renderTerms();
+    });
+
+    viewDeckBtn.addEventListener('click', () => {
+      viewDeckBtn.classList.add('active');
+      viewGridBtn.classList.remove('active');
+      viewMode = 'deck';
+      renderTerms();
+    });
+
+    // Deck Nav buttons
+    prevCardBtn.addEventListener('click', () => {
+      if (currentDeckIndex > 0) {
+        currentDeckIndex--;
+      } else {
+        currentDeckIndex = filteredTerms.length - 1; // loop around
+      }
+      renderTerms();
+    });
+
+    nextCardBtn.addEventListener('click', () => {
+      if (currentDeckIndex < filteredTerms.length - 1) {
+        currentDeckIndex++;
+      } else {
+        currentDeckIndex = 0; // loop around
+      }
+      renderTerms();
+    });
+
+    // Dark/Light Theme toggling
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      themeToggleIcon.textContent = isLight ? '🌙' : '☀️';
+      themeToggleText.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    });
+
+    // Modal Control Open
+    addTermBtn.addEventListener('click', () => {
+      addTermForm.reset();
+      modalTitle.textContent = "Add Custom Glossary Term";
+      saveTermBtn.textContent = "Save Term";
+      editingTermOriginalName = null;
+      addTermModal.classList.add('active');
+    });
+
+    // Modal Control Close
+    closeModalBtn.addEventListener('click', () => {
+      addTermModal.classList.remove('active');
+    });
+
+    // Heuristic Analogy Engine for Keyless Wikipedia Fallback
+    function generateHeuristicAnalogy(term, definition) {
+      const def = definition.toLowerCase();
+      const t = term.toLowerCase();
+      
+      if (def.includes("security") || def.includes("safe") || def.includes("attack") || def.includes("bypass") || def.includes("vulnerability") || def.includes("auth") || t.includes("security") || t.includes("shield")) {
+        return {
+          category: "tools & security",
+          analogy: "The Office Security Gate Pass",
+          analogyDetail: "Like a magnetic lobby badge or desk keycard. It verifies who you are and prevents unauthorized visitors from entering secure archive rooms or editing payroll files.",
+          example: `Encountered when managing user access permissions and sanitizing datasets inside HR_Mission_Control.`
+        };
+      }
+      if (def.includes("database") || def.includes("store") || def.includes("retriev") || def.includes("vector") || def.includes("search") || t.includes("db") || t.includes("store")) {
+        return {
+          category: "tools & security",
+          analogy: "The Central Office Filing Cabinet",
+          analogyDetail: "A highly organized records room where files are indexed by topic. Instead of memorizing every fact, the assistant goes to the cabinet to retrieve the exact document needed for a task.",
+          example: `Used by the agent when searching for salary benchmarks inside data/market_rates.csv.`
+        };
+      }
+      if (def.includes("model") || def.includes("language") || def.includes("algorithm") || def.includes("neural") || def.includes("intelligence") || t.includes("gpt") || t.includes("llm") || t.includes("ai")) {
+        return {
+          category: "basics",
+          analogy: "The Super Speed Reader & Writer",
+          analogyDetail: "An assistant who has read millions of corporate reports. They can write and summarize documents quickly based on past patterns, but need you to verify their facts.",
+          example: `The underlying intelligence engine powering your chat interactions with Antigravity 2.0.`
+        };
+      }
+      if (def.includes("prompt") || def.includes("instruct") || def.includes("command") || def.includes("input") || t.includes("prompt")) {
+        return {
+          category: "workflows",
+          analogy: "The Written Project Memo",
+          analogyDetail: "A clear note left on your intern's desk outlining the exact goals, rules, templates, and boundaries they must follow for their current assignment.",
+          example: `The instruction text you submit in the Chat Panel to initiate the Pay Review calculations.`
+        };
+      }
+      if (def.includes("train") || def.includes("learn") || def.includes("dataset") || t.includes("learn")) {
+        return {
+          category: "basics",
+          analogy: "The Intensive Study Program",
+          analogyDetail: "Like sending a new hire to read thousands of historical company case studies to learn the standard writing style and procedures before they start active work.",
+          example: `Training the agent on Jio HR policies so it knows how to calculate Grade-level compa-ratios.`
+        };
+      }
+      if (def.includes("metric") || def.includes("calculat") || def.includes("ratio") || def.includes("salary") || def.includes("budget") || def.includes("analyt") || t.includes("ratio") || t.includes("pay") || t.includes("compa")) {
+        return {
+          category: "hr analytics",
+          analogy: "The Financial Spreadsheet Ledger",
+          analogyDetail: "A standard calculation sheet that tracks employee salaries against performance guidelines and company budget caps.",
+          example: `Used by the agent to calculate performance-based increases and check budget compliance in HR_Mission_Control.`
+        };
+      }
+      
+      // Catch-all generic fallback analogy
+      return {
+        category: "basics",
+        analogy: "The Standard Office Procedure",
+        analogyDetail: "A clear set of operational guidelines that organizes work files, defines communication styles, and governs security in the department.",
+        example: `A resource referenced by the agent inside the HR_Mission_Control workspace.`
+      };
+    }
+
+    // Fetch / Auto-Gen online button inside Modal
+    autoGenBtn.addEventListener('click', async () => {
+      const termName = document.getElementById('termName').value.trim();
+      if (!termName) {
+        alert("Please enter a term name first!");
+        return;
+      }
+
+      modalSpinner.style.display = 'flex';
+      spinnerText.textContent = "Searching online...";
+      
+      await runWikipediaFallback(termName);
+      modalSpinner.style.display = 'none';
+    });
+
+    async function runWikipediaFallback(termName) {
+      try {
+        spinnerText.textContent = "Fetching from Wikipedia...";
+        const wikiData = await fetchWikipediaDefinition(termName);
+        const heuristics = generateHeuristicAnalogy(wikiData.term, wikiData.definition);
+        
+        document.getElementById('termName').value = wikiData.term;
+        document.getElementById('termCategory').value = heuristics.category;
+        document.getElementById('termDefinition').value = wikiData.definition;
+        document.getElementById('termAnalogy').value = heuristics.analogy;
+        document.getElementById('termAnalogyDetail').value = heuristics.analogyDetail;
+        document.getElementById('termExample').value = heuristics.example;
+        
+        showToast("Fetched definition & auto-generated analogy!");
+      } catch (err) {
+        console.error(err);
+        alert(`Wikipedia Search failed: ${err.message}. Please fill in fields manually.`);
+      }
+    }
+
+    // Background Zero-Touch Card Auto-Generation
+    window.autoGenerateCard = async function(termName) {
+      if (!termName) return;
+      
+      const formattedName = termName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      
+      const termExists = combinedTerms.some(t => t.term.toLowerCase() === formattedName.toLowerCase());
+      if (termExists) {
+        showToast("Term already exists!");
+        return;
+      }
+
+      const btn = document.getElementById('instantGenBtn');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "🔍 Generating card in background...";
+      }
+
+      try {
+        const wikiData = await fetchWikipediaDefinition(formattedName);
+        const heuristics = generateHeuristicAnalogy(wikiData.term, wikiData.definition);
+        
+        const cardData = {
+          term: wikiData.term,
+          category: heuristics.category,
+          definition: wikiData.definition,
+          analogy: heuristics.analogy,
+          analogyDetail: heuristics.analogyDetail,
+          example: heuristics.example
+        };
+
+        // Save
+        localTerms.push(cardData);
+        localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+
+        // Clear search
+        searchInput.value = '';
+        searchQuery = '';
+        
+        renderTerms();
+        showToast(`Card "${cardData.term}" auto-generated successfully!`);
+      } catch (err) {
+        console.error(err);
+        alert(`Auto-generation failed: ${err.message}. Click "+ Add Custom Term" to add manually.`);
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = "🔍 Auto-Generate Card";
+        }
+      }
+    }
+
+    // Form Submission Handler (Handles both Create and Edit)
+    addTermForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const termNameVal = document.getElementById('termName').value.trim();
+      const newTerm = {
+        term: termNameVal,
+        category: document.getElementById('termCategory').value,
+        definition: document.getElementById('termDefinition').value.trim(),
+        analogy: document.getElementById('termAnalogy').value.trim(),
+        analogyDetail: document.getElementById('termAnalogyDetail').value.trim(),
+        example: document.getElementById('termExample').value.trim()
+      };
+
+      if (editingTermOriginalName) {
+        // Edit Mode: check for renaming name collision
+        if (newTerm.term.toLowerCase() !== editingTermOriginalName.toLowerCase()) {
+          const nameExists = combinedTerms.some(t => t.term.toLowerCase() === newTerm.term.toLowerCase());
+          if (nameExists) {
+            alert("A term with this new name already exists in the glossary!");
+            return;
+          }
+
+          // If they renamed a default static term, hide/delete the old name so it doesn't reappear
+          const isStatic = staticTerms.some(t => t.term.toLowerCase() === editingTermOriginalName.toLowerCase());
+          if (isStatic) {
+            if (!deletedStaticTerms.some(name => name.toLowerCase() === editingTermOriginalName.toLowerCase())) {
+              deletedStaticTerms.push(editingTermOriginalName);
+              localStorage.setItem('jio_hr_glossary_deleted_static_terms', JSON.stringify(deletedStaticTerms));
+            }
+          }
+        }
+
+        // If it was already in localTerms, update it; otherwise (static override), push it
+        const localIndex = localTerms.findIndex(t => t.term.toLowerCase() === editingTermOriginalName.toLowerCase());
+        if (localIndex > -1) {
+          localTerms[localIndex] = newTerm;
+        } else {
+          localTerms.push(newTerm);
+        }
+        
+        localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+        showToast(`Term "${newTerm.term}" updated successfully!`);
+      } else {
+        // Create Mode
+        const termExists = combinedTerms.some(t => t.term.toLowerCase() === newTerm.term.toLowerCase());
+        if (termExists) {
+          alert("This term already exists in the glossary!");
+          return;
+        }
+
+        localTerms.push(newTerm);
+        localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+        showToast(`Term "${newTerm.term}" added successfully!`);
+      }
+
+      // Reset and close
+      editingTermOriginalName = null;
+      addTermForm.reset();
+      addTermModal.classList.remove('active');
+      renderTerms();
+    });
+
+
+
+    // Bulk Import Modal Open
+    bulkImportBtn.addEventListener('click', () => {
+      parsedTermsToImport = [];
+      csvFileInput.value = '';
+      validationSummary.style.display = 'none';
+      previewSection.style.display = 'none';
+      confirmImportBtn.disabled = true;
+      bulkImportModal.classList.add('active');
+    });
+
+    // Bulk Import Modal Close
+    closeImportModalBtn.addEventListener('click', () => {
+      bulkImportModal.classList.remove('active');
+    });
+
+    // Template Download Trigger
+    downloadTemplateBtn.addEventListener('click', downloadCSVTemplate);
+
+    // Drag and Drop Zone Triggers
+    dropZone.addEventListener('click', () => {
+      csvFileInput.click();
+    });
+
+    csvFileInput.addEventListener('change', (e) => {
+      handleCSVFile(e.target.files[0]);
+    });
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length > 0) {
+        handleCSVFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    // Confirm Import
+    confirmImportBtn.addEventListener('click', () => {
+      if (parsedTermsToImport.length === 0) return;
+
+      parsedTermsToImport.forEach(newTerm => {
+        const idx = localTerms.findIndex(t => t.term.toLowerCase() === newTerm.term.toLowerCase());
+        if (idx > -1) {
+          localTerms[idx] = newTerm;
+        } else {
+          localTerms.push(newTerm);
+        }
+        
+        // Unhide if it was hidden
+        deletedStaticTerms = deletedStaticTerms.filter(name => name.toLowerCase() !== newTerm.term.toLowerCase());
+      });
+
+      localStorage.setItem('jio_hr_glossary_local_terms', JSON.stringify(localTerms));
+      localStorage.setItem('jio_hr_glossary_deleted_static_terms', JSON.stringify(deletedStaticTerms));
+
+      bulkImportModal.classList.remove('active');
+      renderTerms();
+      showToast(`Successfully imported ${parsedTermsToImport.length} terms!`);
+    });
+  }
+
+  // Run initialization
+  window.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>

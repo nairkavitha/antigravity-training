@@ -1,0 +1,11 @@
+employee_id,name,role,department,grade,performance_rating,current_salary,gender,email
+JIO1001,Aarav Sharma,Software Engineer,Network Systems,Grade 1,Exceeds Expectations,680000,Male,aarav.sharma@jio.com
+JIO1002,Aditi Patel,HR Generalist,Human Resources,Grade 1,Meets Expectations,550000,Female,aditi.patel@jio.com
+JIO1003,Rohan Verma,Manager - Talent Acquisition,Human Resources,Grade 2,Outstanding,1150000,Male,rohan.verma@jio.com
+JIO1004,Priya Iyer,Lead Developer,Network Systems,Grade 2,Meets Expectations,1200000,Female,priya.iyer@jio.com
+JIO1005,Vikram Singh,Senior Manager - Cloud Operations,Infrastructure,Grade 3,Exceeds Expectations,1850000,Male,vikram.singh@jio.com
+JIO1006,Neha Gupta,HR Business Partner,Human Resources,Grade 2,Meets Expectations,950000,Female,neha.gupta@jio.com
+JIO1007,Amit Joshi,Deputy General Manager,Infrastructure,Grade 4,Meets Expectations,2800000,Male,amit.joshi@jio.com
+JIO1008,Kiran Rao,Lead Security Analyst,Network Systems,Grade 2,Exceeds Expectations,1350000,Female,kiran.rao@jio.com
+JIO1009,Siddharth Nair,Systems Administrator,Infrastructure,Grade 1,Needs Improvement,480000,Male,siddharth.nair@jio.com
+JIO1010,Ananya Reddy,Manager - Compensation & Benefits,Human Resources,Grade 2,Outstanding,1420000,Female,ananya.reddy@jio.com
