@@ -355,6 +355,7 @@
   .agenda-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
   .agenda-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
   .agenda-table tbody tr:nth-child(even) { background: var(--surface); }
+  .agenda-table tbody tr { cursor: pointer; }
   .agenda-table tbody tr:hover { background: var(--jio-blue-light); }
   .agenda-table td {
     padding: 13px 16px;
@@ -1420,31 +1421,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr onclick="switchTab('foundations')">
               <td><span class="mod-badge">01</span></td>
               <td><strong>Foundations</strong></td>
               <td>Understand what agentic AI is, how it thinks, and why HITL governance matters</td>
               <td>~30 min</td>
             </tr>
-            <tr>
+            <tr onclick="switchTab('setup')">
               <td><span class="mod-badge">02</span></td>
               <td><strong>Setup & Tour</strong></td>
               <td>Install Antigravity 2.0, connect your sandbox, and explore the interface</td>
               <td>~45 min</td>
             </tr>
-            <tr>
+            <tr onclick="switchTab('skills')">
               <td><span class="mod-badge">03</span></td>
               <td><strong>Core Skills</strong></td>
               <td>Write your first agent goal, use tools & MCP, and orchestrate a two-agent workflow</td>
               <td>~60 min</td>
             </tr>
-            <tr>
+            <tr onclick="switchTab('build')">
               <td><span class="mod-badge">04</span></td>
               <td><strong>Build</strong></td>
               <td>Choose a project and build a real, working HR tool from scratch</td>
               <td>~45 min</td>
             </tr>
-            <tr>
+            <tr onclick="switchTab('help')">
               <td><span class="mod-badge">05</span></td>
               <td><strong>Help</strong></td>
               <td>Diagnose and fix common agent problems — your recovery toolkit</td>
@@ -1815,6 +1816,9 @@
             <div class="step-content">
               <div class="step-title">Install Antigravity globally</div>
               <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>npm install -g @anthropic-ai/claude-code</code></div>
+              <div class="step-body" style="margin-top:8px; color: var(--text-secondary);">
+                <em>⚠️ <strong>Crucial Step:</strong> During the installation wizard, make sure to select the <strong>"Keep the antigravity IDE"</strong> option if you wish to retain your existing IDE configuration and prevent the installer from automatically replacing it.</em>
+              </div>
             </div>
           </li>
           <li>
