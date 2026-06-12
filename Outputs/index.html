@@ -1747,17 +1747,17 @@
         </div>
         <div class="qa-card" onclick="toggleQA(this)">
           <div class="qa-question">
-            <span class="qa-q-text">Name the 5 core context files and what each one is for.</span>
+            <span class="qa-q-text">Why does the agent write an implementation_plan.md before it starts writing code or editing files?</span>
             <span class="qa-chevron">⌄</span>
           </div>
-          <div class="qa-answer"><strong>README.md</strong> — project overview and purpose. <strong>context.md</strong> — team and organizational context. <strong>implementation_plan.md</strong> — the step-by-step execution plan. <strong>task.md</strong> — the current active task. <strong>handover.md</strong> — session continuity notes so the agent can pick up where it left off.</div>
+          <div class="qa-answer">Because in the <strong>Plan</strong> phase, the agent must outline its intended path and get your explicit approval before execution. This prevents the agent from making unauthorized changes to your files or running incorrect code.</div>
         </div>
         <div class="qa-card" onclick="toggleQA(this)">
           <div class="qa-question">
-            <span class="qa-q-text">Can you use your actual employee data during this training?</span>
+            <span class="qa-q-text">If the agent has direct file access, why does it still ask for your permission before reading or writing a file?</span>
             <span class="qa-chevron">⌄</span>
           </div>
-          <div class="qa-answer"><strong>No.</strong> All exercises use synthetic sandbox data in <code style="background:var(--surface-2);padding:2px 6px;border-radius:3px;font-size:12px;">HR_Mission_Control/</code>. Never input real employee names, IDs, salaries, or personal details into any agent prompt — this is a hard governance requirement, not a suggestion.</div>
+          <div class="qa-answer">This is the <strong>security gate</strong>. Antigravity 2.0 cannot access files or run commands silently. You must inspect the target path and click <strong>Approve</strong> to ensure data governance is maintained and sensitive information stays within the sandbox.</div>
         </div>
       </div>
     </div>
