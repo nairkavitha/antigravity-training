@@ -1369,7 +1369,7 @@
       </div>
     </div>
     <div class="header-badge">
-      <span>⚡</span> Powered by Claude · Reliance Jio HR
+      <span>⚡</span> Powered by Google Gemini · Reliance Jio HR
     </div>
   </div>
 </header>
@@ -1792,57 +1792,28 @@
         </div>
         <div class="concept-grid">
           <div class="concept-card"><span class="cc-icon">💻</span><div class="cc-title">macOS or Windows</div><div class="cc-body">Antigravity 2.0 runs on macOS 12+ or Windows 10+. Linux is supported but may require additional configuration.</div></div>
-          <div class="concept-card"><span class="cc-icon">🌐</span><div class="cc-title">Internet Access</div><div class="cc-body">A stable connection is required. Antigravity calls the Claude API — ensure your network allows outbound HTTPS traffic.</div></div>
-          <div class="concept-card"><span class="cc-icon">🔑</span><div class="cc-title">Your API Key</div><div class="cc-body">You'll need an Anthropic API key. Your facilitator will provide this. Do not share it with anyone.</div></div>
+          <div class="concept-card"><span class="cc-icon">🌐</span><div class="cc-title">Internet Access</div><div class="cc-body">A stable connection is required. Antigravity connects to Google's Gemini API — ensure your network allows outbound HTTPS traffic.</div></div>
+          <div class="concept-card"><span class="cc-icon">👤</span><div class="cc-title">Your Google Account</div><div class="cc-body">You'll need a Google account. Sign in using your Jio corporate or personal Gmail account when prompted during launch.</div></div>
           <div class="concept-card"><span class="cc-icon">📁</span><div class="cc-title">HR Mission Control Folder</div><div class="cc-body">The sandbox folder should already be shared with you. It contains the synthetic data files you'll use throughout the training.</div></div>
         </div>
       </div>
 
       <div class="section-block">
         <div class="section-header">
-          <div class="section-icon">🔧</div>
-          <div><div class="section-title">Installation Steps</div><div class="section-sub">Follow these in order — about 10 minutes total</div></div>
+          <div class="section-icon">🎬</div>
+          <div><div class="section-title">Video Walkthrough</div><div class="section-sub">Watch the step-by-step setup guide</div></div>
         </div>
-        <ol class="step-list">
-          <li>
-            <div class="step-content">
-              <div class="step-title">Check your Node.js version</div>
-              <div class="step-body">Antigravity 2.0 requires Node.js v18 or higher. Open a terminal and run:</div>
-              <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>node --version</code></div>
-              <div class="step-body" style="margin-top:8px;">If you see v18.x.x or higher, continue. Otherwise download Node.js from nodejs.org first.</div>
-            </div>
-          </li>
-          <li>
-            <div class="step-content">
-              <div class="step-title">Install Antigravity globally</div>
-              <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>npm install -g @anthropic-ai/claude-code</code></div>
-              <div class="step-body" style="margin-top:8px; color: var(--text-secondary);">
-                <em>⚠️ <strong>Crucial Step:</strong> During the installation wizard, make sure to select the <strong>"Keep the antigravity IDE"</strong> option if you wish to retain your existing IDE configuration and prevent the installer from automatically replacing it.</em>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="step-content">
-              <div class="step-title">Add your API key</div>
-              <div class="step-body">Replace YOUR_KEY_HERE with the key from your facilitator.</div>
-              <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">macOS / Linux</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>export ANTHROPIC_API_KEY="YOUR_KEY_HERE"</code></div>
-              <div class="code-block"><div class="code-header"><span class="code-lang">Windows PowerShell</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>$env:ANTHROPIC_API_KEY = "YOUR_KEY_HERE"</code></div>
-            </div>
-          </li>
-          <li>
-            <div class="step-content">
-              <div class="step-title">Navigate to your sandbox folder</div>
-              <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>cd path/to/HR_Mission_Control</code></div>
-            </div>
-          </li>
-          <li>
-            <div class="step-content">
-              <div class="step-title">Launch Antigravity 2.0</div>
-              <div class="code-block" style="margin-top:10px;"><div class="code-header"><span class="code-lang">terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><code>claude</code></div>
-            </div>
-          </li>
-        </ol>
-        <div class="info-box green"><div class="info-box-icon">🎉</div><div class="info-box-content"><strong>You're in!</strong> If you see the Integrated Command Desk with a prompt cursor, you've successfully installed and launched Antigravity 2.0.</div></div>
+        
+        <div class="info-box blue" style="margin-bottom:24px; display:flex; align-items:center; gap:20px; padding:24px; border-radius:var(--radius-lg);">
+          <div style="font-size:48px; line-height:1; flex-shrink:0; cursor:pointer;" onclick="window.open('https://www.youtube.com/watch?v=6C0FjHoN3qE', '_blank')">▶️</div>
+          <div style="flex:1;">
+            <strong style="font-size:16px; display:block; margin-bottom:4px;">Google Antigravity 2.0 Setup Guide</strong>
+            <p style="margin:8px 0; color:var(--text-secondary); line-height:1.5;">Learn how to install and configure Google Antigravity 2.0, sign in using your Google/Gmail account, navigate your local sandbox workspace, and launch the CLI in this short video walkthrough.</p>
+            <a href="https://www.youtube.com/watch?v=6C0FjHoN3qE" target="_blank" class="copy-btn" style="display:inline-flex; align-items:center; gap:6px; background:var(--jio-blue); color:white; border:none; padding:10px 18px; border-radius:var(--radius-md); font-weight:600; text-decoration:none; cursor:pointer; font-size:13.5px; transition:background 0.2s; margin-top:8px;">
+              📺 Watch Setup Video
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2290,7 +2261,7 @@ Do not take any further action until I have reviewed your answer.</code>
             <li>Verify you are in the correct working directory: <code style="background:var(--surface-2);padding:2px 6px;border-radius:3px;font-size:12px;">pwd</code> in a new terminal window</li>
             <li>If the output folder doesn't exist, create it: <code style="background:var(--surface-2);padding:2px 6px;border-radius:3px;font-size:12px;">mkdir -p exercises/</code></li>
             <li>If it's a file read error, confirm the filename and path are exactly right (case-sensitive on macOS/Linux)</li>
-            <li>Restart Antigravity from the correct folder using <code style="background:var(--surface-2);padding:2px 6px;border-radius:3px;font-size:12px;">cd path/to/HR_Mission_Control && claude</code></li>
+            <li>Restart Antigravity from the correct folder using <code style="background:var(--surface-2);padding:2px 6px;border-radius:3px;font-size:12px;">cd path/to/HR_Mission_Control && agy</code></li>
           </ol>
           <div class="code-block" style="margin-top:14px;">
             <div class="code-header"><span class="code-lang">diagnostic prompt</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div>
@@ -2923,7 +2894,7 @@ Then continue from where you left off — do not re-do completed work.</code>
               <div class="flip-front">
                 <span class="fc-cat" style="background:#E8E8FF;color:#2D1AB4;">💻 Tech Stack</span>
                 <div class="fc-term">Node.js</div>
-                <div class="fc-def">A runtime environment that lets JavaScript run on a computer or server — not just inside a browser. Powers many backend systems and developer tools, including Claude Code / Antigravity 2.0.</div>
+                <div class="fc-def">A runtime environment that lets JavaScript run on a computer or server — not just inside a browser. Powers many backend systems and developer tools, including Google Antigravity 2.0.</div>
                 <div class="fc-flip-hint">flip for analogy →</div>
               </div>
               <div class="flip-back">
