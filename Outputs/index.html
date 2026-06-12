@@ -1920,7 +1920,7 @@ summary of what this project is and what files are available.</code></div>
           <div class="concept-card highlight" data-label="✗ Order (weak)">
             <span class="cc-icon">📋</span>
             <div class="cc-title">Step-by-step instruction</div>
-            <div class="cc-body" style="font-family:var(--font-mono);font-size:12px;line-height:1.7;background:var(--surface);border-radius:var(--radius-sm);padding:12px;">"Step 1: Open employees.csv.
+            <div class="cc-body" style="font-family:var(--font-mono);font-size:12px;line-height:1.7;background:var(--surface);border-radius:var(--radius-sm);padding:12px;">"Step 1: Open data/employees.csv.
 Step 2: Count the rows.
 Step 3: Group by department.
 Step 4: Write result to file."</div>
@@ -1929,7 +1929,7 @@ Step 4: Write result to file."</div>
           <div class="concept-card highlight" data-label="✓ Goal (strong)" style="border-color:var(--success);">
             <span class="cc-icon">🎯</span>
             <div class="cc-title">Outcome-focused goal</div>
-            <div class="cc-body" style="font-family:var(--font-mono);font-size:12px;line-height:1.7;background:var(--success-light);border-radius:var(--radius-sm);padding:12px;">"Read employees.csv and create a team composition summary by department and grade. Save as exercises/team_summary.md."</div>
+            <div class="cc-body" style="font-family:var(--font-mono);font-size:12px;line-height:1.7;background:var(--success-light);border-radius:var(--radius-sm);padding:12px;">"Read data/employees.csv and create a team composition summary by department and grade. Save as exercises/team_summary.md."</div>
             <div style="margin-top:10px;font-size:13px;color:var(--text-secondary);">✅ Clear, flexible, defines what and where — not how.</div>
           </div>
         </div>
@@ -1950,8 +1950,8 @@ Step 4: Write result to file."</div>
         <div class="exercise-box">
           <div class="ex-title">📊 Headcount by Department &amp; Grade</div>
           <div class="ex-desc">Use the sandbox employee data to create a clean headcount summary. No salary data, no PII. A genuinely useful HR artefact.</div>
-          <div class="ex-files"><span class="ex-file">📄 employees.csv</span><span class="ex-file">📂 exercises/ (output)</span></div>
-          <div class="code-block"><div class="code-header"><span class="code-lang">your goal — copy &amp; paste this</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.9);">📋 Copy</button></div><code>Read employees.csv and create a team composition summary.
+          <div class="ex-files"><span class="ex-file">📄 data/employees.csv</span><span class="ex-file">📂 exercises/ (output)</span></div>
+          <div class="code-block"><div class="code-header"><span class="code-lang">your goal — copy &amp; paste this</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.9);">📋 Copy</button></div><code>Read data/employees.csv and create a team composition summary.
 
 Include:
 - Total headcount
@@ -2006,7 +2006,7 @@ Save as exercises/team_summary.md with clear headings.</code></div>
         <div class="section-header"><div class="section-icon">👀</div><div><div class="section-title">Reading the Tool Call Log</div><div class="section-sub">How to know what the agent actually did</div></div></div>
         <div class="code-block"><div class="code-header"><span class="code-lang">example tool call log</span></div><code><span class="cm">// Agent reading a file</span>
 <span class="kw">Tool:</span> <span class="fn">ReadFile</span>
-<span class="str">Path:</span> employees.csv  |  <span class="str">Status:</span> ✓ 47 rows read
+<span class="str">Path:</span> data/employees.csv  |  <span class="str">Status:</span> ✓ 47 rows read
 
 <span class="cm">// Agent writing output</span>
 <span class="kw">Tool:</span> <span class="fn">WriteFile</span>
@@ -2038,11 +2038,11 @@ Save as exercises/team_summary.md with clear headings.</code></div>
         <div class="exercise-box">
           <div class="ex-title">📋 Two Agents, One Report</div>
           <div class="ex-desc">Give the orchestrator one goal. It spins up a People Analyst (reads employee data) and a Policy Auditor (reads the policies folder). Each produces their section; the orchestrator merges them into a single Workspace Readiness Report.</div>
-          <div class="ex-files"><span class="ex-file">📄 employees.csv</span><span class="ex-file">📂 policies/</span><span class="ex-file">📂 exercises/ (output)</span></div>
+          <div class="ex-files"><span class="ex-file">📄 data/employees.csv</span><span class="ex-file">📂 policies/</span><span class="ex-file">📂 exercises/ (output)</span></div>
           <div class="code-block"><div class="code-header"><span class="code-lang">your goal — copy &amp; paste this</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.9);">📋 Copy</button></div><code>Create a Workspace Readiness Report using two specialist agents:
 
 AGENT 1 — People Analyst:
-- Read employees.csv
+- Read data/employees.csv
 - Summarise total headcount, breakdown by department and grade
 - Flag departments with fewer than 3 people
 - Do NOT include salary or personal contact information
@@ -2097,16 +2097,16 @@ FINAL OUTPUT:
         <div class="pc-title">Employee Profile Card Generator</div>
         <div class="pc-desc">Turn raw employee data into individual, beautifully formatted HTML profile cards — one per employee, with their role, department, grade, and a generated bio placeholder.</div>
         <div class="pc-files">
-          <span class="pc-file-tag">📄 employees.csv</span>
+          <span class="pc-file-tag">📄 data/employees.csv</span>
           <span class="pc-file-tag">📂 exercises/</span>
         </div>
         <div class="project-detail">
           <hr>
-          <div class="info-box blue mb-24" style="margin-bottom:16px;"><div class="info-box-icon">🎯</div><div class="info-box-content"><strong>What you'll build</strong> A Python script that reads employees.csv and generates one HTML file per employee, each with a styled profile card layout. The final output is a folder of cards the team could browse in a browser.</div></div>
-          <div class="code-block"><div class="code-header"><span class="code-lang">starter prompt — copy &amp; paste into Antigravity 2.0</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85);">📋 Copy</button></div><code>Read employees.csv and build an Employee Profile Card Generator.
+          <div class="info-box blue mb-24" style="margin-bottom:16px;"><div class="info-box-icon">🎯</div><div class="info-box-content"><strong>What you'll build</strong> A Python script that reads data/employees.csv and generates one HTML file per employee, each with a styled profile card layout. The final output is a folder of cards the team could browse in a browser.</div></div>
+          <div class="code-block"><div class="code-header"><span class="code-lang">starter prompt — copy &amp; paste into Antigravity 2.0</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85);">📋 Copy</button></div><code>Read data/employees.csv and build an Employee Profile Card Generator.
 
 The tool should:
-1. Read every row in employees.csv (name, department, grade, role)
+1. Read every row in data/employees.csv (name, department, grade, role)
 2. Generate one HTML file per employee in exercises/profile_cards/
 3. Each card should have: name (large), role, department badge, grade pill,
    and a placeholder "Bio coming soon" section
@@ -2155,13 +2155,13 @@ Embed all policy content directly into the HTML as a searchable dataset.</code><
         <div class="pc-title">Team Snapshot Dashboard</div>
         <div class="pc-desc">Turn the employee data into a live, interactive HTML dashboard with charts — headcount by department, grade distribution, and team composition at a glance.</div>
         <div class="pc-files">
-          <span class="pc-file-tag">📄 employees.csv</span>
+          <span class="pc-file-tag">📄 data/employees.csv</span>
           <span class="pc-file-tag">📂 exercises/</span>
         </div>
         <div class="project-detail">
           <hr>
-          <div class="info-box blue mb-24" style="margin-bottom:16px;"><div class="info-box-icon">🎯</div><div class="info-box-content"><strong>What you'll build</strong> A single-file HTML dashboard with bar charts, donut charts, and a filterable team table. Uses Chart.js loaded from CDN — no backend needed. Built entirely from employees.csv data, excluding all salary information.</div></div>
-          <div class="code-block"><div class="code-header"><span class="code-lang">starter prompt — copy &amp; paste into Antigravity 2.0</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85);">📋 Copy</button></div><code>Build a Team Snapshot Dashboard from employees.csv.
+          <div class="info-box blue mb-24" style="margin-bottom:16px;"><div class="info-box-icon">🎯</div><div class="info-box-content"><strong>What you'll build</strong> A single-file HTML dashboard with bar charts, donut charts, and a filterable team table. Uses Chart.js loaded from CDN — no backend needed. Built entirely from data/employees.csv data, excluding all salary information.</div></div>
+          <div class="code-block"><div class="code-header"><span class="code-lang">starter prompt — copy &amp; paste into Antigravity 2.0</span><button class="copy-btn" onclick="copyCode(this)" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.85);">📋 Copy</button></div><code>Build a Team Snapshot Dashboard from data/employees.csv.
 
 The dashboard should be a single self-contained HTML file at exercises/team_dashboard.html.
 
@@ -2311,7 +2311,7 @@ Do not take any other action until you have done this.</code>
         <div class="recovery-body">
           <p style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;"><strong>Why this happens:</strong> The agent "filled gaps" in the data with plausible-sounding but invented information. This is more common when the source data is incomplete or ambiguous.</p>
           <ol class="recovery-steps">
-            <li>Open the source file (e.g. employees.csv) and cross-check against the output</li>
+            <li>Open the source file (e.g. data/employees.csv) and cross-check against the output</li>
             <li>Look for: numbers that don't add up, names that don't appear in the source, policies that don't exist in the policies/ folder</li>
             <li>Do not use hallucinated output for any real decision</li>
             <li>Prompt the agent to cite its sources — see prompt below</li>
@@ -3262,7 +3262,7 @@ Then continue from where you left off — do not re-do completed work.</code>
               <div class="sim-checkbox" id="chk-data"></div>
               <div>
                 <div class="sim-label">4. Data Connection <span class="sim-badge" style="background:#E6FFF3;color:#065F46;">Persistent</span></div>
-                <div class="sim-desc">Links to the sandbox. Employee details load from employees.csv — not hardcoded.</div>
+                <div class="sim-desc">Links to the sandbox. Employee details load from data/employees.csv — not hardcoded.</div>
               </div>
             </div>
 
@@ -3284,7 +3284,7 @@ Then continue from where you left off — do not re-do completed work.</code>
                 <div class="sim-dot sim-dot-y"></div>
                 <div class="sim-dot sim-dot-g"></div>
               </div>
-              <div class="sim-url">exercises/profile_cards/priya_sharma.html</div>
+              <div class="sim-url">exercises/profile_cards/neha_gupta.html</div>
               <div class="sim-status">● LIVE</div>
             </div>
             <div class="sim-viewport" id="simViewport">
@@ -3439,7 +3439,7 @@ When it's done, update it to the next task.
 Example:
 ───────────────────────
 Task: Generate team composition summary
-Input: employees.csv
+Input: data/employees.csv
 Output: exercises/team_summary.md
 Done when: File exists with dept + grade breakdown`
   },
@@ -3597,12 +3597,12 @@ function renderSim() {
   if (!vp) return;
 
   let log = '<span style="color:#79B8FF;">&gt; HTML:</span> Core structure loaded. Fields and buttons rendered.<br>';
-  const name = data ? 'Priya Sharma' : 'Employee Name';
-  const dept = data ? 'Talent Management' : 'Department';
-  const grade = data ? 'L4 — Senior Associate' : 'Grade';
-  const role = data ? 'Performance Partner' : 'Role';
-  const bio = ai ? 'A strategic HR professional known for designing data-informed talent interventions. Champions the EDGE certification programme across cohorts.' : '';
-  const tag = ai ? 'Capability Builder' : '';
+  const name = data ? 'Neha Gupta' : 'Employee Name';
+  const dept = data ? 'Human Resources' : 'Department';
+  const grade = data ? 'Grade 2' : 'Grade';
+  const role = data ? 'HR Business Partner' : 'Role';
+  const bio = ai ? 'An experienced HR partner specializing in employee relations, talent strategy, and organizational development. Drives change initiatives across key business units.' : '';
+  const tag = ai ? 'Talent Advocate' : '';
   let html = '';
 
   if (css) {
@@ -3620,7 +3620,7 @@ function renderSim() {
       ${ai && bio ? `<p style="font-size:12px;color:#4A5E73;line-height:1.6;border-top:1px solid #EEF2F8;padding-top:10px;margin-bottom:12px;">${bio}</p>` : ''}
       <button onclick="simCardClick()" style="width:100%;background:${js ? '#005AAC' : '#D4DDE8'};color:${js ? '#fff' : '#7A8FA3'};border:none;border-radius:8px;padding:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:${js ? 'pointer' : 'default'};">${js ? '▶ View Full Profile' : 'View Profile (JS off — inactive)'}</button>
       ${js && simClickCount > 0 ? `<div style="margin-top:8px;font-size:11px;color:#7A8FA3;text-align:center;">Viewed ${simClickCount} time${simClickCount > 1 ? 's' : ''} this session</div>` : ''}
-      ${data ? `<div style="margin-top:10px;border-top:1px dashed #D4DDE8;padding-top:8px;font-size:10px;color:#7A8FA3;font-family:'DM Mono',monospace;">📡 employees.csv · Row 7 · sync: live</div>` : ''}
+      ${data ? `<div style="margin-top:10px;border-top:1px dashed #D4DDE8;padding-top:8px;font-size:10px;color:#7A8FA3;font-family:'DM Mono',monospace;">📡 data/employees.csv · Row 7 · sync: live</div>` : ''}
     </div>`;
   } else {
     html = `<div style="font-family:monospace;font-size:12px;color:#000;padding:14px;background:#fff;border:1px solid #000;max-width:300px;width:100%;text-align:left;">
@@ -3628,11 +3628,11 @@ function renderSim() {
       <p>Name: ${name}</p><p>Role: ${role}</p><p>Department: ${dept}</p><p>Grade: ${grade}</p>
       ${ai ? `<p style="border:1px dashed #999;padding:5px;margin-top:5px;font-size:10px;">[AI Bio — CSS off, unformatted]: ${bio}</p>` : ''}
       <button onclick="simCardClick()" style="margin-top:6px;border:1px solid #000;padding:3px 7px;cursor:${js ? 'pointer' : 'default'};">View Profile</button>
-      ${data ? `<p style="margin-top:4px;font-size:10px;">[DB: employees.csv linked]</p>` : ''}
+      ${data ? `<p style="margin-top:4px;font-size:10px;">[DB: data/employees.csv linked]</p>` : ''}
     </div>`;
   }
   if (js) log += '<span style="color:#F6C90E;">&gt; JS:</span> Event listeners active. Clicks tracked in session.<br>';
-  if (data) log += '<span style="color:#2AC940;">&gt; Data:</span> employees.csv loaded — Row 7: Priya Sharma matched.<br>';
+  if (data) log += '<span style="color:#2AC940;">&gt; Data:</span> data/employees.csv loaded — Row 7: Neha Gupta matched.<br>';
   if (ai) log += '<span style="color:#FF6B8A;">&gt; AI Layer:</span> Bio generated. Competency tag inferred from role + tenure data.<br>';
   vp.innerHTML = html;
   con.innerHTML = log;

@@ -15,7 +15,7 @@ Here, you will not write code. Instead, you will work like a director or manager
   - 📄 `compensation_letter_template.md`: A template for the annual compensation adjustment letter to be generated for each employee.
 - 📁 `exercises/` *(Created during the workshop)*
   - This folder will hold the logs, plans, and outputs you create together with the agent throughout the 4-day course.
-- 📄 [glossary.html](../glossary.html): An Interactive AI Glossary of Agentic AI terms built specifically for HR professionals. Double-click this file to open it in your browser.
+- 📄 [index.html](../index.html) (Glossary Tab): The Interactive AI Glossary is now integrated directly into the main training portal. Open the portal in your browser and click on the **Glossary** tab.
   - **3D Study Flashcards**: Flip cards to view non-technical corporate analogies and real-world Jio HR sandbox examples.
   - **Bulk Import**: Excel-compatible CSV bulk uploader with real-time preview, headers validation, and a downloadable CSV template.
   - **Restore Defaults**: Easily reset modifications and restore deleted terms back to defaults.
