@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Non-Tech Tech Decoder</title>
+    <!-- Tailwind CSS for visual systems -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Outfit (headings) & Plus Jakarta Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        .perspective-lg {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        /* Custom dynamic transitions */
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Sticky Header Navigation -->
+    <header class="bg-white/85 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-tr from-indigo-600 to-violet-600 text-white p-2.5 rounded-2xl shadow-md shadow-indigo-100">
+                    <!-- Custom SVG Logo -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900 leading-tight">Tech Stack Decoder</h1>
+                    <p class="text-xs text-slate-500 font-semibold tracking-wide uppercase">The ultimate translator for non-tech professionals</p>
+                </div>
+            </div>
+            
+            <nav class="flex bg-slate-100/80 p-1 rounded-2xl border border-slate-200/50">
+                <button onclick="switchTab('analogy')" id="tab-btn-analogy" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 bg-white text-slate-900 shadow-sm flex items-center gap-2">
+                    🍽️ Restaurant Analogy Map
+                </button>
+                <button onclick="switchTab('simulator')" id="tab-btn-simulator" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-2">
+                    ⚡ Live UI Simulator
+                </button>
+                <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-2">
+                    🏆 Interactive Quiz
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Workspace -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        
+        <!-- ==================== TAB 1: INTERACTIVE ANALOGY MAP ==================== -->
+        <section id="tab-content-analogy" class="tab-content space-y-8 animate-fade-in">
+            
+            <!-- Welcome Hero Card -->
+            <div class="bg-gradient-to-br from-indigo-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl shadow-indigo-950/20 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/20 to-violet-500/0 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-3xl relative z-10 space-y-4">
+                    <span class="inline-flex items-center gap-1.5 bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase border border-indigo-400/20">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> Context-Based Learning
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-none">
+                        Software is just a kitchen.
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+                        When developers talk about "Node modules," "Python engines," or "GitHub staging," they are simply talking about tools, ingredients, blueprints, and records. Click the interactive floorplan below to bridge the gap instantly!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Floorplan Grid Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Floorplan Visual Grid (7 cols) -->
+                <div class="lg:col-span-7 bg-white p-6 rounded-3xl border border-slate-200/60 shadow-sm space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900">Interactive Floorplan</h3>
+                            <p class="text-xs text-slate-500">Click any sector to reveal its real-world software counterpart</p>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-bold">7 Key Sectors</span>
+                    </div>
+
+                    <!-- Interactive Map Container -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200/40">
+                        
+                        <!-- Dining Room & Walls (HTML & CSS) -->
+                        <div onclick="selectAnalogySector('htmlcss')" id="sector-htmlcss" class="group cursor-pointer bg-white border border-slate-200 hover:border-indigo-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">🍽️</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-indigo-600 bg-slate-100 group-hover:bg-indigo-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-indigo-600 transition-colors">The Dining Room Layout</h4>
+                                <p class="text-xs text-slate-500 mt-1">Walls, tables, chairs, lighting, and visual decorations.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Waiter (JavaScript) -->
+                        <div onclick="selectAnalogySector('javascript')" id="sector-javascript" class="group cursor-pointer bg-white border border-slate-200 hover:border-amber-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">🧑‍🍳</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-amber-600 bg-slate-100 group-hover:bg-amber-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition-colors">The Dynamic Waitstaff</h4>
+                                <p class="text-xs text-slate-500 mt-1">Taking customer orders and bringing instant updates to the tables.</p>
+                            </div>
+                        </div>
+
+                        <!-- Industrial Prep Counter (Node.js) -->
+                        <div onclick="selectAnalogySector('nodejs')" id="sector-nodejs" class="group cursor-pointer bg-white border border-slate-200 hover:border-emerald-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">🔌</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-emerald-600 bg-slate-100 group-hover:bg-emerald-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-emerald-600 transition-colors">The Server Power Line</h4>
+                                <p class="text-xs text-slate-500 mt-1">Connecting raw workspace capabilities straight to the back machinery.</p>
+                            </div>
+                        </div>
+
+                        <!-- Supplier Warehouse (NPM) -->
+                        <div onclick="selectAnalogySector('npm')" id="sector-npm" class="group cursor-pointer bg-white border border-slate-200 hover:border-rose-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">📦</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-rose-600 bg-slate-100 group-hover:bg-rose-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-rose-600 transition-colors">The Wholesale Catalog</h4>
+                                <p class="text-xs text-slate-500 mt-1">Pre-chopped onions, ready-made sauces, and standard pizza dough.</p>
+                            </div>
+                        </div>
+
+                        <!-- Walk-in Freezer (Database) -->
+                        <div onclick="selectAnalogySector('database')" id="sector-database" class="group cursor-pointer bg-white border border-slate-200 hover:border-cyan-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">🗄️</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-cyan-600 bg-slate-100 group-hover:bg-cyan-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-cyan-600 transition-colors">The Cold Storage Room</h4>
+                                <p class="text-xs text-slate-500 mt-1">Lockboxes preserving raw ingredients, orders, and sales receipts.</p>
+                            </div>
+                        </div>
+
+                        <!-- Master Cookbook & Safe (Git & GitHub) -->
+                        <div onclick="selectAnalogySector('git')" id="sector-git" class="group cursor-pointer bg-white border border-slate-200 hover:border-violet-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">📖</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-violet-600 bg-slate-100 group-hover:bg-violet-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-violet-600 transition-colors">Recipe Playbook & Vault</h4>
+                                <p class="text-xs text-slate-500 mt-1">Keeping historical copies of recipes safe and syncable across team chefs.</p>
+                            </div>
+                        </div>
+
+                        <!-- Data Analytics Strategy Office (Python) - Span 2 Columns -->
+                        <div onclick="selectAnalogySector('python')" id="sector-python" class="group cursor-pointer bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 sm:col-span-2 relative overflow-hidden flex flex-col justify-between min-h-[140px]">
+                            <div class="flex justify-between items-start">
+                                <span class="text-3xl">📊</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-blue-600 bg-slate-100 group-hover:bg-blue-50 px-2 py-1 rounded-lg transition-all">Inspect</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">The Business Strategy Desk</h4>
+                                <p class="text-xs text-slate-500 mt-1">High-end mathematical algorithms, price optimizations, and customer habit trends.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Panel (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div id="sector-card" class="bg-indigo-900 text-white rounded-3xl p-6 sm:p-8 shadow-md border border-indigo-950/40 relative min-h-[460px] flex flex-col justify-between transition-all duration-300">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span id="sector-badge" class="bg-indigo-500/30 text-indigo-200 text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full border border-indigo-400/20">
+                                    General Concept
+                                </span>
+                                <span id="sector-emoji" class="text-3xl animate-bounce">👋</span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 id="sector-title" class="text-2xl font-bold tracking-tight">Meet Your Software Stack</h4>
+                                <p id="sector-intro" class="text-xs text-indigo-200 font-semibold uppercase tracking-wider">How to read this guide:</p>
+                                <p id="sector-analogy" class="text-sm text-indigo-100 leading-relaxed font-light">
+                                    Click on any interactive sector inside the floorplan on the left to unpack its real software name, core functions, real-world examples, and a cheat sheet on how to discuss it inside meetings like an absolute pro!
+                                </p>
+                            </div>
+
+                            <div id="sector-details-box" class="hidden space-y-4 pt-4 border-t border-indigo-800/60 text-xs text-indigo-100/90 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-white block mb-1 text-sm">💡 In the Real Coding World:</span>
+                                    <p id="sector-realworld">Real-world details will load here...</p>
+                                </div>
+                                <div class="bg-indigo-950/60 p-4 rounded-xl border border-indigo-800/30">
+                                    <span class="font-extrabold text-amber-300 block mb-1 uppercase tracking-wider text-[10px]">🎙️ In Meetings, you can say:</span>
+                                    <p id="sector-smartquote" class="italic text-indigo-100/95 font-medium">Quotes go here...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-indigo-300 mt-6 pt-4 border-t border-indigo-800/50 flex justify-between items-center">
+                            <span>Status: Interactive Explainer</span>
+                            <span class="font-mono text-[10px]">VER. 2.0.26</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== TAB 2: LIVE CODE & UI SIMULATOR ==================== -->
+        <section id="tab-content-simulator" class="tab-content hidden space-y-8 animate-fade-in">
+            
+            <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-3xl space-y-3">
+                    <span class="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-400/25">
+                        Interactive Visualizer
+                    </span>
+                    <h2 class="text-3xl font-extrabold tracking-tight">The Interactive UX Sandbox</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Ever wonder how multiple technologies combine to make a single feature function? Toggle the control switches on the left to compile styling, logical engines, external APIs, and live databases into the live browser preview on the right.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Simulator Workspace Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Controls Side (5 cols) -->
+                <div class="lg:col-span-5 space-y-4 bg-white p-6 rounded-3xl border border-slate-200/60 shadow-sm">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h3 class="text-lg font-bold text-slate-900">Developer Toggle Deck</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Activate or deactivate tech stack components to alter the product.</p>
+                    </div>
+
+                    <div class="space-y-3.5 pt-2">
+                        <!-- Switch HTML (Always On) -->
+                        <div class="flex items-start gap-3 p-4 bg-slate-50/50 rounded-2xl border border-slate-200/50 transition-all">
+                            <div class="mt-1">
+                                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-slate-400 text-white text-xs font-bold">✔</span>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-slate-900">1. HTML (HyperText Markup)</span>
+                                    <span class="text-[9px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-md font-extrabold uppercase">Required</span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1">The essential blueprint. Gives us physical buttons and labels, but with zero styles or intelligence.</p>
+                            </div>
+                        </div>
+
+                        <!-- Switch CSS -->
+                        <div class="flex items-start gap-3 p-4 hover:bg-slate-50 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all cursor-pointer select-none" onclick="toggleSimCheckbox('sim-css')">
+                            <div class="mt-1 flex items-center h-5">
+                                <input type="checkbox" id="sim-css" onchange="runSandboxCompiler()" class="h-4.5 w-4.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-slate-900">2. CSS (Cascading Style Sheets)</span>
+                                    <span class="text-[9px] bg-pink-100 text-pink-700 px-2 py-0.5 rounded-md font-extrabold uppercase">Design</span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1">The interior designer. Adds modern curves, color paletttes, alignments, shadows, and spacing rules.</p>
+                            </div>
+                        </div>
+
+                        <!-- Switch JavaScript -->
+                        <div class="flex items-start gap-3 p-4 hover:bg-slate-50 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all cursor-pointer select-none" onclick="toggleSimCheckbox('sim-js')">
+                            <div class="mt-1 flex items-center h-5">
+                                <input type="checkbox" id="sim-js" onchange="runSandboxCompiler()" class="h-4.5 w-4.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-slate-900">3. JavaScript (JS)</span>
+                                    <span class="text-[9px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-md font-extrabold uppercase">Behavior</span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1">The nervous system. Listens to button taps, displays dynamic totals, and coordinates client-side behaviors.</p>
+                            </div>
+                        </div>
+
+                        <!-- Switch Database -->
+                        <div class="flex items-start gap-3 p-4 hover:bg-slate-50 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all cursor-pointer select-none" onclick="toggleSimCheckbox('sim-db')">
+                            <div class="mt-1 flex items-center h-5">
+                                <input type="checkbox" id="sim-db" onchange="runSandboxCompiler()" class="h-4.5 w-4.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-slate-900">4. Backend Server & Database</span>
+                                    <span class="text-[9px] bg-cyan-100 text-cyan-700 px-2 py-0.5 rounded-md font-extrabold uppercase">Data Safe</span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1">Preserves client information permanently inside database vaults, loading orders even if pages are reloaded.</p>
+                            </div>
+                        </div>
+
+                        <!-- Switch NPM Modules -->
+                        <div class="flex items-start gap-3 p-4 hover:bg-slate-50 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all cursor-pointer select-none" onclick="toggleSimCheckbox('sim-npm')">
+                            <div class="mt-1 flex items-center h-5">
+                                <input type="checkbox" id="sim-npm" onchange="runSandboxCompiler()" class="h-4.5 w-4.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-sm text-slate-900">5. NPM Packages</span>
+                                    <span class="text-[9px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md font-extrabold uppercase">Ready plugins</span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1">Installs standard community assets instantly, like a beautiful stars widget or dynamic checkout slider.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Side (7 cols) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-bold text-slate-900">2. Simulated Render Screen</span>
+                        <div class="flex items-center gap-1.5 text-xs text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Sandbox Feed
+                        </div>
+                    </div>
+
+                    <!-- Simulated Device Canvas -->
+                    <div class="bg-white rounded-3xl border border-slate-200/80 shadow-lg overflow-hidden flex flex-col justify-between min-h-[460px]">
+                        
+                        <!-- Simulated Top Browser Chrome -->
+                        <div class="bg-slate-100 px-5 py-3 border-b border-slate-200 flex items-center justify-between text-xs text-slate-500 select-none">
+                            <div class="flex gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                            </div>
+                            <div class="bg-white px-4 py-1 rounded-lg border border-slate-200 text-[10px] w-64 text-center font-mono overflow-hidden whitespace-nowrap text-ellipsis text-slate-400">
+                                https://grand-bistro.local/dashboard
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-600">CONNECTED</span>
+                        </div>
+
+                        <!-- Render Screen Output -->
+                        <div id="sim-render-viewport" class="p-8 flex-grow flex items-center justify-center bg-white transition-all duration-300">
+                            <!-- Populated in real time via runSandboxCompiler() -->
+                        </div>
+
+                        <!-- Diagnostics Output Monitor -->
+                        <div class="bg-slate-900 p-4 border-t border-slate-800 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between items-center mb-1.5">
+                                <span class="text-slate-500 uppercase tracking-widest text-[9px] font-extrabold">Active Console logs</span>
+                                <span class="text-[9px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded-md">Log System</span>
+                            </div>
+                            <p id="sim-terminal-log" class="text-slate-200 text-[11px] leading-relaxed">
+                                Terminal init successfully...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== TAB 3: SCENARIO QUIZ CHALLENGE ==================== -->
+        <section id="tab-content-quiz" class="tab-content hidden space-y-8 animate-fade-in">
+            
+            <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-teal-700 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-2xl space-y-3 relative z-10">
+                    <span class="inline-flex items-center gap-1.5 bg-emerald-500/30 text-emerald-100 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-400/20">
+                        Assessment Arena
+                    </span>
+                    <h2 class="text-3xl font-extrabold tracking-tight">Interactive Scenario Challenge</h2>
+                    <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+                        Ready to prove your understanding? We’ll present five real-world, context-driven questions based on typical product meetings and software releases. Choose carefully!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quiz Container Card -->
+            <div class="max-w-3xl mx-auto bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-10 shadow-md">
+                
+                <!-- Main Active Question Screen -->
+                <div id="quiz-screen-question" class="space-y-6">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest pb-4 border-b border-slate-100">
+                        <span id="quiz-progress-indicator">Question 1 of 5</span>
+                        <span id="quiz-score-indicator" class="text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md">Score: 0</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xs font-extrabold text-indigo-600 tracking-wider uppercase">Current Meeting Scenario:</span>
+                        <h3 id="quiz-question-title" class="text-xl font-bold text-slate-900 leading-snug">
+                            Loading Question Scenario...
+                        </h3>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="quiz-options-box" class="grid grid-cols-1 gap-3">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <!-- Interactive Explanation Box -->
+                    <div id="quiz-feedback-toast" class="hidden rounded-2xl p-5 border smooth-transition">
+                        <div class="flex items-start gap-3">
+                            <span id="quiz-feedback-emoji" class="text-2xl">✨</span>
+                            <div class="space-y-1">
+                                <h4 id="quiz-feedback-heading" class="font-extrabold text-sm text-slate-900">Heading</h4>
+                                <p id="quiz-feedback-desc" class="text-xs text-slate-600 leading-relaxed">Explanation body description...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Bar -->
+                    <div class="flex justify-end pt-5 border-t border-slate-100">
+                        <button id="quiz-action-btn" onclick="processQuizAction()" disabled class="px-6 py-3 bg-slate-200 text-slate-400 font-bold text-xs sm:text-sm rounded-xl transition-all duration-300 cursor-not-allowed">
+                            Choose an Option
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Finished Scoring Screen -->
+                <div id="quiz-screen-finished" class="hidden text-center py-8 space-y-6">
+                    <div class="w-24 h-24 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center text-5xl mx-auto shadow-md shadow-indigo-100/50 animate-bounce">
+                        🎓
+                    </div>
+                    
+                    <div class="space-y-2 max-w-md mx-auto">
+                        <h3 class="text-2xl font-bold text-slate-900">Challenge Complete!</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">You've successfully decoded the software development jargon! Here is your technical fluency rating:</p>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-6 max-w-sm mx-auto border border-slate-200/50 space-y-2">
+                        <span class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Calculated Rank</span>
+                        <p id="quiz-rank-title" class="text-xl font-extrabold text-indigo-600">Product Visionary</p>
+                        <p id="quiz-rank-score" class="text-3xl font-extrabold text-slate-900">Score: 5 / 5</p>
+                        <p id="quiz-rank-desc" class="text-xs text-slate-500 font-medium leading-relaxed px-4 pt-1">
+                            Unbelievable work. You are ready to sit at any tech table and command respect.
+                        </p>
+                    </div>
+
+                    <button onclick="resetQuiz()" class="px-8 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl shadow-md transition-all">
+                        Reset and Try Again
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Custom Floating Alert System (Replacement for alerts) -->
+    <div id="custom-alert-box" class="fixed bottom-6 right-6 z-50 bg-slate-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 text-xs sm:text-sm pointer-events-none border border-slate-800">
+        <span id="alert-icon" class="text-lg">✨</span>
+        <span id="alert-text" class="font-bold tracking-tight text-slate-200">Alert messages live here</span>
+    </div>
+
+    <!-- Footer System Info -->
+    <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400 font-semibold mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 Tech Stack Decoder. Empowering non-tech directors, project leads, and designers.</p>
+            <div class="flex gap-4">
+                <span class="bg-slate-100 px-3 py-1 rounded-full">Interactive Framework</span>
+                <span class="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full">Secure Stack</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==================== FRONTEND CONTROLLER LOGIC ==================== -->
+    <script>
+        // ==================== GLOBAL APP STATE ====================
+        let simLikesCount = 0;
+        let simCartTotal = 0;
+
+        // ==================== TOAST NOTIFICATION ENGINE ====================
+        function triggerToast(message, emoji = "✨") {
+            const toast = document.getElementById('custom-alert-box');
+            document.getElementById('alert-text').innerText = message;
+            document.getElementById('alert-icon').innerText = emoji;
+
+            // Slide Up & In
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3500);
+        }
+
+        // ==================== TAB CONTROL MACHINERY ====================
+        function switchTab(tabId) {
+            // Hide all tab containers
+            document.querySelectorAll('.tab-content').forEach(element => {
+                element.classList.add('hidden');
+            });
+            // Reset nav buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-2";
+            });
+
+            // Reveal selected container
+            document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+            // Active style state
+            document.getElementById(`tab-btn-${tabId}`).className = "tab-btn px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 bg-white text-slate-900 shadow-sm flex items-center gap-2 border border-slate-200/40";
+            
+            triggerToast(`Opened ${tabId.toUpperCase()} module`, "📂");
+        }
+
+
+        // ==================== TAB 1: SECTOR EXPLAINERS DATA ====================
+        const sectorDatabase = {
+            'htmlcss': {
+                emoji: "🎨",
+                badge: "FRONT-END BASICS",
+                title: "HTML & CSS",
+                intro: "The Architectural Walls & Interior Painting Styles",
+                analogy: "Think of HTML as the brick walls, concrete floors, structural pillars, and window frames of the dining room. CSS is the interior decorator—adding the deep green wallpaper, warm hanging ceiling lights, velvet cushions, and spacing out the tables so customers aren't packed too close.",
+                realworld: "Every browser window reads HTML files to know where text, boxes, and buttons go. Then it applies CSS instructions to size those items, select the font types, and make layouts mobile-friendly.",
+                smartquote: "\"Let's focus on nailing down the basic HTML layout structure first before we lose hours tweaking CSS color templates and styling transitions.\""
+            },
+            'javascript': {
+                emoji: "🏃‍♂️",
+                badge: "CLIENT-SIDE LOGIC",
+                title: "JavaScript",
+                intro: "The Active Waiting Staff on the Room Floor",
+                analogy: "JavaScript is the fast-moving waitstaff. They take action right on the dining room floor! When you click a button (wave over a waiter), JavaScript updates your screen (adds water to your table) instantly without forcing you to re-enter the front lobby (manually reloading the page).",
+                realworld: "Enables live search drop-downs, dynamic counters, interactive maps, dynamic pricing charts, sliding checkout sheets, and prompt popup warnings on the web.",
+                smartquote: "\"Adding this complex checkout validation logic inside the browser client via JavaScript will prevent unnecessary backend server round-trips.\""
+            },
+            'nodejs': {
+                emoji: "🔌",
+                badge: "BACK-END ENGINE",
+                title: "Node.js",
+                intro: "Moving the Room Staff into the Industrial Kitchen",
+                analogy: "Historically, the waitstaff (JavaScript) could only live on the front room floor (web browsers). They couldn't access locked ingredient vaults or handle heavy raw machinery. Node.js is an adapter that moves the waitstaff directly into the professional back kitchen (the computer/server OS) to run the heavy operations.",
+                realworld: "Lets programmers use JavaScript to write the secret server architecture, handle massive files on the server computer, and talk directly to secure databases.",
+                smartquote: "\"Because we built our backend API servers using Node.js, we can write JavaScript on both the front end and backend of our platform to save team transition times.\""
+            },
+            'npm': {
+                emoji: "📦",
+                badge: "PRE-FAB LIBRARIES",
+                title: "NPM (Node Package Manager)",
+                intro: "The Ready-Made Wholesale Food Supplier",
+                analogy: "A wise chef doesn't hatch chickens to get fresh eggs or grow tomatoes to make simple marinara sauce. They order pre-made, standard ingredients from a commercial food supply catalog. NPM is a massive warehouse containing hundreds of thousands of prebuilt code files so developers can get to work faster.",
+                realworld: "If you need a date picker, a secure encryption system, or credit card input formatting, you download an existing NPM library instead of coding it from zero.",
+                smartquote: "\"Let's not waste our dev hours building custom analytics graphs from scratch. There is a top-rated, open-source NPM library that we can integrate in under twenty minutes.\""
+            },
+            'database': {
+                emoji: "🗄️",
+                badge: "DATA PERSISTENCE",
+                title: "Databases (SQL / NoSQL)",
+                intro: "The Secure Cold Storage Pantry Vault",
+                analogy: "If you shut the restaurant lights off and lock the doors, any food left out on tables will ruin. The walk-in freezer (Database) is where you systematically log customer history, financial transactions, and catalog records. Even when the kitchen completely power cycles, everything inside the freezer remains intact.",
+                realworld: "Stores accounts, profiles, user records, histories, inventory numbers, and credit balances. Commonly managed with languages like SQL.",
+                smartquote: "\"We should run a database audit to ensure customer shipping records are persistent even if our cloud servers experience an automated fallback crash.\""
+            },
+            'git': {
+                emoji: "📖",
+                badge: "VERSION CONTROL",
+                title: "Git & GitHub",
+                intro: "The Master Recipe Logbook & Cloud Safe Backup",
+                analogy: "If a chef wants to experiment with a new soup recipe, they don't erase the original draft. They clone a copy. If the new version fails, they revert to the previous draft. GitHub is the global offsite vault where they share recipe changes with outer branch chefs to collaborate without messing up the main recipe catalog.",
+                realworld: "Git tracks code edit histories. GitHub is a cloud-hosted platform where developers publish their code changes, review differences (pull requests), and join forces.",
+                smartquote: "\"I'll check the GitHub commit logs to see who modified the configuration settings on our main production branch yesterday.\""
+            },
+            'python': {
+                emoji: "📊",
+                badge: "DATA ANALYSIS",
+                title: "Python",
+                intro: "The Highly Mathematical Strategist",
+                analogy: "The back-office corporate strategist. Extremely smart with massive bookkeeping ledgers, compiling millions of store transaction reports, optimizing delivery truck navigation, and building predictive forecasting charts. It doesn't decorate individual chairs, but handles the core logical strategies behind the scene.",
+                realworld: "The ultimate programming language for artificial intelligence modules, giant data calculations, automatic document generation, scientific research, and complex scripts.",
+                smartquote: "\"Let's use a Python script to parse these millions of user purchase files and automatically generate our monthly strategic sales report.\""
+            }
+        };
+
+        function selectAnalogySector(sectorKey) {
+            // Remove active states from map cards
+            document.querySelectorAll('.map-item, [id^="sector-"]').forEach(el => {
+                el.classList.remove('border-indigo-500', 'border-amber-500', 'border-emerald-500', 'border-rose-500', 'border-cyan-500', 'border-violet-500', 'border-blue-500', 'bg-indigo-50/50', 'bg-amber-50/50', 'bg-emerald-50/50', 'bg-rose-50/50', 'bg-cyan-50/50', 'bg-violet-50/50', 'bg-blue-50/50', 'scale-[1.02]');
+            });
+
+            const data = sectorDatabase[sectorKey];
+            if (!data) return;
+
+            // Highlight target map card
+            const mapCard = document.getElementById(`sector-${sectorKey}`);
+            let colorClass = 'border-indigo-500';
+            let bgClass = 'bg-indigo-50/50';
+            
+            if (sectorKey === 'javascript') { colorClass = 'border-amber-500'; bgClass = 'bg-amber-50/50'; }
+            else if (sectorKey === 'nodejs') { colorClass = 'border-emerald-500'; bgClass = 'bg-emerald-50/50'; }
+            else if (sectorKey === 'npm') { colorClass = 'border-rose-500'; bgClass = 'bg-rose-50/50'; }
+            else if (sectorKey === 'database') { colorClass = 'border-cyan-500'; bgClass = 'bg-cyan-50/50'; }
+            else if (sectorKey === 'git') { colorClass = 'border-violet-500'; bgClass = 'bg-violet-50/50'; }
+            else if (sectorKey === 'python') { colorClass = 'border-blue-500'; bgClass = 'bg-blue-50/50'; }
+
+            if (mapCard) {
+                mapCard.classList.add(colorClass, bgClass, 'scale-[1.02]');
+            }
+
+            // Animate explanation block transitions
+            const explanationBlock = document.getElementById('sector-card');
+            explanationBlock.classList.add('opacity-40', 'scale-95');
+
+            setTimeout(() => {
+                document.getElementById('sector-badge').innerText = data.badge;
+                document.getElementById('sector-emoji').innerText = data.emoji;
+                document.getElementById('sector-title').innerText = data.title;
+                document.getElementById('sector-intro').innerText = data.intro;
+                document.getElementById('sector-analogy').innerText = data.analogy;
+                document.getElementById('sector-realworld').innerText = data.realworld;
+                document.getElementById('sector-smartquote').innerText = data.smartquote;
+
+                // Make specific details area visible
+                document.getElementById('sector-intro').classList.remove('text-indigo-200');
+                document.getElementById('sector-intro').classList.add('text-amber-300', 'font-bold');
+                document.getElementById('sector-details-box').classList.remove('hidden');
+
+                explanationBlock.classList.remove('opacity-40', 'scale-95');
+            }, 180);
+
+            triggerToast(`Inspecting ${data.title}`, data.emoji);
+        }
+
+
+        // ==================== TAB 2: PLAYGROUND SIMULATOR ENGINE ====================
+        function toggleSimCheckbox(id) {
+            const cb = document.getElementById(id);
+            cb.checked = !cb.checked;
+            runSandboxCompiler();
+        }
+
+        function runSandboxCompiler() {
+            // Gather state of control switches
+            const hasCss = document.getElementById('sim-css').checked;
+            const hasJs = document.getElementById('sim-js').checked;
+            const hasDb = document.getElementById('sim-db').checked;
+            const hasNpm = document.getElementById('sim-npm').checked;
+
+            const viewport = document.getElementById('sim-render-viewport');
+            const terminal = document.getElementById('sim-terminal-log');
+
+            // Generate content based on toggled rules
+            let renderHtml = '';
+
+            // Setup terminal outputs
+            let terminalOutput = `<span class="text-indigo-400">&gt; HTML Blueprint compiled:</span> Core DOM loaded successfully.<br>`;
+
+            if (hasCss) {
+                // Renders beautifully styled product card with colors, layouts, and card dynamics
+                renderHtml = `
+                    <div class="w-full max-w-sm bg-white rounded-3xl border border-slate-200 shadow-md p-6 smooth-transition transform hover:translate-y-[-4px]">
+                        <div class="relative">
+                            <span class="absolute top-0 right-0 bg-indigo-100 text-indigo-800 text-[9px] font-extrabold uppercase px-2.5 py-1 rounded-full border border-indigo-200">
+                                Best Seller
+                            </span>
+                            <span class="text-2xl">🍔</span>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-slate-950 mt-3">The Smoked Truffle Bistro Burger</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Prime aged beef patty, white truffle mayonnaise glaze, melted swiss cheese, roasted portobellos on toasted brioche.</p>
+                        
+                        <!-- NPM stars rating system simulation -->
+                        ${hasNpm ? `
+                            <div class="flex items-center gap-1.5 mt-3 text-amber-500 animate-pulse text-xs bg-amber-50 border border-amber-100 px-3 py-1.5 rounded-xl font-bold">
+                                <span>★★★★★</span>
+                                <span class="text-slate-500 font-semibold text-[10px]">(4.9 based on RatingLibrary plugin)</span>
+                            </div>
+                        ` : ''}
+
+                        <div class="flex items-center justify-between mt-5 pt-4 border-t border-slate-100">
+                            <div>
+                                <span class="text-[9px] text-slate-400 uppercase tracking-widest font-extrabold block">Unit Cost</span>
+                                <span class="text-lg font-black text-slate-900">$16.50</span>
+                            </div>
+                            
+                            <button onclick="simClickOrderButton()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shadow-indigo-100/50 flex items-center gap-1">
+                                🍔 Order Item
+                            </button>
+                        </div>
+
+                        <!-- Database Client Session Data -->
+                        ${hasDb ? `
+                            <div class="mt-4 pt-3 border-t border-dashed border-slate-200 bg-slate-50 p-3 rounded-2xl border">
+                                <span class="text-[9px] text-emerald-600 font-extrabold uppercase tracking-widest block mb-1">Database Sync Connection (Live)</span>
+                                <div class="flex items-center justify-between text-[11px] text-slate-600">
+                                    <span>Session ID: <strong class="font-mono text-slate-900">0x8a92</strong></span>
+                                    <span>Lifetime Likes: <strong id="sim-db-count" class="font-mono text-slate-900">${simLikesCount}</strong></span>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                terminalOutput += `<span class="text-pink-400">&gt; CSS styles applied:</span> Placed gradients, flex-alignments, grid borders, shadow frameworks, and rounded corners.<br>`;
+            } else {
+                // Returns highly raw unstyled baseline elements matching what true HTML looks like
+                renderHtml = `
+                    <div class="w-full text-left font-mono text-xs text-black border border-black p-4 bg-white">
+                        <p class="font-bold underline">CATEGORY: BURGER SPECIALS</p>
+                        <h2 class="text-lg font-bold">The Smoked Truffle Bistro Burger</h2>
+                        <p>Cost: $16.50</p>
+                        
+                        ${hasNpm ? `<p class="text-orange-600 font-bold bg-orange-50 p-2 border border-dashed border-orange-200 mt-2">[NPM warning: Stars package rendered in plaintext because CSS is disabled!]</p>` : ''}
+                        
+                        <div class="mt-4">
+                            <button class="border border-black px-3 py-1 font-mono hover:bg-slate-100" onclick="simClickOrderButton()">Order Item</button>
+                            <span class="ml-2 font-mono">Votes: ${simLikesCount}</span>
+                        </div>
+
+                        ${hasDb ? `
+                            <hr class="border-black border-dashed my-3">
+                            <p class="text-[10px] text-green-700 font-bold">&gt;&gt; DB active response: verified persistence true. current Likes count: ${simLikesCount}.</p>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            if (hasJs) {
+                terminalOutput += `<span class="text-amber-400">&gt; JavaScript scripts running:</span> Event handlers active on the checkout click triggers.<br>`;
+            }
+            if (hasDb) {
+                terminalOutput += `<span class="text-cyan-400">&gt; Backend server query complete:</span> Fetched active database session. SQL storage linked.<br>`;
+            }
+            if (hasNpm) {
+                terminalOutput += `<span class="text-emerald-400">&gt; NPM registry parsed:</span> Successfully integrated standard rating library module.<br>`;
+            }
+
+            viewport.innerHTML = renderHtml;
+            terminal.innerHTML = terminalOutput;
+        }
+
+        function simClickOrderButton() {
+            const hasJs = document.getElementById('sim-js').checked;
+            const hasDb = document.getElementById('sim-db').checked;
+
+            if (hasJs) {
+                simLikesCount++;
+                if (hasDb) {
+                    triggerToast(`Liked burger! Saved persistently into DB.`, "🗄️");
+                } else {
+                    triggerToast(`Liked burger! (Will reset if you turn CSS/JS off because DB is unlinked)`, "🏃‍♂️");
+                }
+                runSandboxCompiler();
+            } else {
+                triggerToast("Nothing happened. Clicked the physical layout, but JS scripts aren't running to count actions!", "❌");
+            }
+        }
+
+
+        // ==================== TAB 3: SITUATION ASSESSMENT QUIZ ====================
+        const quizDataset = [
+            {
+                question: "In a morning planning standup, a lead designer complains: 'The buttons are overlapping and the website font is resetting to plain Times New Roman.' Which technology layer do we need to address?",
+                options: [
+                    "A backend Node.js route configuration crash.",
+                    "An NPM server import syntax issue.",
+                    "The CSS (Style Sheet) rules are missing, styled poorly, or blocked.",
+                    "We need to rewrite our Database catalog tables."
+                ],
+                correct: 2,
+                reason: "Perfect! CSS controls the layout positioning, text fonts, spacing, and visual styling. When websites load as raw text or overlap, the CSS system is broken."
+            },
+            {
+                question: "Your team wants to implement a smart AI chat-assistant module to process customer messages behind the scenes. Which tool is famously used for calculations, AI models, and data analytics scripts?",
+                options: [
+                    "CSS Design Rules",
+                    "A Python engine",
+                    "HTML base markup files",
+                    "Raw text sheets"
+                ],
+                correct: 1,
+                reason: "Exactly! Python is the global industry favorite for managing large datasets, complex automated backend logic, statistics, and artificial intelligence libraries."
+            },
+            {
+                question: "A project manager says: 'We need to create a secure checkout screen where users enter credit card numbers, and we must make sure these accounts stay saved even if our web servers crash.' Where do we record this data?",
+                options: [
+                    "Directly on the HTML page code template.",
+                    "Inside temporary JavaScript variables.",
+                    "In a secure, persistent Database freezer vault.",
+                    "Inside our public NPM package directory."
+                ],
+                correct: 2,
+                reason: "Correct! Databases exist specifically to write, organize, and safeguard persistent files and records so they are protected through server restarts."
+            },
+            {
+                question: "A developer writes: 'We need to add a dynamic calendar filter widget. I'm going to download a highly-rated community calendar package so we don't spend five days coding it ourselves.' Where will they fetch this package?",
+                options: [
+                    "The physical motherboard RAM space.",
+                    "NPM (Node Package Manager) registry.",
+                    "Directly inside Google Search image headers.",
+                    "Inside our CSS layout configuration file."
+                ],
+                correct: 1,
+                reason: "Bingo! NPM is a giant library container hosting pre-packaged plugins, widgets, and functions built by global programmers to accelerate build cycles."
+            },
+            {
+                question: "Two developers are writing code files for the same feature simultaneously. One dev accidentally deletes some script lines. What tool should they use to compare old code commits, merge contributions safely, and revert files?",
+                options: [
+                    "JavaScript click handlers",
+                    "A database table restore index",
+                    "Git Version Control (tracked in a GitHub repository)",
+                    "A Python math workbook"
+                ],
+                correct: 2,
+                reason: "Spot on! Git tracks code history down to the character. Git & GitHub act as a cooperative code playbook, allowing developer files to merge cleanly."
+            }
+        ];
+
+        let quizIndex = 0;
+        let currentQuizScore = 0;
+        let selectedOptionIndex = null;
+
+        function loadQuestion() {
+            // Check if reached final question
+            if (quizIndex >= quizDataset.length) {
+                document.getElementById('quiz-screen-question').classList.add('hidden');
+                document.getElementById('quiz-screen-finished').classList.remove('hidden');
+                
+                // Set final ranks
+                document.getElementById('quiz-rank-score').innerText = `Score: ${currentQuizScore} / ${quizDataset.length}`;
+                const title = document.getElementById('quiz-rank-title');
+                const desc = document.getElementById('quiz-rank-desc');
+
+                if (currentQuizScore === quizDataset.length) {
+                    title.innerText = "⭐ Technical Visionary";
+                    desc.innerText = "Absolutely extraordinary work! You have mastered software development terms and can host complex standups with zero issue.";
+                } else if (currentQuizScore >= 3) {
+                    title.innerText = "📈 Capable Architect";
+                    desc.innerText = "Excellent capability. You have a solid mental grip on tech terminology and can confidently converse with software engineers.";
+                } else {
+                    title.innerText = "🌱 Rising Developer Apprentice";
+                    desc.innerText = "Great attempt! Take another cycle through the Floorplan and Playground sandbox, then try the challenge again!";
+                }
+                return;
+            }
+
+            const activeObj = quizDataset[quizIndex];
+            selectedOptionIndex = null;
+
+            // Update UI elements
+            document.getElementById('quiz-progress-indicator').innerText = `Scenario ${quizIndex + 1} of ${quizDataset.length}`;
+            document.getElementById('quiz-score-indicator').innerText = `Score: ${currentQuizScore}`;
+            document.getElementById('quiz-question-title').innerText = activeObj.question;
+
+            // Clear feedback
+            document.getElementById('quiz-feedback-toast').className = "hidden rounded-2xl p-5 border smooth-transition";
+
+            // Render options
+            const optionsBox = document.getElementById('quiz-options-box');
+            optionsBox.innerHTML = '';
+
+            activeObj.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-choice-btn text-left p-4 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/20 font-medium text-xs sm:text-sm text-slate-700 flex justify-between items-center transition-all";
+                btn.innerHTML = `<span>${optText}</span>`;
+                btn.onclick = () => selectQuizOption(idx, btn);
+                optionsBox.appendChild(btn);
+            });
+
+            // Reset action button
+            const actionBtn = document.getElementById('quiz-action-btn');
+            actionBtn.disabled = true;
+            actionBtn.innerText = "Select an Option";
+            actionBtn.className = "px-6 py-3 bg-slate-200 text-slate-400 font-bold text-xs sm:text-sm rounded-xl transition-all duration-300 cursor-not-allowed";
+        }
+
+        function selectQuizOption(index, optionBtn) {
+            const actionBtn = document.getElementById('quiz-action-btn');
+            if (actionBtn.innerText === "Continue" || actionBtn.innerText === "Reveal Results") return;
+
+            selectedOptionIndex = index;
+
+            // Clear other buttons active styles
+            document.querySelectorAll('.quiz-choice-btn').forEach(btn => {
+                btn.className = "quiz-choice-btn text-left p-4 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/20 font-medium text-xs sm:text-sm text-slate-700 flex justify-between items-center transition-all";
+            });
+
+            // Set active selection
+            optionBtn.className = "quiz-choice-btn text-left p-4 rounded-2xl border-2 border-indigo-600 bg-indigo-50/50 font-bold text-xs sm:text-sm text-indigo-900 flex justify-between items-center transition-all";
+
+            // Activate submit button
+            actionBtn.disabled = false;
+            actionBtn.innerText = "Check Answer";
+            actionBtn.className = "px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm rounded-xl transition-all duration-300 cursor-pointer shadow-md shadow-indigo-100";
+        }
+
+        function processQuizAction() {
+            const actionBtn = document.getElementById('quiz-action-btn');
+            const feedbackBox = document.getElementById('quiz-feedback-toast');
+            const activeObj = quizDataset[quizIndex];
+
+            if (actionBtn.innerText === "Check Answer") {
+                const isCorrect = (selectedOptionIndex === activeObj.correct);
+
+                if (isCorrect) {
+                    currentQuizScore++;
+                    document.getElementById('quiz-score-indicator').innerText = `Score: ${currentQuizScore}`;
+                    feedbackBox.className = "rounded-2xl p-5 border border-emerald-200 bg-emerald-50 text-emerald-950";
+                    document.getElementById('quiz-feedback-emoji').innerText = "🎉";
+                    document.getElementById('quiz-feedback-heading').innerText = "Excellent - Absolutely Correct!";
+                    triggerToast("Spot on! Brilliant selection.", "⭐");
+                } else {
+                    feedbackBox.className = "rounded-2xl p-5 border border-rose-200 bg-rose-50 text-rose-950";
+                    document.getElementById('quiz-feedback-emoji').innerText = "💡";
+                    document.getElementById('quiz-feedback-heading').innerText = "Not Quite Correct";
+                    triggerToast("Incorrect. Read the explanation below!", "❌");
+                }
+
+                document.getElementById('quiz-feedback-desc').innerText = activeObj.reason;
+                feedbackBox.classList.remove('hidden');
+
+                // Visual markers on option cards
+                document.querySelectorAll('.quiz-choice-btn').forEach((btn, idx) => {
+                    if (idx === activeObj.correct) {
+                        btn.className = "quiz-choice-btn text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-100 text-emerald-900 font-extrabold flex justify-between items-center transition-all";
+                    } else if (idx === selectedOptionIndex) {
+                        btn.className = "quiz-choice-btn text-left p-4 rounded-2xl border-2 border-rose-500 bg-rose-100 text-rose-900 font-bold opacity-75 flex justify-between items-center transition-all";
+                    } else {
+                        btn.classList.add('opacity-40');
+                    }
+                });
+
+                // Prepare next slide step
+                actionBtn.innerText = (quizIndex + 1 < quizDataset.length) ? "Continue" : "Reveal Results";
+            } else {
+                quizIndex++;
+                loadQuestion();
+            }
+        }
+
+        function resetQuiz() {
+            quizIndex = 0;
+            currentQuizScore = 0;
+            document.getElementById('quiz-screen-finished').classList.add('hidden');
+            document.getElementById('quiz-screen-question').classList.remove('hidden');
+            loadQuestion();
+            triggerToast("Scenario quiz restarted!", "🔄");
+        }
+
+
+        // ==================== APP INITIALIZER ====================
+        window.onload = function() {
+            // Setup visual sandbox preview initially
+            runSandboxCompiler();
+            // Start Quiz engine
+            loadQuestion();
+        }
+    </script>
+</body>
+</html>
