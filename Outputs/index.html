@@ -1785,39 +1785,37 @@
 
     <!-- INSTALLATION -->
     <div id="setup-install" class="sub-panel active">
-      <!-- Introducing Antigravity 2.0 & The Command Desk -->
+      <!-- What is an IDE & Why We Use It -->
       <div class="section-block">
         <div class="section-header">
-          <div class="section-icon">🤖</div>
+          <div class="section-icon">💡</div>
           <div>
-            <div class="section-title">Introducing Antigravity 2.0 &amp; the Command Desk</div>
-            <div class="section-sub">Learn what Antigravity is and why it operates inside an Integrated Development Environment (IDE)</div>
+            <div class="section-title">What is an IDE and why do we need it?</div>
+            <div class="section-sub">Understand the workspace environment that enables AI agents to take action</div>
           </div>
         </div>
         
-        <!-- Part 1: Antigravity 2.0 introduction -->
         <div class="info-box blue" style="margin-bottom:20px;">
-          <div class="info-box-icon">🤖</div>
+          <div class="info-box-icon">❓</div>
           <div class="info-box-content">
-            <strong>What is Antigravity 2.0?</strong>
-            Google Antigravity 2.0 is an <strong>agentic AI assistant</strong> designed to help Jio HR professionals automate complex spreadsheet edits, audit policy compliance, and generate documents. Unlike standard AI chatbots (like Gemini Web or ChatGPT) that only answer questions with text, Antigravity 2.0 is an <strong>active agent</strong> that executes tasks on your behalf — reading files, running terminal code, writing documents, and verifying its own output.
+            <strong>Now let's look at an IDE (can run agents)</strong>
+            On the Foundations tab, we learned what an <strong>AI Agent</strong> is. But how do we run it? AI Agents that execute file modifications and run code need a specialized workspace. This is called an <strong>IDE</strong> (Integrated Development Environment). An IDE is a software application that combines common developer tools—a file explorer, a text editor, an operational terminal, and a chat interface—into a single window. We call this the <strong>Command Desk</strong>.
           </div>
         </div>
 
-        <!-- Part 2: The IDE Connection -->
         <div class="concept-grid">
           <div class="concept-card">
-            <span class="cc-icon">💻</span>
-            <div class="cc-title">Why does it need an IDE?</div>
+            <span class="cc-icon">🎯</span>
+            <div class="cc-title">Why do we need an IDE?</div>
             <div class="cc-body">
-              Because Antigravity edits files and runs data calculations, it cannot run inside a simple chat browser. It operates inside an <strong>IDE (Integrated Development Environment)</strong> — which we call the <strong>Command Desk</strong>. This workspace brings your file manager, code editor, terminal, and AI assistant telephone together into one window.
+              For business and HR professionals, using an IDE provides a single, controlled workspace that displays your text editor, synthetic data files, and the AI agent chat side-by-side in real-time. This eliminates tool clutter and keeps your focus in one place.
             </div>
           </div>
           <div class="concept-card">
             <span class="cc-icon">🛡️</span>
-            <div class="cc-title">A Governed Sandbox</div>
+            <div class="cc-title">Safe-to-Fail Playground</div>
             <div class="cc-body">
-              By running inside the Command Desk, the agent is confined to your local <code>HR_Mission_Control</code> folder. You can see the files it edits side-by-side in real-time, and you control its actions through a mandatory <strong>security permission gate</strong> before any tool call runs.
+              The IDE houses your local sandboxed files directly. You can watch the agent read, write, and execute code inside this folder, ensuring complete transparency, auditable runs, and data governance.
             </div>
           </div>
         </div>
@@ -1834,30 +1832,55 @@
         </div>
       </div>
 
+      <!-- Introducing Google Antigravity 2.0 -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-icon">🤖</div>
+          <div>
+            <div class="section-title">Introducing Google Antigravity 2.0</div>
+            <div class="section-sub">Meet the agentic assistant operating inside your Command Desk</div>
+          </div>
+        </div>
+        
+        <div class="info-box blue" style="margin-bottom:20px;">
+          <div class="info-box-icon">🤖</div>
+          <div class="info-box-content">
+            <strong>What is Antigravity 2.0?</strong>
+            Google Antigravity 2.0 is an <strong>agentic AI assistant</strong> designed to help Jio HR professionals automate complex spreadsheet edits, audit policy compliance, and generate documents. Unlike standard AI chatbots (like Gemini Web or ChatGPT) that only answer questions with text, Antigravity 2.0 is an <strong>active agent</strong> that executes tasks on your behalf — reading files, running terminal code, writing documents, and verifying its own output.
+          </div>
+        </div>
+
+        <div class="info-box blue" style="margin-bottom:0;">
+          <div class="info-box-icon">🔗</div>
+          <div class="info-box-content">
+            <strong>How it connects to the IDE</strong>
+            Rather than running in a browser, Antigravity 2.0 plugs directly into your local <strong>Command Desk (IDE)</strong>. This integration gives the agent direct, governed access to the sandbox files in your workspace, allowing it to read and write data under your human-in-the-loop supervision through a mandatory <strong>security permission gate</strong> before any tool call runs.
+          </div>
+        </div>
+      </div>
+
+      <!-- Installation & Setup Checklist -->
       <div class="section-block">
         <div class="section-header">
           <div class="section-icon">📦</div>
-          <div><div class="section-title">Pre-flight Checklist</div><div class="section-sub">Make sure you have these before you begin</div></div>
+          <div>
+            <div class="section-title">Installation &amp; Setup Checklist</div>
+            <div class="section-sub">Prepare your machine and launch the Antigravity workspace</div>
+          </div>
         </div>
-        <div class="concept-grid">
+
+        <!-- Pre-flight Checklist -->
+        <h4 style="font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:12px; margin-top:20px;">Pre-flight Checklist</h4>
+        <div class="concept-grid" style="margin-bottom:24px;">
           <div class="concept-card"><span class="cc-icon">💻</span><div class="cc-title">macOS or Windows</div><div class="cc-body">Antigravity 2.0 runs on macOS 12+ or Windows 10+. Linux is supported but may require additional configuration.</div></div>
           <div class="concept-card"><span class="cc-icon">🌐</span><div class="cc-title">Internet Access</div><div class="cc-body">A stable connection is required. Antigravity connects to Google's Gemini API — ensure your network allows outbound HTTPS traffic.</div></div>
           <div class="concept-card"><span class="cc-icon">👤</span><div class="cc-title">Your Google Account</div><div class="cc-body">You'll need a Google account. Sign in using your Jio corporate or personal Gmail account when prompted during launch.</div></div>
           <div class="concept-card"><span class="cc-icon">📁</span><div class="cc-title">HR Mission Control Folder</div><div class="cc-body">The sandbox folder should already be shared with you. It contains the synthetic data files you'll use throughout the training.</div></div>
         </div>
-      </div>
 
-      <!-- Quick Launch Guide -->
-      <div class="section-block">
-        <div class="section-header">
-          <div class="section-icon">⚡</div>
-          <div>
-            <div class="section-title">Quick Launch Guide</div>
-            <div class="section-sub">Three simple steps to start Antigravity 2.0</div>
-          </div>
-        </div>
-
-        <div class="card" style="padding:24px; background:var(--white); border:1px solid var(--border-light); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);">
+        <!-- Quick Launch Guide -->
+        <h4 style="font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:12px; margin-top:20px;">Quick Launch Steps</h4>
+        <div class="card" style="padding:24px; background:var(--white); border:1px solid var(--border-light); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); margin-bottom:24px;">
           <div style="display:flex; flex-direction:column; gap:20px;">
             <!-- Step 1: Open Terminal -->
             <div style="display:flex; gap:16px; align-items:flex-start;">
@@ -1899,14 +1922,9 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="section-block">
-        <div class="section-header">
-          <div class="section-icon">🎬</div>
-          <div><div class="section-title">Video Walkthroughs</div><div class="section-sub">Guides to help you get started with your environment</div></div>
-        </div>
-        
+        <!-- Video Walkthroughs -->
+        <h4 style="font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:12px; margin-top:20px;">Video Setup Guides</h4>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px; margin-bottom:24px;">
           <!-- Setup video -->
           <div class="info-box blue" style="margin-bottom:0; display:flex; align-items:center; gap:20px; padding:20px; border-radius:var(--radius-lg);">
