@@ -1,0 +1,62 @@
+employee_id,name,department,location,grade,date_of_joining,status,last_working_day,exit_reason,gender,age
+JIO2000,Kiran Rao,Human Resources,Navi Mumbai,Grade 2,2019-11-24,Active,,,Male,42
+JIO2001,Amit Rao,Sales & Distribution,Mumbai,Grade 1,2024-09-07,Active,,,Female,31
+JIO2002,Harpreet Mishra,Human Resources,Delhi NCR,Grade 1,2025-06-09,Active,,,Male,30
+JIO2003,Priya Kulkarni,Infrastructure,Chennai,Grade 2,2023-01-24,Active,,,Female,41
+JIO2004,Amit Chopra,Network Systems,Mumbai,Grade 3,2019-11-08,Exited,2025-09-10,Career growth,Female,26
+JIO2005,Sneha Kulkarni,Human Resources,Chennai,Grade 1,2021-12-22,Exited,2025-08-21,Career growth,Male,43
+JIO2006,Neha Khan,Customer Service,Chennai,Grade 1,2020-11-23,Active,,,Male,45
+JIO2007,Arjun Nair,human resources,Hyderabad,Grade 2,2023-10-23,Exited,2026-01-27,Better opportunity,Female,30
+JIO2008,Karan Singh,Infrastructure,Ahmedabad,Grade 4,2025-04-24,Active,,,Female,47
+JIO2009,Harpreet Patel,Network Systems,Ahmedabad,Grade 1,2024-11-06,Exited,2025-04-05,,Female,43
+JIO2010,Karan Thomas,Infrastructure,Mumbai,Grade 3,2019-11-24,Active,,,Male,45
+JIO2011,Aarav Malhotra,Finance,Chennai,Grade 2,2022-09-25,Exited,,Relocation - family,Male,40
+JIO2012,Sneha Yadav,Human Resources,Mumbai,Grade 1,2019-10-11,Exited,2025-11-17,Compensation,Female,24
+JIO2013,Varun Gill,Network Systems,Navi Mumbai,Grade 1,2019-12-16,Exited,2026-02-08,Better opportunity,Male,48
+JIO2014,Ritika Gupta,Infrastructure,Delhi NCR,Grade 2,2020-04-18,Active,,,Male,46
+JIO2015,Imran Kulkarni,Customer Service,Pune,Grade 4,2022-02-08,Active,,,Male,26
+JIO2016,Kiran Gill,Human Resources,Mumbai,Grade 3,2023-02-23,Active,,,Male,31
+JIO2017,Farah Sheikh,Human Resources,Ahmedabad,Grade 2,2019-12-19,Exited,2026-01-17,Compensation,Female,31
+JIO2018,Pooja Bose,Customer Service,Mumbai,Grade 2,2025-11-21,Exited,2025-02-22,Health reasons,Male,25
+JIO2019,Ritika Khan,NETWORK SYSTEMS,Delhi NCR,Grade 1,2024-03-09,Exited,2026-01-08,Compensation,Female,31
+JIO2020,Priya Patel,Finance,Mumbai,Grade 3,2019-02-25,Active,,,Male,29
+JIO2021,Shreya Das,Network Systems,Ahmedabad,Grade 1,2024-07-01,Active,,,Female,32
+JIO2022,Mary Mishra,Sales & Distribution,Pune,Grade 4,2025-03-07,Active,,,Female,30
+JIO2023,Aditi Malhotra,Infrastructure,Mumbai,Grade 3,2018-01-19,Active,,,Female,40
+JIO2024,Rohan Banerjee,Human Resources,Navi Mumbai,Grade 3,2020-10-03,Active,,,Male,36
+JIO2025,Rohan Bose,Finance,Kolkata,Grade 3,2019-05-07,Exited,2025-10-20,Better opportunity,Female,31
+JIO2026,Imran Reddy,Customer Service,Kolkata,Grade 4,2022-02-01,Active,,,Female,43
+JIO2027,Manish Nair,Human Resources,Kolkata,Grade 1,2019-02-08,Active,,,Female,33
+JIO2028,Joseph Reddy,Sales & Distribution,Mumbai,Grade 3,2020-11-27,Active,,,Female,45
+JIO2029,Ananya Kaur,Human Resources,Kolkata,Grade 2,2019-04-22,Exited,2025-02-04,Relocation - family,Female,40
+JIO2030,Rohan Pillai,Customer Service,Chennai,Grade 1,2025-01-01,Active,,,Female,48
+JIO2031,Aarav Iyer,Network Systems,Ahmedabad,Grade 3,2020-09-02,Exited,2025-12-15,Health reasons,Female,42
+JIO2032,Ananya Kulkarni,Network Systems,Kolkata,Grade 1,2020-04-22,Active,,,Male,45
+JIO2033,Varun Banerjee,Customer Service,Ahmedabad,Grade 3,2019-04-28,Active,,,Male,
+JIO2034,Shreya Malhotra,Human Resources,Chennai,Grade 4,2020-03-26,Exited,2025-12-11,Health reasons,Male,36
+JIO2035,Kiran Sharma,Finance,Hyderabad,Grade 1,2018-07-11,Exited,2025-08-12,Manager relationship,Female,51
+JIO2036,Nikhil Fernandes,Infrastructure,Mumbai,Grade 4,2019-02-09,Exited,2025-11-17,Health reasons,Male,42
+JIO2037,Pooja Kulkarni,Finance,Kolkata,Grade 3,2022-07-20,Active,,,Male,36
+JIO2038,Pooja Sharma,Sales & Distribution,Hyderabad,Grade 4,2021-06-14,Active,,,Male,45
+JIO2039,Ananya Menon,Customer Service,Kolkata,Grade 3,2023-07-23,Exited,2025-02-24,Manager relationship,Female,41
+JIO2040,Arjun Menon,Finance,Ahmedabad,Grade 4,2020-10-19,Active,,,Female,36
+JIO2041,Pooja Mishra,Sales & Distribution,Kolkata,Grade 1,2018-08-15,Active,,,Female,45
+JIO2042,Neha Menon,Network Systems,Chennai,Grade 4,2021-09-22,Active,,,Female,26
+JIO2043,Kiran Sheikh,Sales & Distribution,Navi Mumbai,Grade 1,2021-08-14,Exited,2025-04-05,Better opportunity,Male,46
+JIO2044,Vikram Pillai,Finance,Mumbai,Grade 1,2024-02-25,Active,,,Female,31
+JIO2045,Karan Singh,Customer Service,Kolkata,Grade 1,2020-08-20,Exited,2025-08-02,Compensation,Female,50
+JIO2046,Nikhil Pillai,Infrastructure,Pune,Grade 1,2025-11-08,Exited,2026-02-15,Manager relationship,Female,38
+JIO2047,Vikram Rao,Customer Service,Ahmedabad,Grade 1,2019-12-07,Exited,2025-06-11,Higher education,Male,37
+JIO2048,Pooja Patel,Human Resources,Delhi NCR,Grade 2,2024-07-25,Active,,,Male,51
+JIO2049,Ananya Yadav,Customer Service,Delhi NCR,Grade 2,2024-09-24,Active,,,Male,39
+JIO2050,Aarav Das,Infrastructure,Delhi NCR,Grade 2,2021-12-06,Active,,,Female,28
+JIO2051,Pooja Singh,Customer Service,Ahmedabad,Grade 4,2018-01-09,Exited,2025-11-01,Higher education,Female,34
+JIO2052,Harpreet Shetty,Customer Service,Chennai,Grade 2,2021-07-09,Active,,,Male,39
+JIO2053,Aditi Yadav,Network Systems,Hyderabad,Grade 4,2018-04-27,Exited,2025-06-08,Higher education,Male,43
+JIO2054,Farah Iyer,Sales & Distribution,Hyderabad,Grade 2,2020-08-23,Active,,,Female,48
+JIO2055,Mary Chopra,Network Systems,Ahmedabad,Grade 3,2023-05-04,Active,,,Male,33
+JIO2056,Amit Verma,Sales & Distribution,Hyderabad,Grade 4,2024-02-23,Active,,,Female,51
+JIO2057,Sneha Verma,Sales & Distribution,Kolkata,Grade 4,2019-01-28,Exited,2025-01-12,Health reasons,Female,50
+JIO2058,Imran Shetty,Customer Service,Ahmedabad,Grade 2,2025-07-06,Active,,,Female,43
+JIO2059,Suresh Nair,Infrastructure,Hyderabad,Grade 4,2025-02-09,Active,,,Female,31
+JIO2003,Priya Kulkarni,Infrastructure,Chennai,Grade 2,2023-01-24,Active,,,Female,41

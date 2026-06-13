@@ -1,0 +1,14 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# IDE and Editor Metadata
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

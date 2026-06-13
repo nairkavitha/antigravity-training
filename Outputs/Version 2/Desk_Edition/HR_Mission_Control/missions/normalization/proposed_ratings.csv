@@ -1,0 +1,37 @@
+employee_id,name,business_unit,grade,manager,proposed_rating
+JIO3001,Suresh Kaur,Lifestyle Retail,Grade 3,Arjun Mehta,Meets Expectations
+JIO3002,Divya Banerjee,Lifestyle Retail,Grade 2,Neha Sheikh,Outstanding
+JIO3003,Sneha Mishra,Lifestyle Retail,Grade 2,Rahul Nair,Exceeds Expectations
+JIO3004,Joseph Shetty,Lifestyle Retail,Grade 2,Ritika Sharma,Meets Expectations
+JIO3005,Amit Verma,Lifestyle Retail,Grade 1,Mary Bose,Meets Expectations
+JIO3006,Ritika Yadav,Lifestyle Retail,Grade 1,Joseph Sheikh,Meets Expectations
+JIO3007,Joseph Sheikh,Lifestyle Retail,Grade 2,Simran Sharma,Needs Improvement
+JIO3008,Ananya Rao,Lifestyle Retail,Grade 2,Joseph Rao,Outstanding
+JIO3009,Farah Gill,Lifestyle Retail,Grade 2,Divya Fernandes,Meets Expectations
+JIO3010,Sneha Bose,Lifestyle Retail,Grade 3,Ritika Mehta,Meets Expectations
+JIO3011,Joseph Khan,Lifestyle Retail,Grade 2,Ananya Nair,Meets Expectations
+JIO3012,Priya Malhotra,Lifestyle Retail,Grade 1,Rahul Iyer,Exceeds Expectations
+JIO3013,Ritika Yadav,Network Ops,Grade 3,Neha Joshi,Meets Expectations
+JIO3014,Mary Sheikh,Network Ops,Grade 2,Mary Gill,Outstanding
+JIO3015,Lakshmi Reddy,Network Ops,Grade 1,Nikhil Joshi,Exceeds Expectations
+JIO3016,Kiran Kulkarni,Network Ops,Grade 1,Ananya Sharma,Exceeds Expectations
+JIO3017,Ritika Singh,Network Ops,Grade 2,Aditi Patel,Meets Expectations
+JIO3018,Ananya Chopra,Network Ops,Grade 1,Imran Banerjee,Exceeds Expectations
+JIO3019,Priya Banerjee,Network Ops,Grade 1,Suresh Reddy,Exceeds Expectations
+JIO3020,Divya Khan,Network Ops,Grade 2,Neha Patel,Exceeds Expectations
+JIO3021,Shreya Sheikh,Network Ops,Grade 1,Nikhil Verma,Exceeds Expectations
+JIO3022,Divya Verma,Network Ops,Grade 3,Imran Menon,Exceeds Expectations
+JIO3023,Vikram Singh,Network Ops,Grade 3,Ananya Verma,Outstanding
+JIO3024,Priya Fernandes,Network Ops,Grade 2,Lakshmi Kaur,Outstanding
+JIO3025,Kiran Yadav,Digital Services,Grade 3,Arjun Khan,Meets Expectations
+JIO3026,Ananya Banerjee,Digital Services,Grade 3,Pooja Reddy,Exceeds Expectations
+JIO3027,Lakshmi Patel,Digital Services,Grade 3,Mary Iyer,Meets Expectations
+JIO3028,Imran Joshi,Digital Services,Grade 2,Farah Verma,Exceeds Expectations
+JIO3029,Kiran Gupta,Digital Services,Grade 3,Rohan Gupta,Exceeds Expectations
+JIO3030,Pooja Khan,Digital Services,Grade 3,Lakshmi Sheikh,Outstanding
+JIO3031,Aditi Rao,Digital Services,Grade 2,Joseph Reddy,Exceeds Expectations
+JIO3032,Shreya Khan,Digital Services,Grade 1,Farah Rao,Meets Expectations
+JIO3033,Simran Mishra,Digital Services,Grade 3,Suresh Menon,Exceeds Expectations
+JIO3034,Pooja Iyer,Digital Services,Grade 3,Kiran Pillai,Exceeds Expectations
+JIO3035,Meera Nair,Digital Services,Grade 1,Rohan Patel,Exceeds Expectations
+JIO3036,Simran Reddy,Digital Services,Grade 3,Mary Tripathi,Exceeds Expectations

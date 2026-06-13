@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Audit · Antigravity 2.0 Training Programme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --jio-blue:#005AAC; --jio-blue-dark:#004080; --jio-blue-mid:#0070D4; --jio-blue-pale:#EBF4FF;
+  --jio-red:#E8001D; --jio-red-pale:#FFF0F2;
+  --surface:#F7F9FC; --surface-2:#EEF2F8; --border:#D4DDE8; --border-light:#E8EDF4;
+  --text-1:#0D1B2A; --text-2:#4A5E73; --text-3:#7A8FA3; --white:#FFF;
+  --green:#0A7C45; --green-pale:#E6F6EE;
+  --amber:#C47000; --amber-pale:#FFF8E6;
+  --purple:#6B21A8; --purple-pale:#F0E6FF;
+  --r-sm:6px; --r:10px; --r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.05);
+  --sh:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);
+  --fd:'Rajdhani',sans-serif; --fb:'DM Sans',sans-serif; --fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--surface);color:var(--text-1);line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--fd);line-height:1.2}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#003D7A 0%,var(--jio-blue) 55%,var(--jio-blue-mid) 100%);position:relative;overflow:hidden;padding:52px 0 56px;color:#fff}
+.hero::before{content:'';position:absolute;top:-90px;right:-90px;width:420px;height:420px;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);border-radius:50%}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:6px 16px;font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:20px;backdrop-filter:blur(6px)}
+.badge-dot{width:7px;height:7px;background:#4DFFB4;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+.hero h1{font-size:44px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+.hero h1 span{color:#7FD4FF}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.78);font-weight:300;max-width:640px;margin-bottom:30px}
+.hero-meta{display:flex;gap:30px;flex-wrap:wrap;align-items:center}
+.hm{display:flex;flex-direction:column;gap:2px}
+.hm-num{font-family:var(--fd);font-size:30px;font-weight:700;line-height:1}
+.hm-lab{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em}
+.hm-div{width:1px;height:38px;background:rgba(255,255,255,.22)}
+
+/* nav */
+.nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--sh-sm)}
+.nav-in{max-width:1080px;margin:0 auto;display:flex;gap:2px;padding:0 28px;overflow-x:auto}
+.nav a{display:flex;align-items:center;gap:7px;padding:14px 16px;font-size:13px;font-weight:500;color:var(--text-2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover,.nav a.on{color:var(--jio-blue);border-bottom-color:var(--jio-blue)}
+
+/* sections */
+.section{padding:42px 0 8px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.sec-icon{width:44px;height:44px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.sec-title{font-size:24px;font-weight:700}
+.sec-sub{font-size:13px;color:var(--text-3)}
+
+/* verdict + KPI */
+.verdict{background:#fff;border:1px solid var(--border-light);border-left:5px solid var(--jio-blue);border-radius:var(--r-lg);padding:24px 28px;box-shadow:var(--sh-sm);margin-bottom:22px;font-size:15px;color:var(--text-2)}
+.verdict strong{color:var(--text-1)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:8px}
+.kpi{background:#fff;border-radius:var(--r-lg);padding:20px;border:1px solid var(--border-light);box-shadow:var(--sh-sm);position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi.red::before{background:linear-gradient(90deg,var(--jio-red),#FF4D62)}
+.kpi.amber::before{background:linear-gradient(90deg,var(--amber),#F0C040)}
+.kpi.blue::before{background:linear-gradient(90deg,var(--jio-blue),#00B4D8)}
+.kpi.grey::before{background:linear-gradient(90deg,#9AAEC4,#C6D4E4)}
+.kpi.green::before{background:linear-gradient(90deg,var(--green),#4ECCA3)}
+.kpi-n{font-family:var(--fd);font-size:38px;font-weight:700;line-height:1}
+.kpi.red .kpi-n{color:var(--jio-red)}.kpi.amber .kpi-n{color:var(--amber)}.kpi.blue .kpi-n{color:var(--jio-blue)}.kpi.grey .kpi-n{color:#62788F}.kpi.green .kpi-n{color:var(--green)}
+.kpi-l{font-size:12px;font-weight:600;color:var(--text-2);margin-top:6px}
+.kpi-s{font-size:11px;color:var(--text-3);margin-top:2px}
+
+/* finding cards */
+.finding{background:#fff;border:1px solid var(--border-light);border-radius:var(--r-lg);box-shadow:var(--sh-sm);margin-bottom:16px;overflow:hidden}
+.f-head{display:flex;align-items:flex-start;gap:14px;padding:18px 22px 14px}
+.f-id{font-family:var(--fm);font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px;flex-shrink:0;margin-top:2px}
+.crit .f-id{background:var(--jio-red-pale);color:var(--jio-red)}
+.high .f-id{background:var(--amber-pale);color:var(--amber)}
+.med .f-id{background:var(--jio-blue-pale);color:var(--jio-blue)}
+.low .f-id{background:var(--surface-2);color:var(--text-2)}
+.f-title{font-size:15.5px;font-weight:600;line-height:1.45}
+.f-loc{font-family:var(--fm);font-size:11px;color:var(--text-3);margin-top:3px}
+.f-body{padding:0 22px 18px;font-size:14px;color:var(--text-2)}
+.f-body p{margin-bottom:10px}
+.f-body p:last-child{margin-bottom:0}
+.evidence{background:#0D1B2A;color:#A8D8FF;font-family:var(--fm);font-size:12px;line-height:1.7;border-radius:var(--r-sm);padding:12px 16px;margin:10px 0;overflow-x:auto;white-space:pre-wrap}
+.fix{display:flex;gap:10px;background:var(--green-pale);border-radius:var(--r-sm);padding:12px 16px;margin-top:10px;font-size:13.5px;color:#0B5C37}
+.fix b{flex-shrink:0}
+.sev-band{display:flex;align-items:center;gap:12px;margin:30px 0 16px}
+.sev-band h3{font-size:18px;font-weight:700}
+.sev-chip{font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.chip-crit{background:var(--jio-red-pale);color:var(--jio-red)}
+.chip-high{background:var(--amber-pale);color:var(--amber)}
+.chip-med{background:var(--jio-blue-pale);color:var(--jio-blue)}
+.chip-low{background:var(--surface-2);color:var(--text-2)}
+
+/* tables */
+.tbl-card{background:#fff;border:1px solid var(--border-light);border-radius:var(--r-lg);box-shadow:var(--sh-sm);overflow:hidden;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--surface-2);text-align:left;padding:11px 16px;font-family:var(--fd);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-2)}
+td{padding:11px 16px;border-top:1px solid var(--border-light);color:var(--text-2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--text-1);white-space:nowrap}
+.ok{color:var(--green);font-weight:700}
+.mono{font-family:var(--fm);font-size:12px}
+
+/* upgrades */
+.up-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.up{background:#fff;border:1px solid var(--border-light);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh-sm);border-top:3px solid var(--jio-blue)}
+.up-icon{font-size:24px;margin-bottom:10px}
+.up-t{font-family:var(--fd);font-size:17px;font-weight:700;margin-bottom:6px}
+.up-d{font-size:13.5px;color:var(--text-2)}
+.up-tag{display:inline-block;font-family:var(--fm);font-size:10.5px;padding:3px 10px;border-radius:100px;background:var(--jio-blue-pale);color:var(--jio-blue);margin-top:10px}
+
+/* footer */
+.foot{margin-top:46px;padding:26px 0 36px;border-top:1px solid var(--border);text-align:center;font-size:12.5px;color:var(--text-3)}
+.src{font-size:12.5px;color:var(--text-3);line-height:1.9}
+.src a{color:var(--jio-blue);text-decoration:none}
+.src a:hover{text-decoration:underline}
+@media(max-width:640px){.hero h1{font-size:32px}.f-head{flex-direction:column;gap:8px}}
+@media print{.nav{display:none}.hero{background:var(--jio-blue-dark)!important}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="badge"><span class="badge-dot"></span>Quality Audit · Pre-Delivery Review · 13 June 2026</div>
+    <h1>Antigravity 2.0 Training Programme<br><span>Full Kit Audit Report</span></h1>
+    <p class="hero-sub">Independent line-by-line review of the training portal, sandbox, data, policies and templates. Every prompt was tested against the sandbox, every calculation re-computed, every external link and product claim verified against Google's official Antigravity 2.0 documentation. The report itself was then verified by a second, independent checker agent.</p>
+    <div class="hero-meta">
+      <div class="hm"><div class="hm-num">18</div><div class="hm-lab">Findings</div></div>
+      <div class="hm-div"></div>
+      <div class="hm"><div class="hm-num" style="color:#FF8FA0;">3</div><div class="hm-lab">Critical</div></div>
+      <div class="hm-div"></div>
+      <div class="hm"><div class="hm-num" style="color:#FFD37F;">4</div><div class="hm-lab">High</div></div>
+      <div class="hm-div"></div>
+      <div class="hm"><div class="hm-num">11</div><div class="hm-lab">Medium / Low</div></div>
+      <div class="hm-div"></div>
+      <div class="hm"><div class="hm-num" style="color:#7FFFC4;">9</div><div class="hm-lab">Checks Passed</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav"><div class="nav-in">
+  <a href="#verdict" class="on">⬡ Verdict</a>
+  <a href="#critical">🔴 Critical</a>
+  <a href="#high">🟠 High</a>
+  <a href="#medium">🔵 Medium</a>
+  <a href="#low">⚪ Low</a>
+  <a href="#verified">✅ Verified Clean</a>
+  <a href="#math">🧮 Pay Review Math</a>
+  <a href="#upgrades">🚀 Upgrades</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- VERDICT -->
+<div class="section" id="verdict">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:var(--jio-blue-pale);">⬡</div>
+    <div><div class="sec-title">Overall Verdict</div><div class="sec-sub">What stands, what must change before anyone senior sees this</div></div>
+  </div>
+  <div class="verdict">
+    <p style="margin-bottom:10px;"><strong>The foundation is strong and worth keeping.</strong> The pedagogy (goal delegation, HITL gates, anti-hallucination discipline), the single-file portal architecture, the visual design system, and the synthetic sandbox concept are all sound. The JavaScript is clean, every interactive element works, all three video links are live and on-topic, and the compensation data is internally consistent.</p>
+    <p style="margin-bottom:10px;"><strong>But the kit cannot ship as-is.</strong> The single biggest risk: the portal's interface instructions describe a terminal-style CLI, while the real Antigravity 2.0 (launched at Google I/O, 19 May 2026) is a GUI desktop application built around Projects, conversation threads and an Auxiliary Pane. A learner following Module 2 will not recognise what is on their own screen. Two more critical issues: the portal teaches a "five context files" model that does not match how Antigravity 2.0 actually stores plans and tasks, and two learner prompts reference policy content that does not exist in the sandbox, which will make the agent fail or fabricate in front of the whole class.</p>
+    <p><strong>Verdict: fix the 3 critical and 4 high findings and this becomes a genuinely excellent programme.</strong> All are fixable without changing the portal's structure or design.</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi red"><div class="kpi-n">3</div><div class="kpi-l">Critical</div><div class="kpi-s">Workshop-breaking</div></div>
+    <div class="kpi amber"><div class="kpi-n">4</div><div class="kpi-l">High</div><div class="kpi-s">Embarrassing if spotted</div></div>
+    <div class="kpi blue"><div class="kpi-n">6</div><div class="kpi-l">Medium</div><div class="kpi-s">Accuracy &amp; consistency</div></div>
+    <div class="kpi grey"><div class="kpi-n">5</div><div class="kpi-l">Low</div><div class="kpi-s">Polish</div></div>
+    <div class="kpi green"><div class="kpi-n">9</div><div class="kpi-l">Verified clean</div><div class="kpi-s">Independently tested</div></div>
+  </div>
+</div>
+
+<!-- CRITICAL -->
+<div class="section" id="critical">
+  <div class="sev-band"><span class="sev-chip chip-crit">Critical</span><h3>Will break the workshop in front of learners</h3></div>
+
+  <div class="finding crit">
+    <div class="f-head"><span class="f-id">C1</span><div>
+      <div class="f-title">Interface Tour teaches a terminal CLI. The real Antigravity 2.0 is a GUI desktop app</div>
+      <div class="f-loc">index.html · lines 1926-1947 (Interface Tour) · line 2363 (Help tab) · Glossary cards</div>
+    </div></div>
+    <div class="f-body">
+      <p>The tour describes "a terminal-based interface" with slash commands <span class="mono">/help</span>, <span class="mono">/clear</span>, <span class="mono">/cost</span>, keyboard shortcuts (Esc to interrupt, up-arrow to recall prompts, Ctrl+C hard stop), and a launch command <span class="mono">cd path/to/HR_Mission_Control &amp;&amp; agy</span>. Verified against Google's official launch materials (I/O, 19 May 2026): Antigravity 2.0 is a <strong>standalone GUI desktop application</strong> organised around <strong>Projects</strong> (folder configurations with per-project permissions), conversation threads, and an <strong>Auxiliary Pane</strong> for artifacts. Its documented slash commands are <span class="mono">/browser</span>, <span class="mono">/schedule</span>, <span class="mono">/goal</span> and <span class="mono">/grill-me</span>, not the ones the portal lists. A CLI exists in the 2.0 suite, but it is a separate developer product no HR learner would use, and the <span class="mono">agy</span> command name is unverified.</p>
+      <p>Impact: every learner's screen will contradict the training from Module 2 onward. The Help tab's recovery steps, which lean on <span class="mono">/clear</span> and restarting from the terminal, fail with it.</p>
+      <div class="fix"><b>Fix:</b><span>Rewrite the Interface Tour around the real 2.0 flow: install, sign in with Google account, New Project, Add Folder (HR_Mission_Control), project security settings (this IS the HITL permission gate, a teaching gift), first conversation, Implementation Plan artifact, Proceed, Task Plan, Walkthrough. Replace CLI shortcuts with real UI actions; replace the recovery prompts' CLI references with "start a new conversation in the project".</span></div>
+    </div>
+  </div>
+
+  <div class="finding crit">
+    <div class="f-head"><span class="f-id">C2</span><div>
+      <div class="f-title">The "Workspace Briefing Package" (5 context files) does not match how Antigravity 2.0 actually works</div>
+      <div class="f-loc">index.html · lines 1654-1680 (Foundations folder grid) + folderData JS · Module 2 "File Awareness" card · Glossary context-file cards</div>
+    </div></div>
+    <div class="f-body">
+      <p>The portal teaches that <span class="mono">README.md, context.md, implementation_plan.md, task.md, handover.md</span> live in the learner's workspace folder and act as the agent's memory. In the real product, <span class="mono">implementation_plan.md</span>, <span class="mono">task.md</span> and <span class="mono">walkthrough.md</span> are <strong>artifacts</strong> stored per-conversation under <span class="mono">~/.gemini/antigravity/brain/&lt;conversation-id&gt;/</span> and surfaced in the Auxiliary Pane; they never appear in the workspace folder. <span class="mono">context.md</span> and <span class="mono">handover.md</span> are not product concepts at all, and the sandbox does not contain either file. A learner who clicks through Foundations will go looking for files that will never exist on their disk.</p>
+      <div class="fix"><b>Fix:</b><span>Reframe the section as "Artifacts: the agent's paper trail" (Implementation Plan, Task Plan, Walkthrough, viewed in the Auxiliary Pane, commentable like a doc). Keep README.md as a real workspace file. If the context.md / handover.md convention is worth teaching as good practice, ship both files in the sandbox and present them as "our team convention", not product features.</span></div>
+    </div>
+  </div>
+
+  <div class="finding crit">
+    <div class="f-head"><span class="f-id">C3</span><div>
+      <div class="f-title">Learner prompts reference policy content that does not exist. The anti-hallucination course will induce hallucination</div>
+      <div class="f-loc">index.html · line 2213 (Build Option B starter prompt) · line 2123 (Exercise C, Policy Auditor)</div>
+    </div></div>
+    <div class="f-body">
+      <p>Build Option B tells learners to pre-load the sample question <em>"What is the leave encashment policy?"</em>, but <span class="mono">policies/</span> contains exactly one file: <span class="mono">compensation_guidelines.md</span>. There is no leave policy. Exercise C instructs a Policy Auditor subagent to "flag any policies with a review date that has passed"; no policy file carries any date at all. The agent will either return empty findings (deflating the exercise) or invent a leave policy, which is catastrophic in a course whose central lesson is "agents hallucinate, verify everything".</p>
+      <div class="fix"><b>Fix:</b><span>Add 2 or 3 synthetic policy files (leave &amp; encashment policy with a passed review date, probation policy, WFH policy with a future review date) so both prompts work exactly as written, and the "passed review date" flag becomes a genuine, satisfying discovery moment.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HIGH -->
+<div class="section" id="high">
+  <div class="sev-band"><span class="sev-chip chip-high">High</span><h3>A sharp reviewer spots these in minutes</h3></div>
+
+  <div class="finding high">
+    <div class="f-head"><span class="f-id">H1</span><div>
+      <div class="f-title">Duplicated sentence on the Build tab, in plain sight</div>
+      <div class="f-loc">index.html · line 2287 · "You have 45 minutes" info box</div>
+    </div></div>
+    <div class="f-body">
+      <div class="evidence">"Start with your starter prompt, watch the agent build, then iterate. Start with the starter prompt, watch the agent build, then iterate. When you're happy with the output…"</div>
+      <div class="fix"><b>Fix:</b><span>Delete the second sentence.</span></div>
+    </div>
+  </div>
+
+  <div class="finding high">
+    <div class="f-head"><span class="f-id">H2</span><div>
+      <div class="f-title">The two READMEs describe a different programme than the portal delivers</div>
+      <div class="f-loc">Outputs/README.md · HR_Mission_Control/README.md</div>
+    </div></div>
+    <div class="f-body">
+      <p>The sandbox README (line 17) says learners are on a <strong>"4-day course"</strong>; the portal is a self-paced site whose own agenda table totals about 3 hours 20 minutes. The sandbox README (lines 20-22) promises glossary features the portal does not have: <em>"Bulk Import: Excel-compatible CSV uploader… Restore Defaults… double-click any card to edit, ✏️ and 🗑️ icons"</em>. None of this exists in the current glossary, which has search, filter and flip only. The Outputs README lists "5 modules" with #5 as "Help &amp; Glossary", while the portal ships Help (labelled Module 05) and Glossary as separate tabs, and its folder tree writes lowercase <span class="mono">outputs/</span> when the folder is <span class="mono">Outputs/</span>.</p>
+      <div class="fix"><b>Fix:</b><span>Rewrite both READMEs against the portal as built. One source of truth for programme shape, module count and glossary capability.</span></div>
+    </div>
+  </div>
+
+  <div class="finding high">
+    <div class="f-head"><span class="f-id">H3</span><div>
+      <div class="f-title">"COMPENSATIONAL" is not a word, and it is the title of the letter every employee would receive</div>
+      <div class="f-loc">HR_Mission_Control/templates/compensation_letter_template.md · line 1</div>
+    </div></div>
+    <div class="f-body">
+      <div class="evidence"># RELIANCE JIO COMPENSATIONAL REVIEW UPDATE</div>
+      <div class="fix"><b>Fix:</b><span>"RELIANCE JIO COMPENSATION REVIEW LETTER" (or "Salary Review &amp; Revision: FY 2026-27" to match the subject line).</span></div>
+    </div>
+  </div>
+
+  <div class="finding high">
+    <div class="f-head"><span class="f-id">H4</span><div>
+      <div class="f-title">Two of the four compensation policy rules can never fire with the current data, and the capstone they were built for is missing from the portal</div>
+      <div class="f-loc">data/employees.csv · policies/compensation_guidelines.md · Build tab</div>
+    </div></div>
+    <div class="f-body">
+      <p>The full pay review was re-computed programmatically at both grid extremes (see <a href="#math" style="color:var(--jio-blue);">Pay Review Math</a>). The <strong>market correction rule never triggers</strong>: the only below-minimum employee (Siddharth Nair, ₹4.8L vs ₹5L Grade 1 min) is rated Needs Improvement and is therefore ineligible. The <strong>8% budget cap never binds</strong>: even at maximum grid percentages the total is 7.51%. So the policy's two most teachable rules are dead code. Separately: the sandbox ships compensation guidelines, a letter template and three HITL checkpoints, clearly built for a pay review capstone, but the Build tab's four options never use them beyond Option B reading the policies folder.</p>
+      <div class="fix"><b>Fix:</b><span>Tune 2 or 3 salaries so the market correction fires for an eligible employee and a max-grid run lands just above 8% (teaching the budget-trim negotiation). Add the governed pay review as Build Option E; it is the strongest capstone in the kit and currently orphaned.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIUM -->
+<div class="section" id="medium">
+  <div class="sev-band"><span class="sev-chip chip-med">Medium</span><h3>Accuracy and consistency</h3></div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M1</span><div>
+      <div class="f-title">Example tool log claims "47 rows read" from a 10-row CSV</div>
+      <div class="f-loc">index.html · line 2079 · Core Skills B · "Reading the Tool Call Log"</div>
+    </div></div>
+    <div class="f-body"><p><span class="mono">employees.csv</span> has 10 data rows. Learners are explicitly taught to cross-check row counts two sections earlier.</p>
+      <div class="fix"><b>Fix:</b><span>Change to "✓ 10 rows read".</span></div>
+    </div>
+  </div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M2</span><div>
+      <div class="f-title">Glossary advertises "50 terms" but "Terminal" appears twice: 49 unique terms</div>
+      <div class="f-loc">index.html · line 2547 (count claim) · lines 3180 and 3195 (the two Terminal cards)</div>
+    </div></div>
+    <div class="f-body"><p>"Terminal" is defined once under Governance and once under Tech Stack with different definitions. "Git" and "Git &amp; Repository" are also near-duplicates.</p>
+      <div class="fix"><b>Fix:</b><span>Merge each duplicate pair, add two new terms (suggest "Project" and "Artifact Comments", both real 2.0 concepts), and keep the count honest at 50.</span></div>
+    </div>
+  </div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M3</span><div>
+      <div class="f-title">CSV is categorised under Governance instead of Tech Stack</div>
+      <div class="f-loc">index.html · line 2719 · Glossary · CSV card</div>
+    </div></div>
+    <div class="f-body"><div class="fix"><b>Fix:</b><span>Move to 💻 Tech Stack (data-cat="tech").</span></div></div>
+  </div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M4</span><div>
+      <div class="f-title">Unverified claim: Node.js "powers Google Antigravity 2.0"</div>
+      <div class="f-loc">index.html · line 2996 · Glossary · Node.js card</div>
+    </div></div>
+    <div class="f-body"><p>Not supported by any official source found. The IDE is a VS Code fork (plausibly Electron/Node), but the 2.0 desktop app's stack is not public.</p>
+      <div class="fix"><b>Fix:</b><span>Drop the claim: "…powers many backend systems and developer tools."</span></div>
+    </div>
+  </div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M5</span><div>
+      <div class="f-title">Unverified OS requirements in the Pre-flight Checklist</div>
+      <div class="f-loc">index.html · line 1875 · "macOS 12+ or Windows 10+. Linux… additional configuration"</div>
+    </div></div>
+    <div class="f-body"><p>Google's download page lists macOS, Linux and Windows without the stated version floors or the Linux caveat. The specifics appear invented.</p>
+      <div class="fix"><b>Fix:</b><span>"Available for macOS, Windows and Linux. Download from antigravity.google/download" and link it.</span></div>
+    </div>
+  </div>
+
+  <div class="finding med">
+    <div class="f-head"><span class="f-id">M6</span><div>
+      <div class="f-title">Setup never explains connecting the sandbox as a Project, the one step nothing works without</div>
+      <div class="f-loc">index.html · Module 2 · Pre-flight Checklist ("folder should already be shared with you")</div>
+    </div></div>
+    <div class="f-body"><p>Antigravity 2.0 is Project-centric: until the learner creates a Project and adds the HR_Mission_Control folder, the agent cannot see <span class="mono">employees.csv</span> and every exercise prompt fails on its first line.</p>
+      <div class="fix"><b>Fix:</b><span>Add an explicit "Step 0: Create your Project" walkthrough (covered by the C1 rewrite).</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOW -->
+<div class="section" id="low">
+  <div class="sev-band"><span class="sev-chip chip-low">Low</span><h3>Polish</h3></div>
+  <div class="tbl-card"><table>
+    <thead><tr><th style="width:64px;">ID</th><th>Item</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>L1</td><td>Stray leftover comment block "TAB: GLOSSARY" sits after the closing <span class="mono">&lt;/script&gt;</span> at lines 3741-3743 of index.html.</td><td>Delete.</td></tr>
+      <tr><td>L2</td><td>Glossary card (line 2582) defines Antigravity 2.0 as "running inside your IDE". 2.0 is a standalone app; the IDE is optional.</td><td>Update definition to match the C1 rewrite.</td></tr>
+      <tr><td>L3</td><td>Stack Simulator console (line 3705) says "Row 7: Neha Gupta". She is data row 6 (line 7 only if you count the header).</td><td>Say "Row 6" or "JIO1006" for precision.</td></tr>
+      <tr><td>L4</td><td>Header badge "Powered by Google Gemini" (line 1372). 2.0 also ships Claude models. Fine as branding; worth a conscious decision.</td><td>Optional: "Powered by Google Antigravity".</td></tr>
+      <tr><td>L5</td><td>A labelled Knowledge Check section exists only in Module 1. Module 3 has Q&amp;A cards inside its exercises, but Modules 2 and 4 have no self-test at all.</td><td>Add 3 or 4 Q&amp;A cards to Modules 2 and 4 (pattern already built).</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- VERIFIED -->
+<div class="section" id="verified">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:var(--green-pale);">✅</div>
+    <div><div class="sec-title">Verified Clean</div><div class="sec-sub">Independently tested. No action needed</div></div>
+  </div>
+  <div class="tbl-card"><table>
+    <thead><tr><th>Check</th><th>Method</th><th style="width:90px;">Result</th></tr></thead>
+    <tbody>
+      <tr><td>JavaScript integrity</td><td>Full syntax check (node --check) on the extracted 349-line script block</td><td class="ok">PASS</td></tr>
+      <tr><td>Interactive handlers</td><td>All 12 onclick functions cross-referenced against definitions; none missing</td><td class="ok">PASS</td></tr>
+      <tr><td>Video link 1: IDE explainer</td><td>Verified live: "What is an IDE? — Coding Made Simple" (Austin Davis)</td><td class="ok">PASS</td></tr>
+      <tr><td>Video link 2: Setup guide</td><td>Verified live: "How to Install &amp; Use Google Antigravity IDE 2.0 [2026]" (Geeky Script)</td><td class="ok">PASS</td></tr>
+      <tr><td>Video link 3: Beginner's guide</td><td>Verified live: official "Google Antigravity 2.0 Beginner's Guide" (Google Antigravity channel, 19 May 2026)</td><td class="ok">PASS</td></tr>
+      <tr><td>Pay review arithmetic</td><td>Full re-computation in Python, both grid extremes, all four policy rules (see below); independently re-verified by a second checker agent</td><td class="ok">PASS</td></tr>
+      <tr><td>"Antigravity 2.0" naming</td><td>Confirmed real and current: announced at Google I/O, 19 May 2026</td><td class="ok">PASS</td></tr>
+      <tr><td>Glossary search &amp; filter, flip cards, simulator</td><td>Logic review: category and text search combine correctly, no-results state handled</td><td class="ok">PASS</td></tr>
+      <tr><td>Design consistency</td><td>Single-file build, token-based palette, fonts, no broken internal references</td><td class="ok">PASS</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- MATH -->
+<div class="section" id="math">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:var(--purple-pale);">🧮</div>
+    <div><div class="sec-title">Pay Review Math: Full Re-computation</div><div class="sec-sub">10 employees · payroll ₹1,24,30,000 · all four policy rules applied programmatically</div></div>
+  </div>
+  <div class="tbl-card"><table>
+    <thead><tr><th>Employee</th><th>Grade · Rating</th><th>Salary (₹)</th><th>Compa-Ratio</th><th>Rule applied</th><th>Increase (min to max grid)</th></tr></thead>
+    <tbody>
+      <tr><td>Aarav Sharma</td><td>G1 · Exceeds</td><td>6,80,000</td><td>1.088</td><td>Grid 8-10%</td><td>54,400 to 68,000</td></tr>
+      <tr><td>Aditi Patel</td><td>G1 · Meets</td><td>5,50,000</td><td>0.880</td><td>Grid 4-6%</td><td>22,000 to 33,000</td></tr>
+      <tr><td>Rohan Verma</td><td>G2 · Outstanding</td><td>11,50,000</td><td>1.000</td><td>Grid 12-15%</td><td>1,38,000 to 1,72,500</td></tr>
+      <tr><td>Priya Iyer</td><td>G2 · Meets</td><td>12,00,000</td><td>1.043</td><td>Grid 4-6%</td><td>48,000 to 72,000</td></tr>
+      <tr><td>Vikram Singh</td><td>G3 · Exceeds</td><td>18,50,000</td><td>0.925</td><td>Grid 8-10%</td><td>1,48,000 to 1,85,000</td></tr>
+      <tr><td>Neha Gupta</td><td>G2 · Meets</td><td>9,50,000</td><td>0.826</td><td>Grid 4-6%</td><td>38,000 to 57,000</td></tr>
+      <tr><td>Amit Joshi</td><td>G4 · Meets</td><td>28,00,000</td><td>0.875</td><td>Grid 4-6%</td><td>1,12,000 to 1,68,000</td></tr>
+      <tr><td>Kiran Rao</td><td>G2 · Exceeds</td><td>13,50,000</td><td>1.174</td><td>Grid 8-10%</td><td>1,08,000 to 1,35,000</td></tr>
+      <tr><td>Siddharth Nair</td><td>G1 · Needs Imp.</td><td>4,80,000</td><td>0.768</td><td><strong>Below min, ineligible</strong> (NI rating): 0%</td><td>0</td></tr>
+      <tr><td>Ananya Reddy</td><td>G2 · Outstanding</td><td>14,20,000</td><td>1.235</td><td><strong>Over-market cap: 3%</strong> (overrides 12-15% grid)</td><td>42,600</td></tr>
+    </tbody>
+  </table></div>
+  <div class="verdict" style="border-left-color:var(--purple);">
+    <p style="margin-bottom:8px;"><strong>Totals:</strong> minimum grid ₹7,11,000 = <strong>5.72%</strong> of payroll · maximum grid ₹9,33,100 = <strong>7.51%</strong>. The 8% budget cap is never reached, and the market-correction rule never fires (the only below-minimum employee is ineligible). The one rule that does produce a teaching moment: Ananya Reddy, an Outstanding performer capped at 3% because she sits above market max. Good, but the dataset wastes half the policy. See finding H4.</p>
+  </div>
+</div>
+
+<!-- UPGRADES -->
+<div class="section" id="upgrades">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:var(--jio-red-pale);">🚀</div>
+    <div><div class="sec-title">Upgrade Recommendations</div><div class="sec-sub">Beyond fixes: what takes this from corrected to undeniable</div></div>
+  </div>
+  <div class="up-grid">
+    <div class="up"><div class="up-icon">🖥️</div><div class="up-t">U1 · Rebuild Module 2 on the real product</div><div class="up-d">Walk the genuine 2.0 journey: Project creation, per-project security settings as the HITL story, Implementation Plan artifact, Proceed, Task Plan, Walkthrough, commenting on artifacts. The product's own governance model strengthens the course's central message.</div><span class="up-tag">covers C1 + C2 + M6</span></div>
+    <div class="up"><div class="up-icon">🗃️</div><div class="up-t">U2 · Enrich the sandbox</div><div class="up-d">30 to 40 employees (balanced gender and departments so charts and equity analyses feel real), 2 or 3 added policy files with review dates, salaries tuned so the market correction fires and a max-grid run breaches the 8% cap.</div><span class="up-tag">covers C3 + H4</span></div>
+    <div class="up"><div class="up-icon">🏆</div><div class="up-t">U3 · Reinstate the capstone as Option E</div><div class="up-d">The governed FY 2026-27 pay review with three HITL checkpoints is the strongest exercise in the kit and currently orphaned. Make it the flagship Build option for ambitious learners.</div><span class="up-tag">covers H4</span></div>
+    <div class="up"><div class="up-icon">⏰</div><div class="up-t">U4 · Teach /schedule as the HR superpower</div><div class="up-d">Scheduled tasks are a headline 2.0 feature and a natural HR fit: weekly headcount digests, policy review reminders, recurring report generation. One short section, very high demo value.</div><span class="up-tag">new 2.0 capability</span></div>
+    <div class="up"><div class="up-icon">📈</div><div class="up-t">U5 · Progress tracking + module checks</div><div class="up-d">A lightweight per-module completion tracker in the nav, Q&amp;A self-checks added to Modules 2 and 4 (the pattern already exists in Modules 1 and 3), and a completion summary the learner can screenshot.</div><span class="up-tag">covers L5</span></div>
+    <div class="up"><div class="up-icon">🖨️</div><div class="up-t">U6 · Print-ready handouts</div><div class="up-d">A print stylesheet so any module prints clean as a facilitator handout or pre-read. One CSS block, no structural change.</div><span class="up-tag">facilitation kit</span></div>
+  </div>
+</div>
+
+<!-- SOURCES -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-icon" style="background:var(--surface-2);">🔗</div>
+    <div><div class="sec-title">Product Facts: Sources</div><div class="sec-sub">All Antigravity 2.0 claims in this audit verified against</div></div>
+  </div>
+  <p class="src">
+    • Google Antigravity official site &amp; launch blog: <a href="https://antigravity.google/" target="_blank">antigravity.google</a> · <a href="https://antigravity.google/blog/introducing-google-antigravity-2-0" target="_blank">Introducing Google Antigravity 2.0</a><br>
+    • Official YouTube: <a href="https://www.youtube.com/watch?v=6C0FjHoN3qE" target="_blank">Google Antigravity 2.0 Beginner's Guide</a> (Google Antigravity channel, 19 May 2026)<br>
+    • Romin Irani (Google Developer Advocate): <a href="https://medium.com/google-cloud/getting-started-with-antigravity-2-0-updated-8a953f079f97" target="_blank">Getting Started with Antigravity 2.0</a>, Google Cloud Community, May 2026<br>
+    • Google Developers Blog: <a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/" target="_blank">Build with Google Antigravity</a>
+  </p>
+</div>
+
+<div class="foot wrap">
+  Quality Audit Report · Antigravity 2.0 Training &amp; Upskilling Programme · 13 June 2026<br>
+  Scope: Outputs/index.html (3,745 lines) · HR_Mission_Control sandbox (data, policies, templates) · both READMEs · archived folder excluded per instruction<br>
+  Maker-checker protocol applied: report independently verified by a second checker agent; all flagged imprecisions corrected before delivery
+</div>
+
+</div>
+
+<script>
+const links=document.querySelectorAll('.nav a');
+const secs=[...links].map(a=>document.querySelector(a.getAttribute('href')));
+window.addEventListener('scroll',()=>{
+  let i=secs.length-1;
+  while(i>0 && secs[i] && secs[i].getBoundingClientRect().top>120) i--;
+  links.forEach((a,j)=>a.classList.toggle('on',j===i));
+});
+</script>
+</body>
+</html>

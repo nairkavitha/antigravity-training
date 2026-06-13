@@ -1,0 +1,7 @@
+case_id,date_received,complainant_band,respondent_band,nature_summary,status,days_to_complete_inquiry,outcome
+IC-2025-01,2025-02-11,Grade 1,Grade 2,Unwelcome remarks repeated after objection,Closed,62,Allegation upheld; written warning + transfer of respondent
+IC-2025-02,2025-04-29,Grade 2,Grade 3,Inappropriate messages on official chat,Closed,81,Allegation upheld; increment withheld one cycle
+IC-2025-03,2025-06-17,Grade 1,Grade 1,Physical proximity made complainant uncomfortable at offsite,Closed,55,Conciliation at complainant's request under Section 10
+IC-2025-04,2025-09-03,Grade 2,Vendor staff,Unwelcome advances by contractor employee,Closed,44,Referred to contractor with direction; access revoked
+IC-2025-05,2025-11-21,Grade 1,Grade 2,Comments on appearance in team meetings,Inquiry in progress,,
+IC-2025-06,2025-12-09,Grade 3,Grade 4,Quid pro quo allegation linked to rating,Inquiry in progress,,
